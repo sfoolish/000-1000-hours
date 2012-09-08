@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 
 	root = creat_tree(arr);				// 构建顺序二叉树遇到 0 结束
 	printf("/******************************************/\n");
-	inorder_bitree(root, print_data); 	// 中序遍历二叉树
+	inorder_bitree(root, print_data);	// 中序遍历二叉树
 	printf("/******************************************/\n");
 	destroy_tree(root);					// 中序遍历释放内存
 	
@@ -100,7 +100,7 @@ bitree creat_tree(int *arr)
 					insert_des->l_child = node;
 				} else {
 					printf("right\n");
-					insert_des->r_child = node;	
+					insert_des->r_child = node;
 				}
 			}
 		}
@@ -122,13 +122,13 @@ node_t *search(bitree root, int key)
 	while ((tem_node != NULL) && (tem_node->data != key)) {
 		if (tem_node->data > key) {
 			p_node = tem_node;
-			tem_node = tem_node-> l_child;
+			tem_node = tem_node->l_child;
 		} else {
 			p_node = tem_node;
-			tem_node = tem_node-> r_child;
+			tem_node = tem_node->r_child;
 		}
 	}
-	
+
 	/* if (tem_node->data == key)	//segmentation fault */
 	if(tem_node == NULL)			//tem_node为空着key不存在，返回父节点
 	{
