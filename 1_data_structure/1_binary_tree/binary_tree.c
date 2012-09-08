@@ -7,6 +7,10 @@ typedef struct node {
     struct node *r_child;
 }node_t, *bitree;
 
+#define ARRY_SIZE(a) (sizeof(a) / sizeof(a[0]))
+
+void destroy_bitree(bitree root);
+
 node_t *init_node(int data)
 {
     node_t *node;
@@ -59,7 +63,6 @@ void inorder_bitree(bitree root, void (*visit)(node_t *node))
     inorder_bitree(r, visit);
 }
 
-
 node_t *search_bitree(bitree root, int key)
 {
     node_t *current = root;
@@ -78,50 +81,57 @@ node_t *search_bitree(bitree root, int key)
     return ((current == NULL) ? parent : current);
 }
 
-bitree create_bitree(int *arr)
+bitree create_bitree(int *arr, int size)
 {
-    int temp;
-    bitree root = NULL;
+    int data           = 0;
+    bitree root        = NULL;
     node_t *insert_des = NULL;
-    node_t *node;
+    node_t *node       = NULL;
+    int i              = 0;
 
-    if(arr == NULL) {
+    if((arr == NULL) || (size <= 0)) {
         return NULL;
     }
 
-    temp = *arr++;
-    if (temp != 0) {
-        root = init_node(temp);
-    } else {
-        return NULL;
-    }
+    for (i = 0; i < size; ++i)
+    {
+        if ((data = arr[i]) == 0) {
+            break;
+        }
 
-    do {
-        temp = *arr++;
-        if (temp != 0) {
-            insert_des = search_bitree(root, temp);
-            if (insert_des->data != temp) {
-                printf("parent node data : %d\t", insert_des->data);
-                node = init_node(temp);    //TODO 返回值处理
-                if (insert_des->data > temp) {
-                    printf("left\n");
-                    insert_des->l_child = node;
-                } else {
-                    printf("right\n");
-                    insert_des->r_child = node;
-                }
+        if (root == NULL) {
+            if ((root = init_node(data)) == NULL) {
+                break;
+            }
+            continue;
+        }
+
+        insert_des = search_bitree(root, data);
+        if (insert_des->data != data) {
+            printf("parent node data : %d\t", insert_des->data);
+            if ((node = init_node(data)) == NULL) {
+                destroy_bitree(root);
+                return NULL;
+            }
+
+            if (insert_des->data > data) {
+                printf("left\n");
+                insert_des->l_child = node;
+            } else {
+                printf("right\n");
+               insert_des->r_child = node;
             }
         }
-    } while(temp != 0);                     //TODO 测试数组中不含0就会越界
+    }
 
     return root;
 }
 
+//TODO 参数改成二级指针更合理一些
 void destroy_bitree(bitree root)
 {
     inorder_bitree(root, free_node);
 }
-
 
 int main(int argc, char *argv[])
 {
@@ -132,7 +142,7 @@ int main(int argc, char *argv[])
         0
     };
 
-    root = create_bitree(arr);             // 构建顺序二叉树遇到 0 结束
+    root = create_bitree(arr, ARRY_SIZE(arr));             // 构建顺序二叉树遇到 0 结束
     printf("/******************************************/\n");
     inorder_bitree(root, dump_node);       // 中序遍历二叉树
     printf("/******************************************/\n");
