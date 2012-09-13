@@ -18,17 +18,7 @@ typedef struct l_node
 list init_list(int *key);
 void joseph(list head, int m);
 
-int main()
-{
-	int m = 20;
-	int key[20] = {3, 1, 7, 2, 4, 8, 4};
-	list head;
-	
-	head = init_list(key);
-	joseph(head, m);
-	head = NULL;
-	return 0;
-}
+
 
 list init_list(int *key)
 {
@@ -73,18 +63,64 @@ void joseph(list head, int m)
 	int i;
 	p_l_node cur_node = head;
 	p_l_node del_node;
-	while ((cur_node->next != cur_node) && (NULL != cur_node))
+
+	printf("%s \n", __func__);
+	while ((NULL != cur_node) && (cur_node->next != cur_node))
 	{
 		for (i = 1; i < m; i++)
 			cur_node = cur_node->next;
 		del_node = cur_node->next;
-		cur_node = del_node->next;
-		printf("%d\t", del_node->number);
+		//cur_node = del_node->next;
+		cur_node->next = del_node->next;
+		printf("key %d; number %d\n", del_node->key, del_node->number);
 		free(del_node);				
 	}
 	if(NULL != cur_node)
 	{
-		printf("%d\t", cur_node->number);
+		printf("key %d; number %d\n", cur_node->key, cur_node->number);
 		free(cur_node);
 	}
+}
+int node_print(p_l_node node)
+{
+	if (node == NULL)
+		return -1;
+	printf("key %d; number %d\n", node->key, node->number);
+}
+
+//typedef (int)(*func_type)(int a);
+typedef int(*func_type)(p_l_node node);
+
+int travel_list(list head, func_type func)
+{
+	int ret = -1;
+	p_l_node cur_node = head;
+
+	if (head == NULL)
+		return 0;
+
+	do {
+		ret = func(cur_node);
+		if (ret < 0) {
+			printf("%s \n", __func__);
+			break;
+		}
+		cur_node = cur_node->next;
+	} while ((NULL != cur_node) && (cur_node!= head) );
+
+	return ((ret >= 0) ? 1 : 0);
+}
+
+
+int main()
+{
+	int m = 1;
+	int key[8] = {3, 1, 7, 2, 4, 8, 4, 0};
+	list head;
+	
+	head = init_list(key);
+	travel_list(head, node_print);
+	joseph(head, m);
+	head = NULL;
+	return 0;
 }
