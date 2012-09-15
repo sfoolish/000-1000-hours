@@ -4,15 +4,15 @@
 
 #define TEST_STRING "abcdefgh"
 
-int find(char *str, int len, char ch)
+char* sf_strchr(char *str, char ch)
 {
-    char begin = 0;
-    char end = len - 1;
-    char mid = (begin + end) /2;
+    int begin = 0;
+    int end = strlen(str) - 1;
+    int mid = (begin + end) /2;
 
     while (begin <= end) {
         if (*(str + mid) == ch) {
-            return mid;
+            return (str + mid);
         }
 
         if (*(str + mid) > ch) {
@@ -23,18 +23,22 @@ int find(char *str, int len, char ch)
         mid = (begin + end) / 2;
     }
 
-    return -1;
+    return NULL;
 }
 
 int main()
 {
     char *test = TEST_STRING;
-    char len = 10;
+    char *ret = NULL;
 
-    assert(0 == find(test, strlen(test), 'a'));
-    assert(2 == find(test, strlen(test), 'c'));
-    assert(7 == find(test, strlen(test), 'h'));
-    assert(-1 == find(test, strlen(test), 'i'));
+    ret = sf_strchr(test, 'a');
+    assert('a' == *ret);
+    ret = sf_strchr(test, 'b');
+    assert('b' == *ret);
+    ret = sf_strchr(test, 'h');
+    assert('h' == *ret);
+    ret = sf_strchr(test, 'i');
+    assert(NULL == ret);
 
     return 0;
 }
