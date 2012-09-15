@@ -1,36 +1,37 @@
 #include <stdio.h>
-#define LEN 20
-char find(char N, char *a, char len)
+#include <string.h>
+
+#define TEST_STRING "abcdefgh"
+
+char find(char *str, int len, char ch)
 {
-	char begin = 0;
-	char end = len - 1;
-	char mid = (begin + end) /2;
-	while(begin < end)
-	{
-		if(*(a + mid) == N)
-		{
-			return '1';
-		}
-		else
-		{
-			if(*(a + mid) > N)
-			{
-				end = mid -1;
-			}
-			else
-			{
-				begin = mid + 1;
-			}
-		mid = (begin + end) / 2;
-		}
-	}
-	return '0';
+    char begin = 0;
+    char end = len - 1;
+    char mid = (begin + end) /2;
+
+    while (begin <= end) {
+        if (*(str + mid) == ch) {
+            return '1';
+        }
+        printf("%c %d %d %d %d\n", *(str + mid), len, mid, begin, end);
+
+        if (*(str + mid) > ch) {
+            end = mid -1;
+        } else {
+            begin = mid + 1;
+        }
+        mid = (begin + end) / 2;
+    }
+
+    return '0';
 }
 
 int main()
 {
-	char test[LEN] = "adsb3873905";
-	char len = 10;
-	printf("%c\n",find('c', test, len));
-	return 0;
+    char *test = TEST_STRING;
+    char len = 10;
+
+    printf("%c\n",find(test, strlen(test), 'a'));
+    
+    return 0;
 }
