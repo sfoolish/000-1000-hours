@@ -1,3 +1,32 @@
+# 2013-01-19
+## virtualenv 使用
+之前提到过 pip 安装 virtualenv ，这里直接使用源码
+
+    $ wget http://pypi.python.org/packages/source/v/virtualenv/virtualenv-1.8.4.tar.gz
+    $ tar xvf virtualenv-1.8.4.tar.gz
+    $ sudo python virtualenv-1.8.4/virtualenv.py ENV  # 创建虚拟环境
+    $ #sudo virtualenv ENV                            # pip 安装的，直接使用 virtualenv 命令
+    $ source ENV/bin/activate                         # 激活虚拟环境
+    $ deactivate                                      # 退出虚拟环境
+上面创建虚拟环境的时候需要 sudo ，否则可能会有问题。原因是 python pip 安装的时候，用户权限没处理好。暂时先这样用，以后抽空查一下。有了虚拟环境，就可以不用害怕破坏系统的原始环境。
+
+# 2013-01-07
+## 基于 Google App Engine 的 doudou 网
+[创建 GAE APP](https://appengine.google.com/): APP ID doudou-sfoolish
+
+本地测试：
+
+    $ dev_appserver.py doudou/
+代码部署：
+    
+    $ appcfg.py update doudou/
+上传失败的时候，通过 rollback 进行恢复。
+
+    $ appcfg.py help rollback
+    $ appcfg.py rollback doudou
+部署成功后就能访问[doudou](http://doudou-sfoolish.appspot.com/)
+
+[doudou 源码](https://github.com/sfoolish/doudou)
 # 2013-01-03
 ## [Python-2.7.3](http://www.python.org/ftp/python/2.7.3/Python-2.7.3.tar.bz2)源码编译
     $ wget http://www.python.org/ftp/python/2.7.3/Python-2.7.3.tar.bz2
