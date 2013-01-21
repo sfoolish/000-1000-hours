@@ -1,3 +1,15 @@
+# 2013-01-20
+## python-guid
+    $ mkdir python-guide-git && cd python-guide-git
+    $ git clon https://github.com/kennethreitz/python-guide.git .
+    $ sudo apt-get install python-sphinx
+    $ make                        ## 生成的文档在 doc/_build/ 下。
+[python-guide](http://docs.python-guide.org), python best practices guidebook, written for Humans.
+
+## [Google Python Style Guide](http://google-styleguide.googlecode.com/svn/trunk/pyguide.html)
+  - Function and Method Decorators   ??
+  - Access Control                   ??
+
 # 2013-01-19
 ## virtualenv 使用
 之前提到过 pip 安装 virtualenv ，这里直接使用源码
