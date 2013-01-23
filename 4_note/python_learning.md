@@ -1,3 +1,19 @@
+# 2013-01-23
+## python 中文使用
+直接上代码：
+    #!/usr/bin/python
+    # -*- coding: utf-8 -*-
+    
+    s='测试'
+    print s
+    print s.decode('utf-8').encode('gbk')
+    
+    path = './文件.txt'
+    spath = unicode(path, 'utf-8')
+    f = open(spath, 'r')
+    print f.read()
+[PEP 0263 -- Defining Python Source Code Encodings](www.python.org/dev/peps/pep-0263)
+
 # 2013-01-20
 ## python-guid
     $ mkdir python-guide-git && cd python-guide-git
@@ -9,6 +25,11 @@
 ## [Google Python Style Guide](http://google-styleguide.googlecode.com/svn/trunk/pyguide.html)
   - Function and Method Decorators   ??
   - Access Control                   ??
+
+## [A guide to Python packaging](http://www.ibm.com/developerworks/opensource/library/os-pythonpackaging/index.html)
+
+## pip 通过代理下载软件包
+    $ sudo pip --proxy=127.0.0.1:8087 install -r requirements.txt
 
 # 2013-01-19
 ## virtualenv 使用
