@@ -1,6 +1,7 @@
 # 2013-01-23
 ## python 中文使用
 直接上代码：
+
     #!/usr/bin/python
     # -*- coding: utf-8 -*-
     
