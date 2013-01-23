@@ -15,6 +15,26 @@
     print f.read()
 [PEP 0263 -- Defining Python Source Code Encodings](www.python.org/dev/peps/pep-0263)
 
+## [Understanding Python decorators](http://stackoverflow.com/questions/739654/understanding-python-decorators)
+Decorators are wrappers which means that they let you execute code before and after the function they decorate without the need to modify the function itself.
+    
+    def makebold(fn):
+        def wrapped():
+            return "<b>" + fn() + "</b>"
+        return wrapped
+    
+    def makeitalic(fn):
+        def wrapped():
+            return "<i>" + fn() + "</i>"
+        return wrapped
+    
+    @makebold
+    @makeitalic
+    def hello():
+        return "hello world"
+    
+    print hello() ## returns <b><i>hello world</i></b>
+
 # 2013-01-20
 ## python-guid
     $ mkdir python-guide-git && cd python-guide-git
