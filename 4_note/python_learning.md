@@ -1,3 +1,9 @@
+# 2013-01-26
+## [How do I start a session in a Python web application?](http://stackoverflow.com/questions/1185406/how-do-i-start-a-session-in-a-python-web-application/1185437#1185437)
+[Wikipedia](http://en.wikipedia.org/wiki/Session_cookie) is always a good place to start. Bottom line: session data gets stored somewhere on the server and indexed by a unique identifier (hash of some sort). This identifier gets passed back and forth between the client and server, usually as a cookie or as part of the query string (the URL). For security's sake, you'll want to use an SSL connection or validate the session ID with some other piece of data (e.g. IP address). By default PHP stores sessions as files, but on a shared server that could pose a security risk, so you might want to override the session engine so you store sessions in a database. Python web frameworks have similar functionality.
+
+[Beaker](http://beaker.groovie.org/) is a library for caching and sessions for use with web applications and stand-alone Python scripts and applications. It comes with WSGI middleware for easy drop-in use with WSGI based web applications, and caching decorators for ease of use with any Python based application.
+
 # 2013-01-23
 ## python 中文使用
 直接上代码：
