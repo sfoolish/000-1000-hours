@@ -70,6 +70,21 @@ Decorators are wrappers which means that they let you execute code before and af
     $ deactivate                                      # 退出虚拟环境
 上面创建虚拟环境的时候需要 sudo ，否则可能会有问题。原因是 python pip 安装的时候，用户权限没处理好。暂时先这样用，以后抽空查一下。有了虚拟环境，就可以不用害怕破坏系统的原始环境。
 
+***
+VirtualEnv用于在一台机器上创建多个独立的python运行环境
+
+使用 VirtualEnv 的理由
+* 隔离项目之间的第三方包依赖
+* 为部署应用提供方便，把开发环境的虚拟环境打包到生产环境即可
+* 解决库之间的版本依赖，比如同一系统上不同应用依赖同一个库的不同版本。
+* 解决权限限制，比如你没有root权限。
+* 尝试新的工具，而不用担心污染系统环境。 
+
+使用说明：
+安装： sudo easy_install virtualenv
+* 建立新的运行环境：virtualenv <env-name>
+* 进入相应的独立环境：source <env-path>/bin/activate
+
 # 2013-01-07
 ## 基于 Google App Engine 的 doudou 网
 [创建 GAE APP](https://appengine.google.com/): APP ID doudou-sfoolish
