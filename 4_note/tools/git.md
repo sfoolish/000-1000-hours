@@ -3,8 +3,8 @@
     ssh-keygen -t rsa -C sfoolish.liang@gmail.com
     添加SSH公钥到github
     内容在： ~/.ssh/id_rsa.pub
-    [github生成SSH公钥](http://blog.chinaunix.net/uid-26185912-id-3327885.html)
-    [公钥认证管理](http://www.worldhello.net/gotgithub/03-project-hosting/030-repo-authz.html)
+[github生成SSH公钥](http://blog.chinaunix.net/uid-26185912-id-3327885.html)
+[公钥认证管理](http://www.worldhello.net/gotgithub/03-project-hosting/030-repo-authz.html)
 
 ## XP Git Bash 简要使用步骤
     远程代码更新：
