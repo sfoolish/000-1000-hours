@@ -1,27 +1,27 @@
 ## 常用工具安装
-    # apt-get install git
-    # git clone git clone https://github.com/facebook/tornado.git
+    apt-get install git
+    git clone git clone https://github.com/facebook/tornado.git
 
 ## python virtualenv 环境
-    # apt-get install python-setuptools
-    # easy_install virtualenv
-    # easy_install pip
+    apt-get install python-setuptools
+    easy_install virtualenv
+    easy_install pip
     
-    # cd prj/python/
-    # mkdir vir_test
-    # virtualenv vir_test/
-    # source vir_test/bin/activate
+    cd prj/python/
+    mkdir vir_test
+    virtualenv vir_test/
+    source vir_test/bin/activate
     
-    # deactivate 
+    deactivate 
 
 ## tornado 测试
-    # cat ~/.python_sf_dev
+    cat ~/.python_sf_dev
         cd /root/prj/python
         source vir_test/bin/activate
-    # source ~/.python_sf_dev
-    # pip install tornado 
+    source ~/.python_sf_dev
+    pip install tornado 
     
-    # cat hello_tornado.py
+    cat hello_tornado.py
         import tornado.ioloop
         import tornado.web
         
@@ -36,4 +36,4 @@
         if __name__ == "__main__":
                 application.listen(80)
                 tornado.ioloop.IOLoop.instance().start()
-    # python hello_tornado.py
+    python hello_tornado.py

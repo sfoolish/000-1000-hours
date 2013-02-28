@@ -16,6 +16,10 @@ ssh-keygen -t rsa -C sfoolish.liang@gmail.com
 上传到服务器：
     git push origin master
 
+## ubuntu 下简要使用步骤
+    git add -A
+    git commit -a -m 'change log'
+    git push origin master
 
 ## git 常用命令
 config:
