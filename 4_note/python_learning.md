@@ -1,9 +1,56 @@
+<<<<<<< HEAD
 # 2013-01-26
 ## [How do I start a session in a Python web application?](http://stackoverflow.com/questions/1185406/how-do-i-start-a-session-in-a-python-web-application/1185437#1185437)
 [Wikipedia](http://en.wikipedia.org/wiki/Session_cookie) is always a good place to start. Bottom line: session data gets stored somewhere on the server and indexed by a unique identifier (hash of some sort). This identifier gets passed back and forth between the client and server, usually as a cookie or as part of the query string (the URL). For security's sake, you'll want to use an SSL connection or validate the session ID with some other piece of data (e.g. IP address). By default PHP stores sessions as files, but on a shared server that could pose a security risk, so you might want to override the session engine so you store sessions in a database. Python web frameworks have similar functionality.
 
 [Beaker](http://beaker.groovie.org/) is a library for caching and sessions for use with web applications and stand-alone Python scripts and applications. It comes with WSGI middleware for easy drop-in use with WSGI based web applications, and caching decorators for ease of use with any Python based application.
 
+=======
+
+What is the difference between %r and %s?
+    Use the %r for debugging, since it displays the "raw" data of the variable, but the others are used for displaying to users.
+
+Why does %r sometimes print things with single-quotes when I wrote them with double-quotes.
+    Python is going to print the strings in the most efficient way it can, not replicate exactly the way you wrote them. This perfectly fine since %r is used for debugging and inspection, so it's not necessary that it be pretty.
+
+What's the difference between input() and raw_input()?
+    The input() function will try to convert things you enter as if they were Python code, but it has security problems so you should avoid it.
+
+When my strings print out there's a u in front of them, as in u'35'.
+    That's how Python tells you that the string is unicode. Use a %s format instead and you'll see it printed like normal.
+
+## 不错的搜索技巧
+If you are not sure ask someone for help or search online. Many times searching for "python THING" will find answers for what that THING does in Python. Try searching for "python open".
+
+Why are there empty lines between the lines in the file?
+    The readline() function returns the \n that's in the file at the end of that line. This means that print's \n is being added to the one already returned by readline(). To change this behavior simply add a , (comma) at the end of print so that it doesn't print its own \n.
+
+How does readline() know where each line is?
+    Inside readline() is code that scans each byte of the file until it finds a \n character, then stops reading the file to return what it found so far. The file f is responsible for maintaining the current position in the file after each readline() call, so that it will keep reading each line.
+
+Reading programming documentation is not enough to learn it, you have to do it. 
+Everyone is a beginner at something.
+
+impport math
+
+dir(math)
+help(math.sin)
+
+0 1 0 0
+0 0 0 1
+1 0 0 0
+0 0 1 0
+
+
+基本的算法：
+动态规划，贪心
+## 漂亮的打印出JSON
+    import json
+    
+    data = {"status" : "OK", "count" : 2, "results" : [{"age" : 27, "name" : "Oz"}]}
+    print(json.dumps(data, indent = 2))
+REF:[Python高效编程技巧](http://python.42qu.com/11158039)
+>>>>>>> 添加部分笔记，待整理；
 # 2013-01-23
 ## python 中文使用
 直接上代码：
