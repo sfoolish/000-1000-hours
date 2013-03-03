@@ -37,3 +37,7 @@
                 application.listen(80)
                 tornado.ioloop.IOLoop.instance().start()
     python hello_tornado.py
+
+## OSS 相关介绍
+[访阿里云大规模存储“铁三角”：OSS、RDS与OTS](http://www.csdn.net/article/2012-11-16/2811959-Interview-aliyun-OSS-RDS-OTS)
+[阿里云存储OSS之九大使用技巧](http://www.programmer.com.cn/12917/)
