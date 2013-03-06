@@ -38,3 +38,9 @@
         " SystemTap scripts
         au BufNewFile,BufRead *.stp                     setf stap
 [Add Vim Syntax Highlighting for SystemTap](http://sourceware.org/systemtap/wiki/VIMSyntaxHighlightingForSystemtap)
+### systemtap 相关文档资料
+* [systemtap documentation](http://sourceware.org/systemtap/documentation.html)
+* [systemtap wiki](http://sourceware.org/systemtap/wiki)
+* [Linux 自检和 SystemTap](www.ibm.com/developerworks/cn/linux/l-systemtap/)
+* [SystemTap wikipedia](http://en.wikipedia.org/wiki/SystemTap)
+
