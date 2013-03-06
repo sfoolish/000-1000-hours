@@ -43,4 +43,4 @@
 * [systemtap wiki](http://sourceware.org/systemtap/wiki)
 * [Linux 自检和 SystemTap](www.ibm.com/developerworks/cn/linux/l-systemtap/)
 * [SystemTap wikipedia](http://en.wikipedia.org/wiki/SystemTap)
-
+* [SystemTap: Instrumenting the Linux Kernel for Analyzing Performance and Functional Problems](http://www.redbooks.ibm.com/abstracts/redp4469.html)
