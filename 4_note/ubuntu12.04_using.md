@@ -102,3 +102,23 @@
     ```
         sfoolish:x:1000:1000:sfoolish,,,:/home/sfoolish:/bin/bash
     ```
+
+---
+## 常用工具安装
+    $ sudo apt-get install minicom
+    $ sudo apt-get install vim
+    $ sudo apt-get install git git-core
+    $ sudo apt-get install openssh-server openssh-client
+    $ sudo apt-get install samba smbfs system-config-samba samba-common
+    $ sudo apt-get install build-essential kernel-package libncurses5-dev
+## dns 服务器地址添加
+    $ sudo vim /etc/resolvconf/resolv.conf.d/tail
+    $ sudo cat /etc/resolvconf/resolv.conf.d/tail
+    ```
+        nameserver 192.168.1.1
+    ```
+    $ sudo /etc/init.d/resolvconf restart
+通过局域网代理上网可以不用设置 dns 。
+### 浙江省杭州市（中国电信）DNS
+* 首选DNS：202.101.172.35
+* 备份DNS：202.101.172.47
