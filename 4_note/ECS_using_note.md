@@ -1,4 +1,4 @@
-*******************************************************************************
+---
 ## 常用工具安装
     # apt-get install git
     # git clone git clone https://github.com/facebook/tornado.git
@@ -15,6 +15,7 @@
     
     # deactivate 
 
+---
 ## tornado 测试
     # cat ~/.python_sf_dev
         cd /root/prj/python
@@ -40,10 +41,10 @@
     # python hello_tornado.py
 
 ## OSS 相关介绍
-[访阿里云大规模存储“铁三角”：OSS、RDS与OTS](http://www.csdn.net/article/2012-11-16/2811959-Interview-aliyun-OSS-RDS-OTS)
-[阿里云存储OSS之九大使用技巧](http://www.programmer.com.cn/12917/)
+* [访阿里云大规模存储“铁三角”：OSS、RDS与OTS](http://www.csdn.net/article/2012-11-16/2811959-Interview-aliyun-OSS-RDS-OTS)
+* [阿里云存储OSS之九大使用技巧](http://www.programmer.com.cn/12917/)
 
-*******************************************************************************
+---
 ## systemtap 安装
 参照[systemtap 安装步骤](https://github.com/sfoolish/000-1000-hours/blob/master/4_note/tools/systemtap.md#2013-03-04-ubuntu-1204--systemtap)
 
