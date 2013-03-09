@@ -42,38 +42,38 @@ git config alias表示，可以用git co代表git checkout。git var -l可以查
 开发人员在本地进行开发后，可以使用git diff查看改动。
 除了直接比较当前开发后的改动外，git diff还可以：
 
-    $ git diff tag                    比较tag和HEAD之间的不同。
-    $ git diff tag file               比较一个文件在两者之间的不同。
-    $ git diff tag1..tag2             比较两个tag之间的不同。
-    $ git diff SHA11..SHA12           比较两个提交之间的不同。
+    $ git diff tag                    # 比较tag和HEAD之间的不同。
+    $ git diff tag file               # 比较一个文件在两者之间的不同。
+    $ git diff tag1..tag2             # 比较两个tag之间的不同。
+    $ git diff SHA11..SHA12           # 比较两个提交之间的不同。
     $ git diff tag1 tag2 file or
-    $ git diff tag1:file tag2:file    比较一个文件在两个tag之间的不同。
-    $ git diff --stat                 用于生成统计信息。
+    $ git diff tag1:file tag2:file    # 比较一个文件在两个tag之间的不同。
+    $ git diff --stat                 # 用于生成统计信息。
 ### log:
-    $ git log file                    查看一个文件的改动。
-    $ git log -p                      查看日志和改动。
-    $ git log tag1..tag2              查看两个tag之间的日志。
-    $ git log -p tag1..tag2 file      查看一个文件在两个tag之间的不同。
-    $ git log tag..                   查看tag和HEAD之间的不同。
+    $ git log file                    # 查看一个文件的改动。
+    $ git log -p                      # 查看日志和改动。
+    $ git log tag1..tag2              # 查看两个tag之间的日志。
+    $ git log -p tag1..tag2 file      # 查看一个文件在两个tag之间的不同。
+    $ git log tag..                   # 查看tag和HEAD之间的不同。
 ### commit:
-    $ git commit -a -e        提交全部修改文件，并调用vim编辑提交日志。
+    $ git commit -a -e                # 提交全部修改文件，并调用vim编辑提交日志。
     $ git reset HEAD^ or
-    $ git reset HEAD~1        撤销最后一次提交。
-    $ git reset --hard HEAD^  撤销最后一次提交并清除本地修改。
-    git reset SHA1          回到SHA1对应的提交状态。
+    $ git reset HEAD~1                # 撤销最后一次提交。
+    $ git reset --hard HEAD^          # 撤销最后一次提交并清除本地修改。
+    $ git reset SHA1                  # 回到SHA1对应的提交状态。
 ### add/delete/ls:
-    $ git add -a              添加所有文件。除了.gitignore文件中的文件。
-    $ git rm file             从git仓库中删除文件。
-    $ git commit              添加或是删除后要提交。
-    $ git ls-files -m         显示修改过的文件。
-    $ git ls-files            显示所有仓库中的文件。
+    $ git add -a                      # 添加所有文件。除了.gitignore文件中的文件。
+    $ git rm file                     # 从git仓库中删除文件。
+    $ git commit                      # 添加或是删除后要提交。
+    $ git ls-files -m                 # 显示修改过的文件。
+    $ git ls-files                    # 显示所有仓库中的文件。
 ### patch:
-    $ git format-patch -1     生成最后一个提交对应的patch文件。
-    $ git am < patch          把一个patch文件加入git仓库中。
-    $ git am --resolved       如果有冲突，在解决冲突后执行。
-    $ git am --skip           放弃当前git am所引入的patch。
+    $ git format-patch -1             # 生成最后一个提交对应的patch文件。
+    $ git am < patch                  # 把一个patch文件加入git仓库中。
+    $ git am --resolved               # 如果有冲突，在解决冲突后执行。
+    $ git am --skip                   # 放弃当前git am所引入的patch。
 ### branch:
-    $ git branch -a           查看所有分支。
-    $ git branch new_branch   创建新的分支。
-    $ git branch -d branch    删除分支。
-    $ git checkout branch     切换当前分支。-f参数可以覆盖未提交内容。
+    $ git branch -a                   # 查看所有分支。
+    $ git branch new_branch           # 创建新的分支。
+    $ git branch -d branch            # 删除分支。
+    $ git checkout branch             # 切换当前分支。-f参数可以覆盖未提交内容。
