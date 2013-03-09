@@ -1,4 +1,4 @@
-*******************************************************************************
+---
 ## ubuntu 12.04 源修改
 ### sources.list 备份
 	$ sudo mv /etc/apt/sources.list /etc/apt/sources.list_bkp
@@ -56,3 +56,14 @@
     $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 437D05B5 3E5C1192
 ### REF
 [163 Ubuntu镜像使用帮助](http://mirrors.163.com/.help/ubuntu.html)
+
+---
+## ubuntu 桌面系统关机，重启，挂起，休眠命令
+### 关机命令
+    $ sudo dbus-send --system --print-reply  --dest=org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop
+### 重启命令:
+    $ sudo dbus-send --system --print-reply  --dest=org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager  org.freedesktop.ConsoleKit.Manager.Restart
+### 挂起命令:
+    $ sudo dbus-send --system --print-reply  --dest=org.freedesktop.UPower /org/freedesktop/UPower org.freedesktop.UPower.Suspend
+### 休眠命令:
+    $ sudo dbus-send --system --print-reply  --dest=org.freedesktop.UPower /org/freedesktop/UPower  org.freedesktop.UPower.Hibernate
