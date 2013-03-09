@@ -67,3 +67,38 @@
     $ sudo dbus-send --system --print-reply  --dest=org.freedesktop.UPower /org/freedesktop/UPower org.freedesktop.UPower.Suspend
 ### 休眠命令:
     $ sudo dbus-send --system --print-reply  --dest=org.freedesktop.UPower /org/freedesktop/UPower  org.freedesktop.UPower.Hibernate
+---
+## ubuntu 12.04创建本地源
+* [ubuntu 12.04创建本地源](http://hi.baidu.com/chenshake/item/8bf5c4d599d6b82839f6f7fe)
+* [Ubuntu10.04制作官方源镜像以及搭建本地源](http://www.cnblogs.com/linucos/archive/2012/03/31/2426662.html)
+
+试了一下只下载32位的就需要53G，太耗空间就没做下去。
+
+---
+## nfs 服务器安装
+### 安装
+    $ sudo apt-get install nfs-kernel-server
+### 配置
+    $ sudo vim /etc/exports
+    $ sudo cat /etc/exports
+    ```
+        /home/sfoolish/share 172.9.21.108(rw,sync,all_squash,root_squash,no_subtree_check,anonuid=1000,anongid=1000)
+    ```
+### 重启
+    $ sudo service nfs-kernel-server restart
+### 参数说明
+* all_squash              共享文件的UID和GID映射匿名用户anonymous，适合公用目录。
+* no_all_squash           保留共享文件的UID和GID（默认）
+* root_squash             root用户的所有请求映射成如anonymous用户一样的权限（默认）
+* no_root_squas           root用户具有根目录的完全管理访问权限 
+* anonuid=xxx             指定NFS服务器/etc/passwd文件中匿名用户的UID
+* anongid=xxx             指定NFS服务器/etc/passwd文件中匿名用户的GID
+
+### FAQ
+#### MAC OS 下 nfs 挂载 
+    $ sudo mount_nfs -P 172.9.21.102:/home/sfoolish/share tmp  # "-P" to force the use of a reserved port number
+#### gid / uid 数值获取
+    $ grep `id -un` /etc/passwd
+    ```
+        sfoolish:x:1000:1000:sfoolish,,,:/home/sfoolish:/bin/bash
+    ```
