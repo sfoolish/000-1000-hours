@@ -58,3 +58,24 @@ TAP is used to create a network bridge, while TUN is used with routing.
 * [domU-x86_64-FS.img](http://cloudxy.googlecode.com/files/domU-x86_64-FS.img2.zip)
 * [TUN/TAP wiki](https://en.wikipedia.org/wiki/TUN/TAP)
 * [kernel-debugging.txt](https://github.com/penberg/linux-kvm/blob/master/tools/kvm/Documentation/kernel-debugging.txt)
+
+---
+## rootfs img 文件使用
+### 方法1：
+    $ mkdir sf
+    $ sudo losetup /dev/loop0 domU-x86_64-FS.img 
+    $ mount /dev/loop0 sf
+    $ sudo mount /dev/loop0 sf
+    $ sudo umount sf
+    $ sudo losetup -d /dev/loop0
+    $ rm -rf sf
+### 方法2：
+    $ mkdir sf
+    $ sudo mount -o loop domU-x86_64-FS.img sf/
+    $ sudo umount sf
+    $ rm -rf sf
+
+在使用domU-x86_64-FS.img时遇到`echo` 无法写文件的问题。查了一下需要下面这个命令。
+
+	# set +o noclobber
+因为"/etc/profile"中有下面这么一行：`set -o noclobber`。noclobber 这个选项，告诉bash在重定向的时候，不要覆盖已有文件。在设定了noclobber之后,如何强制覆盖现有文件 `echo hello >| abc`。
