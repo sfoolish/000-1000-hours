@@ -55,6 +55,6 @@ TAP is used to create a network bridge, while TUN is used with routing.
 * [[ANNOUNCE] Native Linux KVM tool](http://amosk.info/blog/?p=622)
 * [lkvm github](https://github.com/penberg/linux-kvm)
 * [lkvm Documentation](https://github.com/penberg/linux-kvm/tree/master/tools/kvm/Documentation)
-* [domU-x86_64-FS.img](http://code.google.com/p/cloudxy/downloads/detail?name=domU-x86_64-FS.img2.zip&can=2&q=)
+* [domU-x86_64-FS.img](http://cloudxy.googlecode.com/files/domU-x86_64-FS.img2.zip)
 * [TUN/TAP wiki](https://en.wikipedia.org/wiki/TUN/TAP)
 * [kernel-debugging.txt](https://github.com/penberg/linux-kvm/blob/master/tools/kvm/Documentation/kernel-debugging.txt)
