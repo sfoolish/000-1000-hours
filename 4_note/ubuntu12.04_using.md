@@ -123,3 +123,25 @@
 ### 浙江省杭州市（中国电信）DNS
 * 首选DNS：202.101.172.35
 * 备份DNS：202.101.172.47
+
+---
+## ubuntu 内核源码下载上传 github
+### 源码下载
+    $ sudo apt-get install dpkg-dev
+    $ sudo apt-get source linux-image-$(uname -r)
+上述命令会下载 linux_3.2.0-39.62.diff.gz, linux_3.2.0-39.62.dsc, linux_3.2.0.orig.tar.gz 三个文件，并将源码解压，打好补丁，生成到 linux-3.2.0 。
+
+内核 dsc, diff.gz, orig.tar.gz 文件，可以通过下面命令展开：
+
+    $ dpkg-source -x linux_3.2.0-39.62.dsc 
+### 源码上传
+先在 github 创建空的 repo linux_3.2.0-39.62_ubuntu12.04 ，然后执行下面命令将代码上传。由于文件比较多，整个过程相当耗时间。
+
+    $ cd linux-3.2.0/
+    $ git init
+    $ git add -A
+    $ git commit -m "commit ubuntu12.04 linux_3.2.0-39.62 kernel"
+    $ git remote add origin git@github.com:sfoolish/linux_3.2.0-39.62_ubuntu12.04.git
+    $ git push -u origin master
+### REF
+* [ubuntu 编译源码包 dsc diff.gz orig.tar.gz](http://hi.baidu.com/avr_tutorial/item/624a6899b404da81591461da)
