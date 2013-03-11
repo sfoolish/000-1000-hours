@@ -79,14 +79,17 @@
 ## nfs 服务器安装
 ### 安装
     $ sudo apt-get install nfs-kernel-server
+    $ sudo apt-get install portmap nfs-common
 ### 配置
     $ sudo vim /etc/exports
     $ sudo cat /etc/exports
     ```
         /home/sfoolish/share 172.9.21.108(rw,sync,all_squash,root_squash,no_subtree_check,anonuid=1000,anongid=1000)
+        /tftpboot *(rw,nohide,insecure,no_subtree_check,async,no_root_squash)
     ```
 ### 重启
     $ sudo service nfs-kernel-server restart
+    $ sudo /etc/init.d/portmap restart
 ### 参数说明
 * all_squash              共享文件的UID和GID映射匿名用户anonymous，适合公用目录。
 * no_all_squash           保留共享文件的UID和GID（默认）
@@ -110,8 +113,8 @@
     $ sudo apt-get install vim
     $ sudo apt-get install git git-core
     $ sudo apt-get install openssh-server openssh-client
-    $ sudo apt-get install samba smbfs system-config-samba samba-common
     $ sudo apt-get install build-essential kernel-package libncurses5-dev
+    $ sudo apt-get install subversion
 ---
 ## ubuntu root用户
 首先设置root密码，利用现有管理员帐户登陆Ubuntu，在终端执行命令：`sudo passwd root`，接着输入密码和root密码，重复密码。这样就有了可用的root用户。当然不建议切换到 root 下直接运行命令。
@@ -153,6 +156,30 @@
 ### 浙江省杭州市（中国电信）DNS
 * 首选DNS：202.101.172.35
 * 备份DNS：202.101.172.47
+
+---
+## samba 服务器安装
+    $ sudo apt-get install samba smbfs system-config-samba samba-common
+
+    $ sudo system-config-samba
+    $ sudo vim /etc/samba/smb.conf
+
+    $ sudo service smbd restart
+
+---
+## 开机默认不启动图形用户界面
+    $ sudo vim /etc/init/rc-sysinit.conf ;在第14行附近：确认`env DEFAULT_RUNLEVEL=2`
+    $ sudo vim /etc/init/lightdm.conf ;在第12行附近，原句` and runlevel [!06]` 改为` and runlevel [!026]`
+    $ sudo reboot
+系统起来后，如果需要启动桌面则运行：
+
+    $ startx
+startx 后，注销系统就重新进入控制台模式。
+
+在 /etc/init/*.conf 下有很多配置文件，用于设置在特定运行级别下，是否开启相应功能。
+如将/etc/init/nova-api.conf 中的 `stop on runlevel [016]` 修改为 `stop on runlevel [0126]`，则在 runlevel 为 2 时，nova-api 将不启动。
+### REF
+[ubuntu设置开机启动图形应用程序，替换默认图形桌面](http://blog.csdn.net/liebergott/article/details/7793408)
 
 ---
 ## ubuntu 内核源码下载上传 github
