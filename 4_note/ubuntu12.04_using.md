@@ -115,6 +115,7 @@
     $ sudo apt-get install openssh-server openssh-client
     $ sudo apt-get install build-essential kernel-package libncurses5-dev
     $ sudo apt-get install subversion
+    $ sudo apt-get install autoconf
 ---
 ## ubuntu root用户
 首先设置root密码，利用现有管理员帐户登陆Ubuntu，在终端执行命令：`sudo passwd root`，接着输入密码和root密码，重复密码。这样就有了可用的root用户。当然不建议切换到 root 下直接运行命令。
@@ -160,10 +161,35 @@
 ---
 ## samba 服务器安装
     $ sudo apt-get install samba smbfs system-config-samba samba-common
-
+## 图形界面配置
     $ sudo system-config-samba
+### 手动修改配置
+    $ sudo cd /etc/samba
+    $ sudo cp smb.conf smb.conf_bkp
     $ sudo vim /etc/samba/smb.conf
-
+    $ diff smb.conf smb.conf_bkp 
+    ```
+        102c102
+        <    security = user
+        ---
+        > #   security = user
+        337,347d336
+        < 
+        < [share]
+        <         path = /home/sfoolish/workspace
+        <         writeable = yes 
+        <         browseable = no
+        <         valid users = sfoolish
+        < [project]
+        <         path = /home/sfoolish/prj
+        <         writeable = yes 
+        <         browseable = no
+        <         valid users = sfoolish
+    ```
+### 添加用户
+    $ sudo smbpasswd sfoolish
+### 重启 samba 服务
+    $ sudo service smbd restart
     $ sudo service smbd restart
 
 ---
