@@ -1,4 +1,27 @@
-<<<<<<< HEAD
+---
+# 2013-03-16 ~ 2013-03-17
+周末收集了一些网络爬虫相关的内容。很多东西还需要进一步的研究，整理和总结。scrapy / twisted 源码，应该是非常制定好好去阅读的。网络爬虫水还是挺深水还是挺深的。
+
+## [如何优化 Python 爬虫的速度？](http://www.zhihu.com/question/20145091)
+
+主要是判断准目前的瓶颈在哪里，网络io、磁盘io，还是cpu、内存等。然后在给出解决方案，io问题可以考虑添加硬件或者分布式；如果只cpu占用不饱和，可以考虑多线程、多进程、异步等，也的看具体情况。按照你的描述，猜测问题应该在cpu占用不饱和。
+
+## Scrapy
+* [scrapy github](https://github.com/scrapy)
+* [scrapy wiki github](https://github.com/scrapy/scrapy/wiki)
+* [Recursively Scraping Web Pages With Scrapy](http://mherman.org/blog/2012/11/08/recursively-scraping-web-pages-with-scrapy/)
+* [Scraping Web Pages With Scrapy](http://mherman.org/blog/2012/11/05/scraping-web-pages-with-scrapy/)
+* [Crawl a website with scrapy](http://isbullsh.it/2012/04/Web-crawling-with-scrapy/) key words : scrapy, mogodb
+
+## [Twisted](http://twistedmatrix.com/trac/)
+Twisted is an event-driven networking engine written in Python and licensed under the open source  MIT license. 
+scrapy 基于 twisted
+* [使用 Twisted Matrix 框架来进行网络编程](http://www.ibm.com/developerworks/cn/linux/network/l-twist/part1/index.html)
+## python 多线程
+* [使用 Python 进行线程编程](http://www.ibm.com/developerworks/cn/aix/library/au-threadingpython/) urllib2 + queue + treading + BeautifulSoup
+* [python线程池](http://www.the5fire.net/python-thread-pool.html)
+
+---
 # 2013-01-26
 ## [How do I start a session in a Python web application?](http://stackoverflow.com/questions/1185406/how-do-i-start-a-session-in-a-python-web-application/1185437#1185437)
 [Wikipedia](http://en.wikipedia.org/wiki/Session_cookie) is always a good place to start. Bottom line: session data gets stored somewhere on the server and indexed by a unique identifier (hash of some sort). This identifier gets passed back and forth between the client and server, usually as a cookie or as part of the query string (the URL). For security's sake, you'll want to use an SSL connection or validate the session ID with some other piece of data (e.g. IP address). By default PHP stores sessions as files, but on a shared server that could pose a security risk, so you might want to override the session engine so you store sessions in a database. Python web frameworks have similar functionality.
@@ -50,7 +73,7 @@ help(math.sin)
     data = {"status" : "OK", "count" : 2, "results" : [{"age" : 27, "name" : "Oz"}]}
     print(json.dumps(data, indent = 2))
 REF:[Python高效编程技巧](http://python.42qu.com/11158039)
->>>>>>> 添加部分笔记，待整理；
+
 # 2013-01-23
 ## python 中文使用
 直接上代码：
