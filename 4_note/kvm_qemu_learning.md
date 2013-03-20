@@ -1,6 +1,7 @@
 ---
 ## Native Linux KVM tool
 ### LKVM 测试运行
+    $ sudo apt-get install kvm ubuntu-virt-server kvm-ipxe
     $ git clone git://github.com/penberg/linux-kvm.git
     $ cd linux-kvm
     $ make x86_64_defconfig

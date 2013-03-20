@@ -116,6 +116,9 @@
     $ sudo apt-get install build-essential kernel-package libncurses5-dev
     $ sudo apt-get install subversion
     $ sudo apt-get install autoconf
+    $ sudo apt-get install sysstat
+    $ sudo apt-get install apache2-utils
+    $ sudo apt-get install curl
 ---
 ## ubuntu root用户
 首先设置root密码，利用现有管理员帐户登陆Ubuntu，在终端执行命令：`sudo passwd root`，接着输入密码和root密码，重复密码。这样就有了可用的root用户。当然不建议切换到 root 下直接运行命令。
