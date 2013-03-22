@@ -1,28 +1,50 @@
 ---
-# 2013-03-16 ~ 2013-03-17
+## python 多线程
+* [使用 Python 进行线程编程](http://www.ibm.com/developerworks/cn/aix/library/au-threadingpython/) urllib2 + queue + treading + BeautifulSoup
+* [python线程池](http://www.the5fire.net/python-thread-pool.html)
+
+---
+## python 函数式编程
+### REF
+* [Fn.py：享受Python中的函数式编程](http://www.infoq.com/cn/articles/fn.py-functional-programming-python)
+* [Functional programming with Python](http://kachayev.github.com/talks/uapycon2012/index.html#/)
+* [kachayev / fn.py github](https://github.com/kachayev/fn.py)
+
+---
+## python 性能优化
+### REF
+* [“Python性能优化”讲稿分享](http://blog.csdn.net/lanphaday/article/details/2239445)
+
+## python 谈
+### REF
+* [虚拟座谈会：PyCon嘉宾谈Python](http://www.infoq.com/cn/articles/virtual-panel-pycon)
+
+---
+## 网络爬虫
 周末收集了一些网络爬虫相关的内容。很多东西还需要进一步的研究，整理和总结。scrapy / twisted 源码，应该是非常制定好好去阅读的。网络爬虫水还是挺深水还是挺深的。
 
-## [如何优化 Python 爬虫的速度？](http://www.zhihu.com/question/20145091)
+### [如何优化 Python 爬虫的速度？](http://www.zhihu.com/question/20145091)
 
 主要是判断准目前的瓶颈在哪里，网络io、磁盘io，还是cpu、内存等。然后在给出解决方案，io问题可以考虑添加硬件或者分布式；如果只cpu占用不饱和，可以考虑多线程、多进程、异步等，也的看具体情况。按照你的描述，猜测问题应该在cpu占用不饱和。
 
-## Scrapy
+### Scrapy
+#### scrapy 安装
+    $ sudo apt-get install python-dev libxml2-dev libxslt-dev
+    $ pip install scrapy
+scrapy 依赖Twisted，libxml，而Twisted，libxml安装时需要编译 C 代码，因此需要先安装python libxml 的开发包。
+#### REF
 * [scrapy github](https://github.com/scrapy)
 * [scrapy wiki github](https://github.com/scrapy/scrapy/wiki)
 * [Recursively Scraping Web Pages With Scrapy](http://mherman.org/blog/2012/11/08/recursively-scraping-web-pages-with-scrapy/)
 * [Scraping Web Pages With Scrapy](http://mherman.org/blog/2012/11/05/scraping-web-pages-with-scrapy/)
 * [Crawl a website with scrapy](http://isbullsh.it/2012/04/Web-crawling-with-scrapy/) key words : scrapy, mogodb
 
-## [Twisted](http://twistedmatrix.com/trac/)
+#### [Twisted](http://twistedmatrix.com/trac/)
 Twisted is an event-driven networking engine written in Python and licensed under the open source  MIT license. 
 scrapy 基于 twisted
 * [使用 Twisted Matrix 框架来进行网络编程](http://www.ibm.com/developerworks/cn/linux/network/l-twist/part1/index.html)
-## python 多线程
-* [使用 Python 进行线程编程](http://www.ibm.com/developerworks/cn/aix/library/au-threadingpython/) urllib2 + queue + treading + BeautifulSoup
-* [python线程池](http://www.the5fire.net/python-thread-pool.html)
 
 ---
-# 2013-01-26
 ## [How do I start a session in a Python web application?](http://stackoverflow.com/questions/1185406/how-do-i-start-a-session-in-a-python-web-application/1185437#1185437)
 [Wikipedia](http://en.wikipedia.org/wiki/Session_cookie) is always a good place to start. Bottom line: session data gets stored somewhere on the server and indexed by a unique identifier (hash of some sort). This identifier gets passed back and forth between the client and server, usually as a cookie or as part of the query string (the URL). For security's sake, you'll want to use an SSL connection or validate the session ID with some other piece of data (e.g. IP address). By default PHP stores sessions as files, but on a shared server that could pose a security risk, so you might want to override the session engine so you store sessions in a database. Python web frameworks have similar functionality.
 
@@ -74,7 +96,6 @@ help(math.sin)
     print(json.dumps(data, indent = 2))
 REF:[Python高效编程技巧](http://python.42qu.com/11158039)
 
-# 2013-01-23
 ## python 中文使用
 直接上代码：
 
@@ -111,8 +132,7 @@ Decorators are wrappers which means that they let you execute code before and af
     
     print hello() ## returns <b><i>hello world</i></b>
 
-# 2013-01-20
-## python-guid
+## python-guide
     $ mkdir python-guide-git && cd python-guide-git
     $ git clon https://github.com/kennethreitz/python-guide.git .
     $ sudo apt-get install python-sphinx
@@ -128,7 +148,6 @@ Decorators are wrappers which means that they let you execute code before and af
 ## pip 通过代理下载软件包
     $ sudo pip --proxy=127.0.0.1:8087 install -r requirements.txt
 
-# 2013-01-19
 ## virtualenv 使用
 之前提到过 pip 安装 virtualenv ，这里直接使用源码
 
@@ -155,7 +174,6 @@ VirtualEnv用于在一台机器上创建多个独立的python运行环境
 * 建立新的运行环境：virtualenv <env-name>
 * 进入相应的独立环境：source <env-path>/bin/activate
 
-# 2013-01-07
 ## 基于 Google App Engine 的 doudou 网
 [创建 GAE APP](https://appengine.google.com/): APP ID doudou-sfoolish
 
@@ -172,7 +190,7 @@ VirtualEnv用于在一台机器上创建多个独立的python运行环境
 部署成功后就能访问[doudou](http://doudou-sfoolish.appspot.com/)
 
 [doudou 源码](https://github.com/sfoolish/doudou)
-# 2013-01-03
+
 ## [Python-2.7.3](http://www.python.org/ftp/python/2.7.3/Python-2.7.3.tar.bz2)源码编译
     $ wget http://www.python.org/ftp/python/2.7.3/Python-2.7.3.tar.bz2
     $ tar xvf Python-2.7.3.tar.bz2 
@@ -221,7 +239,6 @@ VirtualEnv用于在一台机器上创建多个独立的python运行环境
 - [GAE SDK Python](https://developers.google.com/appengine/downloads#Google_App_Engine_SDK_for_Python)
 - [在GAE(Google App Engine)上搭建python2.7的web.py程序](http://blog.csdn.net/five3/article/details/7848748)
 
-# 2012-09-26
 ## ubuntu 12.04 下测试tornado
     $ mkdir -p 2_tornado/1_tornado_git
     $ cd 2_tornado/1_tornado_git
