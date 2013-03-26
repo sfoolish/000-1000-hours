@@ -1,4 +1,49 @@
 ---
+## range 和 xrange 之间的差异
+### Docstring 显示两者的差异
+    In [6]: %pdoc range 
+    Class Docstring:
+        range([start,] stop[, step]) -> list of integers
+        
+        Return a list containing an arithmetic progression of integers.
+        range(i, j) returns [i, i+1, i+2, ..., j-1]; start (!) defaults to 0.
+        When step is given, it specifies the increment (or decrement).
+        For example, range(4) returns [0, 1, 2, 3].  The end point is omitted!
+        These are exactly the valid indices for a list of 4 elements.
+    Calling Docstring:
+        x.__call__(...) <==> x(...)
+    
+    In [7]: %pdoc xrange
+    Class Docstring:
+        xrange([start,] stop[, step]) -> xrange object
+        
+        Like range(), but instead of returning a list, returns an object that
+        generates the numbers in the range on demand.  ** For looping, this is 
+        slightly faster than range() and more memory efficient. **
+    Constructor Docstring:
+        x.__init__(...) initializes x; see help(type(x)) for signature
+### [What is the difference between range and xrange?](http://stackoverflow.com/questions/94935/what-is-the-difference-between-range-and-xrange)
+range creates a list, so if you do range(1, 10000000) it creates a list in memory with 10000000 elements. xrange is a generator, so it evaluates lazily.
+
+This is true, but in Python 3, range will be replaced with xrange(). If you need to actually generate the list, you will need to do: `list(range(1,100))`
+
+### python 2.7.3 test
+    (env)$ python -m timeit 'for i in range(1000000):' ' pass'  
+    10 loops, best of 3: 81.5 msec per loop
+    (env)$ python -m timeit 'for i in xrange(1000000):' ' pass'
+    10 loops, best of 3: 53 msec per loop
+
+---
+## ipython 使用
+IPython: Productive Interactive Computing.IPython provides a rich toolkit to help you make the most out of using Python interactively. 
+ipython是python交互式shell, 它支持代码自动补全，支持高亮，支持shell命令，使用起来非常的顺手，方便。
+
+### Magic function
+    %pdoc    Print the docstring for an object.
+### REF
+* [IPython manual](http://ipython.org/documentation.html)
+
+---
 ## python 多线程
 * [使用 Python 进行线程编程](http://www.ibm.com/developerworks/cn/aix/library/au-threadingpython/) urllib2 + queue + treading + BeautifulSoup
 * [python线程池](http://www.the5fire.net/python-thread-pool.html)
@@ -9,6 +54,10 @@
 * [Fn.py：享受Python中的函数式编程](http://www.infoq.com/cn/articles/fn.py-functional-programming-python)
 * [Functional programming with Python](http://kachayev.github.com/talks/uapycon2012/index.html#/)
 * [kachayev / fn.py github](https://github.com/kachayev/fn.py)
+* [Charming Python: Functional programming in Python, Part 1](http://www.ibm.com/developerworks/linux/library/l-prog/index.html)
+* [Charming Python: Functional programming in Python, Part 2](http://www.ibm.com/developerworks/linux/library/l-prog2/index.html)
+* [Charming Python: Functional programming in Python, Part 3](http://www.ibm.com/developerworks/linux/library/l-prog3/index.html)
+
 
 ---
 ## python 性能优化
