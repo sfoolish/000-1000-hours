@@ -1,3 +1,12 @@
+http://search.51job.com/list/co,c,1991749,000000,50,2.html
+
+## MAC OSX genvent install
+遇到如下错误`gevent/libevent.h:9:19: error: event.h: No such file or directory`。
+
+    $ sudo port install libevent
+    $ sudo CFLAGS="-I /opt/local/include -L /opt/local/lib" pip install gevent
+### REF
+[How can I install the Python library 'gevent' on Mac OS X Lion](stackoverflow.com/questions/7630388/how-can-i-install-the-python-library-gevent-on-mac-os-x-lion)
 ---
 ## range 和 xrange 之间的差异
 ### Docstring 显示两者的差异
@@ -92,6 +101,11 @@ scrapy 依赖Twisted，libxml，而Twisted，libxml安装时需要编译 C 代�
 Twisted is an event-driven networking engine written in Python and licensed under the open source  MIT license. 
 scrapy 基于 twisted
 * [使用 Twisted Matrix 框架来进行网络编程](http://www.ibm.com/developerworks/cn/linux/network/l-twist/part1/index.html)
+
+### BeautifulSoup
+pip install beautifulsoup4
+[BeautifulSoup doc](http://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+
 
 ---
 ## [How do I start a session in a Python web application?](http://stackoverflow.com/questions/1185406/how-do-i-start-a-session-in-a-python-web-application/1185437#1185437)
