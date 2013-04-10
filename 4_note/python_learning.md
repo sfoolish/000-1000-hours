@@ -1,5 +1,24 @@
-http://search.51job.com/list/co,c,1991749,000000,50,2.html
+---
+## [PEP8](http://www.python.org/dev/peps/pep-0008/)
+### [使用pep8 vim插件规范Python代码](http://blog.lzhaohao.info/archive/correct-python-source-style-using-pep8-vim-plugin/)
+    $ sudo pip install pep8
 
+    $ mkdr -p ~/.vim/ftplugin/python/
+    $ cp [pep8.vim](http://www.vim.org/scripts/script.php?script_id=2914)  ~/.vim/ftplugin/python/
+    ## or
+    $ git clone git://github.com/sfoolish/vimrc.git ~/.vim_runtime
+    $ sh ~/.vim_runtime/install_awesome_vimrc.sh
+
+---
+## Tornado
+
+### REF
+* [Simple example of a Tornado app in production](https://github.com/bdarnell/tornado-production-skeleton)
+* [Tornado + Supervisor 在生产环境下的部署方法](https://idndx.com/2011/10/18/ways-to-deploy-tornado-under-production-environment-using-supervisor/)
+* [有没有什么很好的 Tornado 的教材或者开源项目可以做参考的？](http://www.zhihu.com/question/19707966/answer/12731684)
+有几个不错的项目链接
+
+---
 ## MAC OSX genvent install
 遇到如下错误`gevent/libevent.h:9:19: error: event.h: No such file or directory`。
 
@@ -7,6 +26,7 @@ http://search.51job.com/list/co,c,1991749,000000,50,2.html
     $ sudo CFLAGS="-I /opt/local/include -L /opt/local/lib" pip install gevent
 ### REF
 [How can I install the Python library 'gevent' on Mac OS X Lion](stackoverflow.com/questions/7630388/how-can-i-install-the-python-library-gevent-on-mac-os-x-lion)
+
 ---
 ## range 和 xrange 之间的差异
 ### Docstring 显示两者的差异
