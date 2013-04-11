@@ -60,3 +60,6 @@
 * Cmd  + K   清屏
 * Cmd  + t   新建标签
 * Cmd  + {}  x向左/向右切换标签
+
+## secure CRT 中文编码设置
+options --> appearance --> character encoding --> (utf-8)
