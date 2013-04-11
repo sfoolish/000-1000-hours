@@ -1,7 +1,7 @@
 ---
 ## 常用工具安装
     # apt-get install git
-    # git clone git clone https://github.com/facebook/tornado.git
+    # git clone https://github.com/facebook/tornado.git
 
 ## python virtualenv 环境
     # apt-get install python-setuptools

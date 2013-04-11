@@ -1,4 +1,17 @@
 ---
+## june test
+
+    $ git clone git://github.com/lepture/june.git
+    $ cd june/
+    $ virtualenv --distribute venv
+    $ source venv/bin/activate
+    $ sudo apt-get install libevent-dev 
+    $ pip install -r conf/reqs-dev.txt
+
+### REF
+* june/README.rst
+
+---
 ## [PEP8](http://www.python.org/dev/peps/pep-0008/)
 ### [使用pep8 vim插件规范Python代码](http://blog.lzhaohao.info/archive/correct-python-source-style-using-pep8-vim-plugin/)
     $ sudo pip install pep8
