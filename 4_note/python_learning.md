@@ -12,7 +12,10 @@
 * june/README.rst
 
 ---
-## [PEP8](http://www.python.org/dev/peps/pep-0008/)
+## 代码规范
+* [PEP8](http://www.python.org/dev/peps/pep-0008/)
+* [google python style](http://google-styleguide.googlecode.com/svn/trunk/pyguide.html)
+
 ### [使用pep8 vim插件规范Python代码](http://blog.lzhaohao.info/archive/correct-python-source-style-using-pep8-vim-plugin/)
     $ sudo pip install pep8
 
