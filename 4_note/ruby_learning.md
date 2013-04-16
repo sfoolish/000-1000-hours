@@ -83,3 +83,16 @@ rdiscount 最新版本 rdiscount-2.0.7.2，在 ubuntu12.04 x64 下会安装失�
     $ gem install rdiscount -v 1.6.8
 ### REF
 * [Installation Issues with ruby and gem rdiscount windows 8 64bit](http://stackoverflow.com/questions/15283059/installation-issues-with-ruby-and-gem-rdiscount-windows-8-64bit)
+
+---
+## 第一段 ruby 功能代码
+记录以下自己的第一段 ruby 功能代码，简单的日志文件搜索打印。(2012-09-18)
+
+    #!/usr/bin/env ruby
+
+    file = File.open("Serial-COM1_07-19.log", "r")
+    while str = file.gets
+        print str if str.match("1117: Babble condition on musb")
+        #print str if str.match("mice    mouse0")
+        print str if str.match("mice")
+    end
