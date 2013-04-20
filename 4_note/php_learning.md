@@ -55,3 +55,84 @@
 ### REF
 * [ubuntu 12.04 安装 nginx+php+mysql web服务器](http://imcn.me/html/y2012/11833.html)
 * [ubuntu 12.04 安装 Nginx+PHP5 (PHP-FPM) +MySQL主机详解](http://www.myhack58.com/Article/sort099/sort0102/2012/33937_4.htm)
+
+---
+## php error log 配置
+    ## 修改配置文件
+    ## php.ini 中有 Development 和 Production 的建议值
+    $ cp /etc/php5/fpm/php.ini /etc/php5/fpm/php.ini_bkp 
+    ## 编辑配置文件
+    $ vim /etc/php5/fpm/php.ini
+    ## 比较修改前后差异
+    $ diff /etc/php5/fpm/php.ini /etc/php5/fpm/php.ini_bkp 
+    ```
+        521c521
+        < error_reporting = E_ALL
+        ---
+        > error_reporting = E_ALL & ~E_DEPRECATED
+        538c538
+        < display_errors = On
+        ---
+        > display_errors = Off
+        549c549
+        < display_startup_errors = On
+        ---
+        > display_startup_errors = Off
+        593c593
+        < track_errors = On
+        ---
+        > track_errors = Off
+        611c611
+        < html_errors = On
+        ---
+        > html_errors = Off
+        643c643
+        < error_log = /home/liang/prj/log/php_errors.log
+        ---
+        > ;error_log = php_errors.log
+    ```
+    ## 重启 php5-fpm
+    $ sudo /etc/init.d/php5-fpm restart
+    ## 编辑测试程序
+    $ vim error.php
+    ## 查看测试程序
+    $ cat error.php
+    ```
+        <?php error_log("error !!!", 0); ?>
+    ```
+    ## 运行测试程序
+    $ curl http://localhost/error.php
+    $ ls /home/liang/prj/log/php_errors.log
+    ```
+        ls: 无法访问/home/liang/prj/log/php_errors.log: 没有那个文件或目录
+    ```
+    ## strace 跟踪 open 系统调用
+    $ sudo strace -f -e trace=open sudo /etc/init.d/php5-fpm restart &
+    ```
+        [pid 32536] open("/home/liang/prj/www/www_duankou/abc.php", O_RDONLY) = 4
+        [pid 32536] open("/home/liang/prj/log/php_errors.log", O_WRONLY|O_CREAT|O_APPEND, 0644) = -1 EACCES (Permission denied)
+        [pid 32536] open("/dev/urandom", O_RDONLY) = 3
+        [pid 32536] open("/dev/urandom", O_RDONLY) = 3
+        [pid 32536] open("/dev/urandom", O_RDONLY) = 3
+
+    ```
+    ## 找到原因 php_errors.log 文件打开失败
+    $ touch /home/liang/prj/log/php_errors.log
+    $ chmod 666 /home/liang/prj/log/php_errors.log
+    ## 继续测试
+    $ curl http://localhost/error.php
+    ```
+        [pid 32715] open("/home/liang/prj/www/www_duankou/abc.php", O_RDONLY) = 4
+        [pid 32715] open("/home/liang/prj/log/php_errors.log", O_WRONLY|O_CREAT|O_APPEND, 0644) = 4
+        [pid 32715] open("/dev/urandom", O_RDONLY) = 3
+        [pid 32715] open("/dev/urandom", O_RDONLY) = 3
+        [pid 32715] open("/dev/urandom", O_RDONLY) = 3
+    ```
+    ## 查看日志文件
+    $ cat /home/liang/prj/log/php_errors.log
+    ```
+        [20-Apr-2013 11:16:18 UTC] error !!!
+    ```
+
+### REF
+* [How do you restart php-fpm?](http://serverfault.com/questions/189940/how-do-you-restart-php-fpm)
