@@ -136,3 +136,16 @@
 
 ### REF
 * [How do you restart php-fpm?](http://serverfault.com/questions/189940/how-do-you-restart-php-fpm)
+
+---
+## php 调试方法
+### php 变量打印方法
+print_r、var_dump 和 var_export 三个函数都可以打印对象的值、系统函数值以及数组的内容； 
+    
+    1、 echo、print、printf 可以打印变量内容，但不能显示数组及系统超级变量数组； 
+    2、 print_r 和 var_dump 不仅可以打印数组、标量变量，还可以打印对象的内容； 
+    3、 var_dump 语句不仅能打印变量、数组内容，还可以显示布尔变量和资源（Resource）的内容； 
+    4、 var_export 函数返回关于传递给该函数的变量的结构信息，和 var_dump()函数类似，不同的是其返回的内容是合法的PHP代码。
+### REF
+* [php中print_r、var_dump和var_export几个函数的用法区别](http://www.phpzixue.cn/detail1147.shtml)
+
