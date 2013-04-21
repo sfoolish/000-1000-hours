@@ -151,3 +151,21 @@ print_r、var_dump 和 var_export 三个函数都可以打印对象的值、系�
 ### REF
 * [php中print_r、var_dump和var_export几个函数的用法区别](http://www.phpzixue.cn/detail1147.shtml)
 
+---
+## mongo php driver install
+	## 下载源码
+    $ git clone git://github.com/mongodb/mongo-php-driver.git
+    $ cd mongo-php-driver
+    ## checkout tag 1.3.7
+    $ git checkout 1.3.7
+    
+    ## 编译安装
+    $ phpize
+    $ ./configure 
+    $ make -j4
+    $ sudo make install
+    
+    ## php.ini add `extension=mongo.so`
+### REF
+* [mongo-php-driver](https://github.com/mongodb/mongo-php-driver)
+* [MongoDB Native Driver](http://php.net/manual/en/book.mongo.php)
