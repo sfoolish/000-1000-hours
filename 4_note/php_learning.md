@@ -1,3 +1,4 @@
+---
 ## LNMP 安装
     $ sudo apt-get install nginx
     $ sudo apt-get install php5-cli php5-cgi php5-fpm php5-mcrypt php5-mysql
@@ -57,7 +58,9 @@
 * [ubuntu 12.04 安装 Nginx+PHP5 (PHP-FPM) +MySQL主机详解](http://www.myhack58.com/Article/sort099/sort0102/2012/33937_4.htm)
 
 ---
-## php error log 配置
+## php 调试方法
+
+### php error log 配置
     ## 修改配置文件
     ## php.ini 中有 Development 和 Production 的建议值
     $ cp /etc/php5/fpm/php.ini /etc/php5/fpm/php.ini_bkp 
@@ -139,8 +142,6 @@
 * [error_log](http://php.net/manual/en/function.error-log.php)
 * [PHP的错误日志配置](http://www.vfeelit.com/232.html)
 
----
-## php 调试方法
 ### php 变量打印方法
 print_r、var_dump 和 var_export 三个函数都可以打印对象的值、系统函数值以及数组的内容； 
     
@@ -148,8 +149,22 @@ print_r、var_dump 和 var_export 三个函数都可以打印对象的值、系�
     2、 print_r 和 var_dump 不仅可以打印数组、标量变量，还可以打印对象的内容； 
     3、 var_dump 语句不仅能打印变量、数组内容，还可以显示布尔变量和资源（Resource）的内容； 
     4、 var_export 函数返回关于传递给该函数的变量的结构信息，和 var_dump()函数类似，不同的是其返回的内容是合法的PHP代码。
+
 ### REF
 * [php中print_r、var_dump和var_export几个函数的用法区别](http://www.phpzixue.cn/detail1147.shtml)
+
+### var_dump 到 error_log 中
+    $x = "My string";
+    // Dump x
+    ob_start();
+    var_dump($x);
+    $contents = ob_get_contents();
+    ob_end_clean();
+    error_log($contents);
+
+### REF
+* [PHP var_dump into error log](http://www.nolte-schamm.za.net/2011/05/php-var_dump-into-error-log/)
+* [How to Log PHP Errors like a Pro](http://aaronsaray.com/blog/2010/05/25/how-to-log-php-errors-like-a-pro/)
 
 ---
 ## mongo php driver install
@@ -172,6 +187,7 @@ print_r、var_dump 和 var_export 三个函数都可以打印对象的值、系�
     ## php.ini add `extension=mongo.so`
     ## restart fpm
     $ sudo /etc/init.d/php5-fpm restart
+
 ### REF
 * [mongo-php-driver](https://github.com/mongodb/mongo-php-driver)
 * [MongoDB Native Driver](http://php.net/manual/en/book.mongo.php)
@@ -196,19 +212,8 @@ print_r、var_dump 和 var_export 三个函数都可以打印对象的值、系�
     ## edit php.ini add `extension=memcache.so`
     ## restart fpm
     $ sudo /etc/init.d/php5-fpm restart
+
 ### REF
 * [memcached php-memcache 的安装及使用](http://meizhini.iteye.com/blog/185165)
 * [Memcache](http://php.net/manual/zh/book.memcache.php)
 
----
-### 调试技巧 -- 将对象信息写到 error_log 中
-    $x = "My string";
-    // Dump x
-    ob_start();
-    var_dump($x);
-    $contents = ob_get_contents();
-    ob_end_clean();
-    error_log($contents);
-### REF
-* [PHP var_dump into error log](http://www.nolte-schamm.za.net/2011/05/php-var_dump-into-error-log/)
-* [How to Log PHP Errors like a Pro](http://aaronsaray.com/blog/2010/05/25/how-to-log-php-errors-like-a-pro/)
