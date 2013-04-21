@@ -198,3 +198,17 @@ print_r、var_dump 和 var_export 三个函数都可以打印对象的值、系�
     $ sudo /etc/init.d/php5-fpm restart
 ### REF
 * [memcached php-memcache 的安装及使用](http://meizhini.iteye.com/blog/185165)
+* [Memcache](http://php.net/manual/zh/book.memcache.php)
+
+---
+### 调试技巧 -- 将对象信息写到 error_log 中
+    $x = "My string";
+    // Dump x
+    ob_start();
+    var_dump($x);
+    $contents = ob_get_contents();
+    ob_end_clean();
+    error_log($contents);
+### REF
+* [PHP var_dump into error log](http://www.nolte-schamm.za.net/2011/05/php-var_dump-into-error-log/)
+* [How to Log PHP Errors like a Pro](http://aaronsaray.com/blog/2010/05/25/how-to-log-php-errors-like-a-pro/)
