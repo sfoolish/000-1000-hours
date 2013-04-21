@@ -136,6 +136,8 @@
 
 ### REF
 * [How do you restart php-fpm?](http://serverfault.com/questions/189940/how-do-you-restart-php-fpm)
+* [error_log](http://php.net/manual/en/function.error-log.php)
+* [PHP的错误日志配置](http://www.vfeelit.com/232.html)
 
 ---
 ## php 调试方法
