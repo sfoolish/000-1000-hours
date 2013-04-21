@@ -153,7 +153,11 @@ print_r、var_dump 和 var_export 三个函数都可以打印对象的值、系�
 
 ---
 ## mongo php driver install
-	## 下载源码
+    ## 下载安装[mongodb-linux-x86_64](http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.4.2.tgz)
+	## 运行 mongod
+	$ mongod --dbpath=/home/liang/prj/database/mongodb/data
+
+	## 下载 driver 源码
     $ git clone git://github.com/mongodb/mongo-php-driver.git
     $ cd mongo-php-driver
     ## checkout tag 1.3.7
@@ -166,6 +170,31 @@ print_r、var_dump 和 var_export 三个函数都可以打印对象的值、系�
     $ sudo make install
     
     ## php.ini add `extension=mongo.so`
+    ## restart fpm
+    $ sudo /etc/init.d/php5-fpm restart
 ### REF
 * [mongo-php-driver](https://github.com/mongodb/mongo-php-driver)
 * [MongoDB Native Driver](http://php.net/manual/en/book.mongo.php)
+* [用PHP实现MONGODB的基本操作](http://www.bumao.com/index.php/2010/08/php-mongo-isud.html)
+
+---
+## memcached php driver install
+	## 安装 memcached
+	$ sudo apt-get install memcached
+	## 运行 memcached
+	$ memcached -d -m 128 -l 192.168.1.117 -p 11211 -u httpd
+
+	## 下载[memcache-2.2.7.tgz](http://pecl.php.net/get/memcache-2.2.7.tgz)
+	$ wget http://pecl.php.net/get/memcache-2.2.7.tgz
+    $ tar xvf memcache-2.2.7.tgz
+    $ cd memcache-2.2.7
+    $ phpize
+    $ ./configure 
+    $ make -j4
+    $ sudo make install
+
+    ## edit php.ini add `extension=memcache.so`
+    ## restart fpm
+    $ sudo /etc/init.d/php5-fpm restart
+### REF
+* [memcached php-memcache 的安装及使用](http://meizhini.iteye.com/blog/185165)
