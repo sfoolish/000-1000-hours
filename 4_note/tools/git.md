@@ -36,6 +36,7 @@
     $ git config core.paper "less -N"
     $ git config color.diff true
     $ git config alias.co checkout
+    $ git config -l                   # 查看当前树配置和全局配置
 git config alias表示，可以用git co代表git checkout。git var -l可以查看
 已经设置的配置。
 ### diff:
