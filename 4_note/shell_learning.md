@@ -46,6 +46,8 @@
         ---------------
         0 27443
     ```
+
+---
 ##  tar打包指定列表中列出的文件
     $ cat yourlist.lst  
         /etc/fstab  
@@ -57,3 +59,23 @@
 ## REF
 * [玩Linux五年积累的技巧(3) -- 系统（下）](http://blog.csdn.net/gaopenghigh/article/details/8654084)
 
+---
+## shell 命令制作
+    ## 创建 hello 命令文件
+    $ vim cmd_hello
+    ## 简析 hello 命令
+    $ cat cmd_hello
+    ```
+        #!/usr/bin/env bash
+    
+        echo 'hello'
+    ```
+    `#!/usr/bin/env bash` 表示通过 env 寻找 bash 来解释执行后面的脚本。
+    `echo 'hello'` 通过标准输出字符串 hello 。    
+    ## 添加执行权限
+    $ chmod +x cmd_hello
+    ## 运行命令
+    $ ./cmd_hello
+    ```
+        hello
+    ```
