@@ -217,3 +217,10 @@ print_r、var_dump 和 var_export 三个函数都可以打印对象的值、系�
 * [memcached php-memcache 的安装及使用](http://meizhini.iteye.com/blog/185165)
 * [Memcache](http://php.net/manual/zh/book.memcache.php)
 
+### nginx 出现 500 Internal Server Error
+server {
+    root /root/prj/php/abc;
+}
+/root 文件夹 权限问题 ？
+下次用 strace 跟一下 nginx
+500 Internal Server Error
