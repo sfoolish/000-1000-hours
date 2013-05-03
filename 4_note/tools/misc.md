@@ -74,3 +74,12 @@
 
 ## secure CRT 中文编码设置
 options --> appearance --> character encoding --> (utf-8)
+
+---
+## readelf
+readelf displays information about one or more ELF format object files.  The options control what particular information to display.
+    
+    ## 查看执行文件依赖的动态库
+    readelf [-d|--dynamic] <elffile>
+### REF
+* man readelf
