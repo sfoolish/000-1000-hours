@@ -80,3 +80,51 @@ TAP is used to create a network bridge, while TUN is used with routing.
 
 	# set +o noclobber
 因为"/etc/profile"中有下面这么一行：`set -o noclobber`。noclobber 这个选项，告诉bash在重定向的时候，不要覆盖已有文件。在设定了noclobber之后,如何强制覆盖现有文件 `echo hello >| abc`。
+## REF
+* [domU-x86_64-FS.img](https://cloudxy.googlecode.com/files/domU-x86_64-FS.img2.zip)
+
+---
+## domU-x86_64-FS.img 修改
+### lkvm 运行异常打印修改
+使用默认的 domU-x86_64-FS.img ，系统启动后，会一直有如下打印：
+
+    ```
+        can't open /dev/hvc0: No such file or directory
+    ```
+将文件系统做如下修改：
+    
+    ## 挂载文件系统
+    $ mkdir sf
+    $ sudo mount -o loop domU-x86_64-FS.img sf/
+    ## 查找配置文件
+    $ cd sf/etc/
+    $ sudo grep -rn hvc ./
+    ```
+        ./inittab:30:hvc0::respawn:/sbin/getty 38400 hvc0
+        ./securetty:20:hvc0
+    ```
+    ## 修改配置文件
+    $ sudo vim inittab +30
+    ```
+        #hvc0::respawn:/sbin/getty 38400 hvc0     # sfoolish command out
+    ```
+    ## 卸载文件系统
+    $ sudo umount sf
+    $ rm -rf sf
+### 默认挂载 nfs 文件系统
+    ## 编辑 domU-x86_64-FS.img 配置脚本
+    vim /etc/profile.d/sf_config.sh
+    ```
+        ifconfig eth0 192.168.33.2 netmask 255.255.255.0
+        ## 判读 /mnt/tools 是否为空，避免重复挂载
+        if [[ "`ls -A /mnt/tools`" = "" ]]; then
+            mount -t nfs -o nolock 192.168.33.1:/home/liang/prj/kvm/tools /mnt/tools
+        fi
+        export PATH=$PATH:/mnt/tools/bin
+    ```
+用户登入的时候会自动执行 `/etc/profile` 脚本，`/etc/profile` 最后有如下语句
+
+    ```
+        for i in /etc/profile.d/*.sh; do
+            [[ -f $i ]] && . $i  
+    ```
