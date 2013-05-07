@@ -128,3 +128,6 @@ TAP is used to create a network bridge, while TUN is used with routing.
         for i in /etc/profile.d/*.sh; do
             [[ -f $i ]] && . $i  
     ```
+
+---
+## [KVM虚拟化原理与实践（连载）](http://smilejay.com/kvm_theory_practice/)

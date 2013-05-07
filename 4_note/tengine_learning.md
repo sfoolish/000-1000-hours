@@ -99,3 +99,6 @@
             at src/os/unix/ngx_process_cycle.c:269
         #31 0x08054ac9 in main (argc=1, argv=0xbf851694) at src/core/nginx.c:431
     ```
+---
+## [agentzh 的 Nginx 教程（版本 2013.03.15）](http://openresty.org/download/agentzh-nginx-tutorials-zhcn.html)
+**TODO** 抽空好好看看
