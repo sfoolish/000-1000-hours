@@ -98,6 +98,43 @@
 * anonuid=xxx             指定NFS服务器/etc/passwd文件中匿名用户的UID
 * anongid=xxx             指定NFS服务器/etc/passwd文件中匿名用户的GID
 
+---
+## telnetd 服务安装
+    ## 安装相应的软件
+    $ sudo apt-get install xinetd
+    $ sudo apt-get install telnetd
+
+    ## 对该服务进行简单的配置
+    $ sudo vim /etc/xinet.d/telnet
+    $ sudo cat /etc/xinet.d/telnet
+    ```
+        service telnet
+        {
+            flags = REUSE
+            socket_type = stream
+            wait = no
+            user = root
+            server = /usr/sbin/in.telnetd
+            log_on_failure += USERID
+            disable = no
+        }
+    ```
+
+    ## 对服务进行重启
+    $ sudo /etc/init.d/xinetd restart
+    
+    ## 本地测试
+    $ telnet localhost 
+    ```
+        Trying 127.0.0.1...
+        Connected to localhost.
+        Escape character is '^]'.
+        Ubuntu 12.04.1 LTS
+        sfoolish login: 
+    ```
+### REF
+* [ubuntu下简单体验telnet服务器](http://blog.chinaunix.net/uid-27033491-id-3381919.html)
+
 ### FAQ
 #### MAC OS 下 nfs 挂载 
     $ sudo mount_nfs -P 172.9.21.102:/home/sfoolish/share tmp  # "-P" to force the use of a reserved port number
