@@ -79,3 +79,28 @@ git config alias表示，可以用git co代表git checkout。git var -l可以查
     $ git branch new_branch           # 创建新的分支。
     $ git branch -d branch            # 删除分支。
     $ git checkout branch             # 切换当前分支。-f参数可以覆盖未提交内容。
+
+---
+## Git + 代理服务器
+如果是 git clone http:// 或 git clone https:// 的话直接把代理服务器加到环境变量就可以了：
+
+    $ export http_proxy="http://sfoolish:sfoolish@172.9.21.108:3128/"
+    $ export https_proxy="http://sfoolish:sfoolish@172.9.21.108:3128/"
+
+如果是 git clone git:// 的话麻烦一些（可能有的 git 源不提供 http/https 的方式），需要先安装 socat，然后创建一个叫做 gitproxy 的脚本并填上合适的服务器地址、端口号等，最后配置 git 使用 gitproxy 脚本：
+
+    $ sudo apt-get install socat
+    $ sudo vim /usr/bin/gitproxy
+    $ cat /usr/bin/gitproxy
+    ```
+        #!/bin/bash
+        
+        PROXY=172.9.21.108
+        PROXYPORT=3128
+        PROXYAUTH=sfoolish:sfoolish
+        exec socat STDIO PROXY:$PROXY:$1:$2,proxyport=$PROXYPORT,proxyauth=$PROXYAUTH
+    ```
+    $ sudo chmod +x /usr/bin/gitproxy
+    $ git config --global core.gitproxy gitproxy
+### REF
+* [如何让 Git 使用 HTTP 代理服务器](http://www.vpsee.com/2011/07/how-to-use-git-through-a-http-proxy/)
