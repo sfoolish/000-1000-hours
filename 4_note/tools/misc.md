@@ -116,6 +116,42 @@
 大致浏览了下，没仔细看，感觉是不错条理清晰。(来源 google `mac squid proxy`)
 
 ---
+## mac hfs/hfs+ 文件系统默认不区分大小写
+### 现象描述
+    $ git clone https://github.com/sfoolish/linux_3.2.0-39.62_ubuntu12.04.git 
+    $ cd linux_3.2.0-39.62_ubuntu12.04/
+    $ git diff --name-only
+    ```
+        drivers/net/ethernet/intel/e1000e/netdev.c
+        include/linux/netfilter/xt_CONNMARK.h
+        include/linux/netfilter/xt_DSCP.h
+        include/linux/netfilter/xt_MARK.h
+        include/linux/netfilter/xt_RATEEST.h
+        include/linux/netfilter/xt_TCPMSS.h
+        include/linux/netfilter_ipv4/ipt_ECN.h
+        include/linux/netfilter_ipv4/ipt_TTL.h
+        include/linux/netfilter_ipv6/ip6t_HL.h
+        net/ipv4/netfilter/ipt_ECN.c
+        net/netfilter/xt_DSCP.c
+        net/netfilter/xt_HL.c
+        net/netfilter/xt_RATEEST.c
+        net/netfilter/xt_TCPMSS.c
+    ```
+### REF && 原因解释
+#### [How can I discard modified files?](http://stackoverflow.com/questions/8273823/how-can-i-discard-modified-files)
+这个链接描述的现象跟我遇到的一模一样，下面是正确的解释。
+
+` this problem was caused, for me, by a non-case-sensitive filesystem (e.g. on Mac OS). You can either create a case-sensitive disk image and mount it and do your git work on there, or use a different OS to do your development.`
+
+将 `linux_3.2.0-39.62_ubuntu12.04/` 拷贝到 ubuntu 下，然后运行 `git reset --hard HEAD` 就恢复正常了。
+#### [Mac OS X/HFS+ case-insensitive? Why?](http://davidwinter.me/articles/2008/05/17/mac-os-xhfs-case-insensitive-why/)
+It's case-insensitive for historical reasons (Mac OS < OS X was case insensitive, but case-preserving), and some apps that started on the classic Mac OS are still not fully compatible. The Disk Utility in Leopard (and Tiger?) can create a case-insensitive version of HFS+, and the capability has existed since Panther.
+
+I have all my boot volumes set up as case-insensitive. You should test your important apps first, though. FileMaker Pro, for example, works except for the networking component, so I am not able to open network databases. Fortunately, my need for FMP is temporary.
+
+Keep in mind you can create a disk image that is case-sensitive, and mount it somewhere convenient. For example, create a case-sensitive spare image called ~/Projects.sparseimage, then mount it at ~/Projects. This is what FileVault does, for example.
+
+---
 ## man 使用技巧
     * 查看指定文件 man <man file path>
     * h       获取帮助文档
