@@ -50,6 +50,7 @@ git config alias表示，可以用git co代表git checkout。git var -l可以查
     $ git diff tag1 tag2 file or
     $ git diff tag1:file tag2:file    # 比较一个文件在两个tag之间的不同。
     $ git diff --stat                 # 用于生成统计信息。
+    $ git diff --name-only            # 列出所有修改过的文件名
 ### log:
     $ git log file                    # 查看一个文件的改动。
     $ git log -p                      # 查看日志和改动。
