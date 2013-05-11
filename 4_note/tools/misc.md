@@ -112,6 +112,8 @@
         2013/05/11 19:27:24 kid1| WARNING: basicauthenticator #1 exited
         2013/05/11 19:27:24 kid1| Too few basicauthenticator processes are running (need 1/5)
     ```
+### [How To: Install and configure Squid on Mac OS X](http://maxpowerindustries.com/2009/09/27/how-to-install-and-configure-squid-on-mac-os-x/)
+大致浏览了下，没仔细看，感觉是不错条理清晰。(来源 google `mac squid proxy`)
 
 ---
 ## man 使用技巧
