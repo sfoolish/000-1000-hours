@@ -102,3 +102,10 @@
 ---
 ## [agentzh 的 Nginx 教程（版本 2013.03.15）](http://openresty.org/download/agentzh-nginx-tutorials-zhcn.html)
 **TODO** 抽空好好看看
+
+---
+## nginx 代理服务器配置
+http 正向代理之前配置过， https 代理没有配置过，下面两个链接感觉不错，留作参考备份。
+### REF
+* [Nginx反向代理https站点的配置笔记](http://idaemon.net/post-697.html)
+* [nginx: Setup SSL Reverse Proxy (Load Balanced SSL Proxy)](http://www.cyberciti.biz/faq/howto-linux-unix-setup-nginx-ssl-proxy/)
