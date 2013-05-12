@@ -166,6 +166,9 @@ print_r、var_dump 和 var_export 三个函数都可以打印对象的值、系�
 * [PHP var_dump into error log](http://www.nolte-schamm.za.net/2011/05/php-var_dump-into-error-log/)
 * [How to Log PHP Errors like a Pro](http://aaronsaray.com/blog/2010/05/25/how-to-log-php-errors-like-a-pro/)
 
+### [Print PHP Call Stack](http://stackoverflow.com/questions/1423157/print-php-call-stack)
+[TODO] 抽空看看
+
 ---
 ## mongo php driver install
     ## 下载安装[mongodb-linux-x86_64](http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.4.2.tgz)
@@ -224,3 +227,5 @@ server {
 /root 文件夹 权限问题 ？
 下次用 strace 跟一下 nginx
 500 Internal Server Error
+
+---
