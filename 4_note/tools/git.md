@@ -104,3 +104,8 @@ git config alias表示，可以用git co代表git checkout。git var -l可以查
     $ git config --global core.gitproxy gitproxy
 ### REF
 * [如何让 Git 使用 HTTP 代理服务器](http://www.vpsee.com/2011/07/how-to-use-git-through-a-http-proxy/)
+
+---
+## [Git显示漂亮日志的小技巧](http://coolshell.cn/articles/7755.html)
+    $ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
+    $ git config --global alias.lgp "log -p --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
