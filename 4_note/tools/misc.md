@@ -193,3 +193,8 @@ readelf displays information about one or more ELF format object files.  The opt
     readelf [-d|--dynamic] <elffile>
 ### REF
 * man readelf
+
+---
+## shell 功能命令
+### 代码行数查看
+    $ find ./ -name "*.c"  | xargs wc -l | sort -n
