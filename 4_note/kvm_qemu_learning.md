@@ -128,6 +128,39 @@ TAP is used to create a network bridge, while TUN is used with routing.
         for i in /etc/profile.d/*.sh; do
             [[ -f $i ]] && . $i  
     ```
+### domU-32bit-FS.img ssh 登陆异常处理
+    ## 运行 lkvm
+    $ sudo ./lkvm  run -d domU-32bit-FS.img --network virtio
+    ## 设置虚拟机ip
+    # ifconfig eth0 192.168.33.2 netmask 255.255.255.0
+    ## 主机登陆虚拟机异常
+    $ ssh root@192.168.33.2
+    ```
+        root@192.168.33.2's password: 
+        PTY allocation request failed on channel 0
+        shell request failed on channel 0
+    ```
+
+    ## 方法一：
+    ## ssh 登陆后开启交互式 bash
+    $ ssh root@192.168.33.2 "/bin/bash -i"
+    ```
+        root@192.168.33.2's password: 
+        bash-3.2# pwd
+        /root
+        bash-3.2# 
+    ```
+    ## 方法二：
+    ## 虚拟机设置 /dev/pts
+    # mkdir /dev/pts 
+    # mount -t devpts devpts /dev/pts
+    $ ssh root@192.168.33.2
+    ```
+        root@192.168.33.2's password: 
+        % 
+    ```
+#### REF
+* [PTY allocation request failed on channel 0 ](http://ejkill.blog.163.com/blog/static/10774945200911135149719/)
 
 ---
 ## [KVM虚拟化原理与实践（连载）](http://smilejay.com/kvm_theory_practice/)
