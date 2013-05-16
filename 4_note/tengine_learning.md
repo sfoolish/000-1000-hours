@@ -109,3 +109,29 @@ http 正向代理之前配置过， https 代理没有配置过，下面两个�
 ### REF
 * [Nginx反向代理https站点的配置笔记](http://idaemon.net/post-697.html)
 * [nginx: Setup SSL Reverse Proxy (Load Balanced SSL Proxy)](http://www.cyberciti.biz/faq/howto-linux-unix-setup-nginx-ssl-proxy/)
+
+---
+## sublime text + ctags + grep 阅读代码
+### grep 使用技巧
+grep 正则增加字母过滤，看实例：
+
+    # grep -rn 'ngx_channel' ./
+    ```
+        ./os/unix/ngx_process_cycle.c:11:#include <ngx_channel.h>
+        ./os/unix/ngx_process_cycle.c:21:static void ngx_pass_open_channel(ngx_cycle_t *cycle, ngx_channel_t *ch);
+        ./os/unix/ngx_process_cycle.c:28:static void ngx_channel_handler(ngx_event_t *ev);
+        ./os/unix/ngx_process_cycle.c:384:    ngx_channel_t  ch;
+        ./os/unix/ngx_process_cycle.c:409:    ngx_channel_t    ch;
+        ./os/unix/ngx_process_cycle.c:459:ngx_pass_open_channel(ngx_cycle_t *cycle, ngx_channel_t *ch)
+        ...
+    ```
+    # grep -rn 'ngx_channel[^_.]' ./
+    ```
+        ./os/unix/ngx_process_cycle.c:1068:    if (ngx_add_channel_event(cycle, ngx_channel, NGX_READ_EVENT,
+        ./os/unix/ngx_process.h:90:extern ngx_socket_t   ngx_channel;
+        ./os/unix/ngx_process.c:25:ngx_socket_t     ngx_channel;
+        ./os/unix/ngx_process.c:167:        ngx_channel = ngx_processes[s].channel[1];
+        ./proc/ngx_proc.c:611:    if (ngx_add_channel_event(cycle, ngx_channel, NGX_READ_EVENT,
+    ```
+### REF
+* [sublime text + ctags](https://github.com/sfoolish/000-1000-hours/blob/master/4_note/0_1000_hours.md#2012-09-25-700-----800)
