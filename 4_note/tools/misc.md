@@ -218,3 +218,18 @@ readelf displays information about one or more ELF format object files.  The opt
     $ dos2unix ./test.sh
 ## 解决方法3：tr 命令
     $ cat filename1 | tr -d "\r" > newfile 去掉^M生成一个新文件
+
+---
+## sed 命令使用
+    $ sed -e '/regexp/d' /path/to/my/test/file | more
+    $ sed -n -e '/regexp/p' /path/to/my/test/file | more
+    $ sed -n -e '/BEGIN/,/END/p' /my/test/file | more
+### 常用正则表达式
+    /./         将与包含至少一个字符的任何行匹配
+    /../        将与包含至少两个字符的任何行匹配
+    /^#/        将与以 '#' 开始的任何行匹配
+    /^$/        将与所有空行匹配
+    /}^/        将与以 '}'（无空格）结束的任何行匹配
+    /} *^/      将与以 '}' 后面跟有 零或多个空格结束的任何行匹配
+    /[abc]/     将与包含小写 'a'、'b' 或 'c' 的任何行匹配
+    /^[abc]/    将与以 'a'、'b' 或 'c' 开始的任何行匹配 
