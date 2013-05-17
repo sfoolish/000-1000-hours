@@ -299,3 +299,7 @@ startx 后，注销系统就重新进入控制台模式。
     $ git push -u origin master
 ### REF
 * [ubuntu 编译源码包 dsc diff.gz orig.tar.gz](http://hi.baidu.com/avr_tutorial/item/624a6899b404da81591461da)
+
+---
+## Ubuntu 关闭防火墙命令
+    $ sudo ufw disable
