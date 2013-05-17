@@ -143,6 +143,37 @@
     ```
         sfoolish:x:1000:1000:sfoolish,,,:/home/sfoolish:/bin/bash
     ```
+---
+## Ubuntu samba配置
+    $ sudo apt-get install samba
+    $ sudo apt-get install smbfs
+    $ sudo apt-get install smbclient
+    $ sudo smbpasswd -a sfoolish
+    
+    $ sudo vim /etc/samba/smb.conf
+    $ sudo cat /etc/samba/smb.conf
+    ```
+        #########################################
+        ##sfoolish share
+        #   security = share
+        #[My_PRJ]
+        #   comment = share my prj
+        #   path = /home/sfoolish/Desktop/My_Prj
+        #   read only = no
+        #   guest ok = yes
+        ############################################
+           security = user
+        [My_Prj]
+           comment = share my project
+           path = /home/sfoolish/Desktop/My_Prj
+           read only = no
+           valid users = sfoolish
+        ############################################
+    ```
+    $ sudo service smbd restart
+    $ sudo service nmbd restart
+### REF
+[Ubuntu的samba设置](http://wenku.baidu.com/view/2dc8b03a376baf1ffc4fad02.htm)
 
 ---
 ## 常用工具安装
