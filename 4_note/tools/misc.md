@@ -198,3 +198,23 @@ readelf displays information about one or more ELF format object files.  The opt
 ## shell 功能命令
 ### 代码行数查看
     $ find ./ -name "*.c"  | xargs wc -l | sort -n
+
+---
+## windows linux 回车换行处理方式不同问题
+脚本运行时，出现如下错误
+    
+    ```
+        /bin/sh^M: bad interpreter 
+    ```
+原因是.sh脚本在 Windows 系统下用记事本文件编写的。不同系统的编码格式引起的。
+### 解决方法1：通过vi编辑器：
+    vi test.sh
+    查看文件格式
+    :set ff 或 :set fileformat
+    修改文件格式
+    :set ff=unix 或 :set fileformat=unix
+    :wq
+## 解决方法2：通unix2dos  / dos2unix命令
+    $ dos2unix ./test.sh
+## 解决方法3：tr 命令
+    $ cat filename1 | tr -d "\r" > newfile 去掉^M生成一个新文件
