@@ -310,3 +310,7 @@ readelf displays information about one or more ELF format object files.  The opt
         -rwxr-xr-x 1 root root   3407 2008-04-07 16:14 sshd.init
         -rw-r--r-- 1 root root    285 2008-04-07 16:14 sshd.pam
     ```
+
+---
+## svn 最近更新版本号获取命令
+    svn info | grep 'Last Changed Rev' | awk '{print $4}'
