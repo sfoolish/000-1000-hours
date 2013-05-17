@@ -233,3 +233,80 @@ readelf displays information about one or more ELF format object files.  The opt
     /} *^/      将与以 '}' 后面跟有 零或多个空格结束的任何行匹配
     /[abc]/     将与包含小写 'a'、'b' 或 'c' 的任何行匹配
     /^[abc]/    将与以 'a'、'b' 或 'c' 开始的任何行匹配 
+
+---
+## rpm 命令使用
+### 命令选项说明 
+    rpm   --rebuild   name.src.rpm   "install "
+    rpm   -ivh   name.rpm   "install "
+    rpm   -Uvh   name.rpm   "update "
+    rpm   -e   name   "uninstall "
+    rpm   -qpl   name.rpm   "列出包内的文件的安装路径，用于未安装的包 "
+    rpm   -qpi   name.rpm   "列出包内的信息，用于未安装的包 "
+### 实例演示
+    [root@localhost rpm]# rpm -pql openssh-5.0p1-1.fc9.src.rpm
+    ```
+        warning: openssh-5.0p1-1.fc9.src.rpm: Header V3 DSA signature: NOKEY, key ID 4f2a6fd2
+        openssh-3.8.1p1-krb5-config.patch
+        openssh-3.8.1p1-skip-initial.patch
+        openssh-3.9p1-askpass-keep-above.patch
+        openssh-4.0p1-exit-deadlock.patch
+        openssh-4.2p1-askpass-progress.patch
+        openssh-4.3p1-fromto-remote.patch
+        openssh-4.3p2-allow-ip-opts.patch
+        openssh-4.3p2-askpass-grab-info.patch
+        openssh-4.3p2-cve-2007-3102.patch
+        openssh-4.3p2-gssapi-canohost.patch
+        openssh-4.3p2-no-v6only.patch
+        openssh-4.5p1-controlcleanup.patch
+        openssh-4.7p1-audit.patch
+        openssh-4.7p1-cloexec.patch
+        openssh-4.7p1-gssapi-role.patch
+        openssh-4.7p1-log-in-chroot.patch
+        openssh-4.7p1-master-race.patch
+        openssh-4.7p1-mls.patch
+        openssh-4.7p1-nss-keys.patch
+        openssh-4.7p1-redhat.patch
+        openssh-4.7p1-selinux.patch
+        openssh-4.7p1-vendor.patch
+        openssh-5.0p1-noacss.tar.bz2
+        openssh-nukeacss.sh
+        openssh.spec
+        sshd.init
+        sshd.pam
+    ```
+    [root@localhost rpm]# rpm -ivh openssh-5.0p1-1.fc9.src.rpm
+    ```
+        warning: openssh-5.0p1-1.fc9.src.rpm: Header V3 DSA signature: NOKEY, key ID 4f2a6fd2
+           1:openssh                warning: user mockbuild does not exist - using root
+        ########################################### [100%]
+        
+        [root@localhost rpm]# ls /usr/src/redhat/SOURCES/ -l
+        total 992
+        -rw-r--r-- 1 root root    578 2004-09-09 05:47 openssh-3.8.1p1-krb5-config.patch
+        -rw-r--r-- 1 root root   1183 2004-09-09 05:47 openssh-3.8.1p1-skip-initial.patch
+        -rw-r--r-- 1 root root    413 2005-02-08 09:44 openssh-3.9p1-askpass-keep-above.patch
+        -rw-r--r-- 1 root root    472 2005-07-27 07:42 openssh-4.0p1-exit-deadlock.patch
+        -rw-r--r-- 1 root root   2470 2005-12-20 09:44 openssh-4.2p1-askpass-progress.patch
+        -rw-r--r-- 1 root root    432 2006-04-14 04:26 openssh-4.3p1-fromto-remote.patch
+        -rw-r--r-- 1 root root   1964 2006-08-23 17:06 openssh-4.3p2-allow-ip-opts.patch
+        -rw-r--r-- 1 root root    947 2006-07-17 10:09 openssh-4.3p2-askpass-grab-info.patch
+        -rw-r--r-- 1 root root   1636 2007-09-06 15:49 openssh-4.3p2-cve-2007-3102.patch
+        -rw-r--r-- 1 root root   1126 2006-11-30 05:50 openssh-4.3p2-gssapi-canohost.patch
+        -rw-r--r-- 1 root root    446 2006-08-08 07:58 openssh-4.3p2-no-v6only.patch
+        -rw-r--r-- 1 root root    476 2008-04-07 16:14 openssh-4.5p1-controlcleanup.patch
+        -rw-r--r-- 1 root root   5592 2007-09-06 15:49 openssh-4.7p1-audit.patch
+        -rw-r--r-- 1 root root    734 2008-02-29 11:11 openssh-4.7p1-cloexec.patch
+        -rw-r--r-- 1 root root    920 2008-01-03 12:45 openssh-4.7p1-gssapi-role.patch
+        -rw-r--r-- 1 root root   1807 2007-09-06 15:49 openssh-4.7p1-log-in-chroot.patch
+        -rw-r--r-- 1 root root   2529 2008-04-07 16:14 openssh-4.7p1-master-race.patch
+        -rw-r--r-- 1 root root  12810 2008-04-07 16:14 openssh-4.7p1-mls.patch
+        -rw-r--r-- 1 root root  38478 2007-11-20 09:53 openssh-4.7p1-nss-keys.patch
+        -rw-r--r-- 1 root root   3784 2007-09-06 15:49 openssh-4.7p1-redhat.patch
+        -rw-r--r-- 1 root root   8612 2007-09-06 15:49 openssh-4.7p1-selinux.patch
+        -rw-r--r-- 1 root root   6345 2007-09-06 15:49 openssh-4.7p1-vendor.patch
+        -rw-r--r-- 1 root root 843610 2008-04-07 15:52 openssh-5.0p1-noacss.tar.bz2
+        -rwxr-xr-x 1 root root    540 2005-09-06 15:55 openssh-nukeacss.sh
+        -rwxr-xr-x 1 root root   3407 2008-04-07 16:14 sshd.init
+        -rw-r--r-- 1 root root    285 2008-04-07 16:14 sshd.pam
+    ```
