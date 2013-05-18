@@ -79,3 +79,25 @@
     ```
         hello
     ```
+
+---
+## sed 命令使用
+    $ sed -e '/regexp/d' /path/to/my/test/file | more
+    $ sed -n -e '/regexp/p' /path/to/my/test/file | more
+    $ sed -n -e '/BEGIN/,/END/p' /my/test/file | more
+### 常用正则表达式
+    /./         将与包含至少一个字符的任何行匹配
+    /../        将与包含至少两个字符的任何行匹配
+    /^#/        将与以 '#' 开始的任何行匹配
+    /^$/        将与所有空行匹配
+    /}^/        将与以 '}'（无空格）结束的任何行匹配
+    /} *^/      将与以 '}' 后面跟有 零或多个空格结束的任何行匹配
+    /[abc]/     将与包含小写 'a'、'b' 或 'c' 的任何行匹配
+    /^[abc]/    将与以 'a'、'b' 或 'c' 开始的任何行匹配 
+
+---
+## shell 功能命令
+### 代码行数查看
+    $ find ./ -name "*.c"  | xargs wc -l | sort -n
+    ## 搜索 *.c, *.h, *.cc 三类文件
+    $ find . \( -name "*.h" -o -name "*.c" -o -name "*.cc" \) -print | xargs wc -l 
