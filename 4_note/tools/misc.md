@@ -294,3 +294,17 @@ readelf displays information about one or more ELF format object files.  The opt
 ---
 ## svn 最近更新版本号获取命令
     svn info | grep 'Last Changed Rev' | awk '{print $4}'
+---
+## Windows 使用记录
+### win7 wireshark 使用
+在 win7 下 wireshark 使用，默认需要手动启用 NPF 服务：
+    
+    1. 按下windows徽标键->键盘输入cmd(此时注意按下徽标键后窗口下的搜索栏内会输入你键入的cmd)，搜到cmd,->同时按下ctrl+shift+enter—>接下来的就是弹出的是否以管理员运行，一切OK了
+    2. net start npf
+### windows 保护色设置：
+“色调”（Hue）设为85，“饱和度”（Sat）设为90，“亮度” （Lum）设为205
+
+---
+## 杭州 DNS 服务器 IP 地址
+202.101.172.35
+202.101.172.47
