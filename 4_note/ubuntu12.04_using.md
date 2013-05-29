@@ -303,3 +303,5 @@ startx 后，注销系统就重新进入控制台模式。
 ---
 ## Ubuntu 关闭防火墙命令
     $ sudo ufw disable
+## Ubuntu 64 支持 32 bit 程序
+    $ sudo apt-get install ia32-libs

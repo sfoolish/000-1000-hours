@@ -101,3 +101,35 @@
     $ find ./ -name "*.c"  | xargs wc -l | sort -n
     ## 搜索 *.c, *.h, *.cc 三类文件
     $ find . \( -name "*.h" -o -name "*.c" -o -name "*.cc" \) -print | xargs wc -l 
+
+---
+## for / while loop
+    $ cat ./for_test.sh
+    ```
+        #!/bin/sh
+        
+        ### for
+        for file in $(ls $1) ; do
+            ls -l $1$file
+            echo "file name: $file"
+        done
+        
+        ### while
+        k=0
+        end=5
+        while [ $k -lt $end ]
+        do
+            printf "%d \n" $k
+            k=$(expr $k + 1)
+        done
+    ```
+    $ ./for_test.sh ./
+    ```
+        -rwxr-xr-x@ 1 apple  staff  180  5 29 20:58 ./for_test.sh
+        file name: for_test.sh
+        0 
+        1 
+        2 
+        3 
+        4 
+    ```
