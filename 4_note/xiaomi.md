@@ -65,6 +65,52 @@
 * [小米手机刷机工具下载及教程](http://www.xiaomi.cn/content-19-12884-1.html)
 
 ---
+### 运行原生 C 程序
+#### 编辑，编译，下载 hello 测试程序
+    ϟSF-Hacking: ~
+    $ vim hello.c 
+    
+    ϟSF-Hacking: ~
+    $ cat hello.c    
+    # include <stdio.h>
+    
+    int main(int argc, char *argv[])
+    {
+            printf("hello xiaomi!\n");
+    
+            return 0;
+    }
+    
+    ϟSF-Hacking: ~
+    $ arm-none-linux-gnueabi-gcc hello.c -o hello -static
+    
+    ϟSF-Hacking: ~
+    $ adb push hello /dev/                               
+    4324 KB/s (2770056 bytes in 0.625s)
+    
+    ϟSF-Hacking: ~
+#### 测试 hello 程序
+    ϟSF-Hacking: ~
+    $ adb shell
+    shell@android:/ $ su
+    shell@android:/ #
+    shell@android:/ # /dev/hello
+    ```
+        hello xiaomi! 
+    ```
+#### 杂项
+##### 为什么 将文件放在 /dev 下 
+/dev 文件夹，挂载的是基于内存的文件系统 tmpfs ，将测试程序放在这个目录，手机重启后不影响任何使用。
+
+    shell@android:/ # mount
+    ```
+    ...
+        tmpfs /dev tmpfs rw,nosuid,relatime,mode=755 0 0
+    ```
+##### 为什么静态编译
+程序运行时，不用依赖任何动态库。 android 用的是google自家的 C 库。
+
+---
 ## 2013-05-29
 拿到机子，充电。。。
 ## 2013-05-28
