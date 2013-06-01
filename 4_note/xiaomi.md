@@ -47,6 +47,24 @@
 * [苹果Macbook上adb无法识别米2的解决办法](http://blog.tisa7.com/tech/solve_the_problem_of_debug_mi2_in_mac_os.html)
 
 ---
+### 刷机进行时
+默认稳定版不能 root ，刷个最新的开发板 miui_MiTwo_3.5.31_fastboot_4.1_2us2nblsbo.exe 。
+系统备份
+
+进入fastboot模式
+
+　　米2：将手机关机后，按住“电源键+音量减”进入fastboot模式，并连接数据线（如果要退出fastboot模式，按住电源键10秒左右即可退出）;
+
+　　米1：将手机关机后，按住“电源键+音量减+米键”进入fastboot模式，并连接数据线
+
+#### REF
+* [【小米刷机流程全攻略】新手必读](http://www.xiaomi.cn/content-19-10673-1.html)
+* [小米手机刷机工具MiFlash](http://www.xiaomi.cn/content-55-2559-1.html)
+* [小米手机1/1S/2/2s/2a 各版 线刷包 资源下载](http://bbs.xiaomi.cn/thread-7084703-1-1.html)
+* [刷机常用知识](http://bbs.xiaomi.cn/thread-4313759-1-1.html)
+* [小米手机刷机工具下载及教程](http://www.xiaomi.cn/content-19-12884-1.html)
+
+---
 ## 2013-05-29
 拿到机子，充电。。。
 ## 2013-05-28
