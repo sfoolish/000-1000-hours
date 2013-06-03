@@ -1,6 +1,15 @@
 ---
 # 小米，为发烧而生
 ---
+## 2013-06-04
+* [github android app](https://github.com/github/android)
+* [GitHub Android App](https://play.google.com/store/apps/details?id=com.github.mobile)
+
+* [Android-Terminal-Emulator](https://github.com/jackpal/Android-Terminal-Emulator)
+* [Android Terminal Emulator play](https://play.google.com/store/apps/details?id=jackpal.androidterm)
+* [超级终端4.04(Better Terminal Emulator) for 安卓Android](http://os-android.liqucn.com/rj/14211.shtml)
+
+* [[GUIDE] Set up ADB and Fastboot on a Mac easily (With Screenshots!)](http://forum.xda-developers.com/showthread.php?t=1917237)
 
 ## 2013-06-01
 小米手机正式开玩。
