@@ -18,3 +18,77 @@ Windows 下 color scheme 安装方法，就是将 tmTheme 文件放到 `C:\Docum
 	"line_padding_top": 2,
 	"line_padding_bottom":2
 [Sublime Text 2 设置文件详解](http://www.lupaworld.com/article-219857-1.html)
+
+---
+## 2012-05-13
+
+### MarkDown 语法测试
+
+#### 引用
+>kjlkjk
+>kljkjj
+>lkjkjlj
+
+#### 链接
+[sfoolish](http://sfoolish.github.com)
+
+#### 高亮
+*abc* _abc_
+**ABC** __ABC__
+
+#### 列表
+* abc
+* bcd
+* efg
+    * sub
+*kkk
+
+#### 标题
+# head1
+## head2
+
+#### 代码
+Hello World Printf func `printf("hello world\n");`
+    
+    ls
+    pwd
+
+#### 分割行
+****
+---
+* * *
+- - -
+
+#### 表格生成
+Property Name | Value Type | Values
+- | - | -
+background-attachment | String | scroll, fixed
+background-clip | String | border-box, padding-box, content-box
+
+### REF
+* [Markdown wikipedia](http://en.wikipedia.org/wiki/Markdown)
+
+---
+## 2012-05-13
+
+### sublime 快捷键
+* Access the Command Palette:    `Shift + Command + P`
+* Lightning-Fast File Switching: `Control or Command + P`
+* Functions:                     `Control/Command + r`
+* Go to Line Number:             `Control + g` and then `:LINE_NUMBER`
+
+#### Multi-Selection:
+* Press Alt or Command and then click in each region where you require a cursor.
+* Select a block of lines, and then press `Shift + Command + L`.
+* Place the cursor over a particular word, and press `Control/Command + D` repeatedly to select additional occurrences of that word.
+* Alternatively, add an additional cursor at all occurrences of a word by typing Alt+F3 on Windows, or Ctrl+Command+G on the Mac. Amazing!! 
+
+### theme markdown高亮配置
+我用的sublime test theme是Solarized (Light).tmTheme，默认配置对Markdown支持不是很好.于是，照着[修改Sublime 新建和保存文件时的默认格式](http://imwuyu.me/blog/sublime-assign-default-file-type-and-ext.html/)中的配置修改了一下，效果不错。
+
+theme 配置文件路径：`~/Library/Application Support/Sublime Text 2/Packages/Color Scheme - Default/Solarized (Light).tmTheme`
+
+### REF
+* [Sublime Package Control](http://wbond.net/sublime_packages/package_control/installation)
+* [Sublime Text 2 Tips and Tricks](http://net.tutsplus.com/tutorials/tools-and-tips/sublime-text-2-tips-and-tricks/comment-page-3/#comments)
+* [sublime-text-2相关快捷键](http://www.cnblogs.com/rollenholt/archive/2012/07/30/2616089.html)
