@@ -31,32 +31,39 @@ nova 现在只能在linux下运行，而且需要安装 libvirt 并且能够至�
 
 ### 单元测试安装
     $ vim run_tests.sh  # 导出ARCHFLAGS环境变量
->>  export NOSE_OPENSTACK_STDOUT=1
->> +export ARCHFLAGS='-arch i386 -arch x86_64'
->>   
->>  for arg in "$@"; do
+    ```
+		 export NOSE_OPENSTACK_STDOUT=1
+		+export ARCHFLAGS='-arch i386 -arch x86_64'
+		  
+		 for arg in "$@"; do
+	```
     $ sudo runtest_tests.sh
->> Running setup.py install for pycrypto
->> configure: error: cannot find sources (src/pycrypto_compat.h) in /Users/apple/APP_PRJ/2_node/node or ..
->> Traceback (most recent call last):
+	```
+		Running setup.py install for pycrypto
+		configure: error: cannot find sources (src/pycrypto_compat.h) in /Users/apple/APP_PRJ/2_node/node or ..
+		Traceback (most recent call last):
+	```
     $ sudo ARCHFLAGS="-arch i386 -arch x86_64" python tools/install_venv.py
         # 在运行上面这条命令的时候，等./venv/build/pycrypto出来后，运行下面几条命令
         $ cd .venv/build/pycrypto
         $ sudo chmod 777 configure
         $ sudo ./configure
->> Nova development environment setup is complete.
+		```
+			Nova development environment setup is complete.
+		```
     $ sudo ./run_tests.sh 
->> 
->> Slowest 5 tests took 14.53 secs:
->>     4.37    CloudTestCase.test_instance_initiated_shutdown_behavior
->>     3.19    ServersTest.test_create_multiple_servers
->>     2.62    ServersTest.test_deferred_delete
->>     2.39    ServersTest.test_create_and_rebuild_server
->>     1.96    CloudTestCase.test_stop_with_attached_volume
->> ----------------------------------------------------------------------
->> Ran 2986 tests in 346.856s
->> 
->> FAILED (SKIP=6, failures=1)
+    ```
+        Slowest 5 tests took 14.53 secs:
+            4.37    CloudTestCase.test_instance_initiated_shutdown_behavior
+            3.19    ServersTest.test_create_multiple_servers
+            2.62    ServersTest.test_deferred_delete
+            2.39    ServersTest.test_create_and_rebuild_server
+            1.96    CloudTestCase.test_stop_with_attached_volume
+        ----------------------------------------------------------------------
+        Ran 2986 tests in 346.856s
+        
+        FAILED (SKIP=6, failures=1)
+    ```
 
 ## REF:
 * [Setting Up a Development Environment](http://docs.openstack.org/developer/nova/devref/development.environment.html#mac-os-x-systems)
