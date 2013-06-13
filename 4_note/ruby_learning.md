@@ -96,3 +96,16 @@ rdiscount 最新版本 rdiscount-2.0.7.2，在 ubuntu12.04 x64 下会安装失�
         #print str if str.match("mice    mouse0")
         print str if str.match("mice")
     end
+
+---
+## [Ruby社区应该去Rails化了](http://robbinfan.com/blog/40/ruby-off-rails)
+### 移动时代，Web服务将取代Web网站
+随着最近几年智能手机的迅速普及，如今来自智能手机和移动设备的总体Web访问和服务请求量已经超过了传统的PC，这意味着Web时代主流的Browser/Server的架构重新回到了Mobile Client/Server的架构。在B/S架构下，在服务器端生成完整的HTML页面，我们需要开发一个完整的Website；但在移动时代，服务器端的功能大大简化了，退化成了Web API调用接口提供者，而复杂的界面构造、交互和运算都是在移动客户端完成的。
+
+Web服务器端并发常见的三种应用场景：
+
+    Website：传统Web网站
+    Web Service：Web服务端提供API调用接口
+    real-time：Web实时推送
+
+Rails适合开发Website，但不太适合Web Service，而移动时代的发展趋势就是：未来服务器端会更多的使用Web Service而不是Website，这也意味着Rails将越来越不适合时代的发展
