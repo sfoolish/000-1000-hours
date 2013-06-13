@@ -304,6 +304,11 @@ readelf displays information about one or more ELF format object files.  The opt
 ### windows 保护色设置：
 “色调”（Hue）设为85，“饱和度”（Sat）设为90，“亮度” （Lum）设为205
 
+### Foxmail 使用异常处理
+Foxmail 无法创建文件，cannot create file,查看邮件空白，不能回复邮件
+
+点“开始”-运行，输入CMD，确定，进入DOS，然后输入del C:\Documents and Settings\Administrator\Local Settings\Temporary Internet Files\*.* 命令清除Temporary Internet Files文件夹内所有文件即可使邮件恢复正常
+
 ---
 ## 杭州 DNS 服务器 IP 地址
 202.101.172.35
