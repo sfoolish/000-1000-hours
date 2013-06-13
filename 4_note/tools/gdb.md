@@ -14,3 +14,8 @@
     (gdb) set logging on
 ### 部分技巧
 * TAB 有命令补全，函数名补全功能
+
+### 内存信息打印
+    (gdb) x/200 0x1f48f00
+### 结构体打印
+    (gdb) p *__gal_screen->format
