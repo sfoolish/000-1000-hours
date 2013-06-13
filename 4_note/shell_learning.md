@@ -133,3 +133,7 @@
         3 
         4 
     ```
+
+---
+## awk 打印文件内容
+    awk "{print } " /proc/meminfo 
