@@ -305,7 +305,10 @@ readelf displays information about one or more ELF format object files.  The opt
 “色调”（Hue）设为85，“饱和度”（Sat）设为90，“亮度” （Lum）设为205
 
 ### Windows 窗口最小化快捷键
-Alt+空格 --> N（是最小化） 
+    Alt + 空格 --> N（是最小化） 
+
+### 关闭不必要的服务
+    System --> Administration --> Server Settings --> Services
 
 ### Foxmail 使用异常处理
 Foxmail 无法创建文件，cannot create file,查看邮件空白，不能回复邮件
