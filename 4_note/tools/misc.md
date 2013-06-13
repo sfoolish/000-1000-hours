@@ -322,3 +322,14 @@ Foxmail 无法创建文件，cannot create file,查看邮件空白，不能回�
 ## 杭州 DNS 服务器 IP 地址
 202.101.172.35
 202.101.172.47
+
+---
+## fedora 虚拟机优化
+### xwindow 配置
+    * 关闭 xwindow 
+        init 3
+    * 打开 xwindow
+        init 5
+    * 启动默认进入终端
+        vi /etc/inittab
+        `id:3:initdefault:`
