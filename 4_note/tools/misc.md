@@ -309,6 +309,9 @@ Foxmail 无法创建文件，cannot create file,查看邮件空白，不能回�
 
 点“开始”-运行，输入CMD，确定，进入DOS，然后输入del C:\Documents and Settings\Administrator\Local Settings\Temporary Internet Files\*.* 命令清除Temporary Internet Files文件夹内所有文件即可使邮件恢复正常
 
+### windows xp hosts 文件路径
+    C:\WINDOWS\system32\drivers\etc\hosts
+
 ---
 ## 杭州 DNS 服务器 IP 地址
 202.101.172.35
