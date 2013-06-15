@@ -3,3 +3,4 @@
 ## [Common Lisp Net](http://common-lisp.net/)
 ## [Common Lisp WIKI](http://en.wikipedia.org/wiki/Common_Lisp)
 ## [Lisp (programming language)](https://en.wikipedia.org/wiki/Lisp_(programming_language))
+## [Practical Common Lisp](http://www.gigamonkeys.com/book/)
