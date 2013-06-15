@@ -21,3 +21,14 @@
 
 #### REF
 * [clojure quick start](http://clojure.org/getting_started)
+
+---
+### 初识 clojure
+* [github clojure](https://github.com/clojure)
+* [clojure documentation](http://clojure.org/documentation)
+* [Clojure - Functional Programming for the JVM](http://java.ociweb.com/mark/clojure/article.html)
+* [wikipedia Clojure](http://en.wikipedia.org/wiki/Clojure)
+* [现实世界的LISP：Clojure语言初探](http://www.csdn.net/article/2013-04-17/2814930)
+* [[数据图] 2012 Clojure很忙！](http://www.csdn.net/article/2012-08-07/2808276)
+* [Clojure中文社区](http://blog.clojure.cn/)
+* [Clojure 编程语言 - IBM developerworks](http://www.ibm.com/developerworks/cn/opensource/os-eclipse-clojure/)
