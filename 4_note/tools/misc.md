@@ -28,6 +28,11 @@
     * cmd + alt + i                     开发者工具
 #### 常用插件
     * change colors
+        颜色配置：
+            Background color:       516154
+            Text color:             1DF00E
+            Links color:            CFDB2E
+            Visited links color:    FF7B17
     * foxy proxy
 
 ---
