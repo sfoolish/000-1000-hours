@@ -305,3 +305,7 @@ startx 后，注销系统就重新进入控制台模式。
     $ sudo ufw disable
 ## Ubuntu 64 支持 32 bit 程序
     $ sudo apt-get install ia32-libs
+## 系统启动时自动挂载硬盘配置
+假设硬盘接的为 /dev/sda3 要挂载的路径为 /mnt 文件系统类型为 ext4 ，则在 /etc/fstab 文件最后增加一行：
+    
+    /dev/sda3 /mnt ext4 defaults, 0 1     
