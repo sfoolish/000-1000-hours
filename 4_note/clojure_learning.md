@@ -41,3 +41,36 @@
 * [Storm入门教程 -- 量子恒道](http://blog.linezing.com/category/storm-quick-start)
 * [xumingming blog storm category](http://xumingming.sinaapp.com/category/storm/)
 * [storm -- 大圆那些事 淘宝](http://www.cnblogs.com/panfeng412/tag/Storm/)
+
+---
+### clojure 源码编译测试 ###
+    # uname -a
+    ```
+        Linux AY1302250940505971892 3.2.0-39-generic #62 SMP Thu Mar 7 10:18:55 CST 2013 x86_64 x86_64 x86_64 GNU/Linux
+    ```
+    # git clone git://github.com/clojure/clojure.git
+    # mv clojure clojure_github
+    # cd clojure_github
+    # apt-get install ant
+    # apt-get install maven2
+    # apt-get install openjdk-6-jdk
+    # mvn package
+    ```
+        [INFO] ------------------------------------------------------------------------
+        [INFO] BUILD SUCCESSFUL
+        [INFO] ------------------------------------------------------------------------
+        [INFO] Total time: 5 minutes 32 seconds
+        [INFO] Finished at: Thu Jun 20 22:50:14 CST 2013
+        [INFO] Final Memory: 40M/95M
+        [INFO] ------------------------------------------------------------------------
+    ```
+    # java -cp target/clojure-1.6.0-master-SNAPSHOT.jar  clojure.main
+    ```
+        Clojure 1.6.0-master-SNAPSHOT
+        user=> (println "Hello world!")
+        Hello world!
+        nil
+        user=> 
+    ```
+#### REF ####
+* [clojure readme](https://github.com/clojure/clojure/blob/master/readme.txt)
