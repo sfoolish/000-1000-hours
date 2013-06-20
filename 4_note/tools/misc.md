@@ -29,7 +29,7 @@
 #### 常用插件
     * change colors
         颜色配置：
-            Background color:       516154
+            Background color:       516154 / night    6D8271 / day
             Text color:             1DF00E
             Links color:            CFDB2E
             Visited links color:    FF7B17

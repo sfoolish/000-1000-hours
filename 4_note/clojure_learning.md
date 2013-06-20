@@ -1,5 +1,5 @@
 ---
-### ubuntu 12.04 下 clojure 初体验
+### ubuntu 12.04 下 clojure 初体验 ###
     ## 安装 jre
     $ apt-get install default-jre
     $ mkdir clojure
@@ -19,11 +19,11 @@
     ```
  MAC OS X 下自带 jre ，因此只需下载 clojure 。
 
-#### REF
+#### REF ####
 * [clojure quick start](http://clojure.org/getting_started)
 
 ---
-### 初识 clojure
+### 初识 clojure ###
 * [github clojure](https://github.com/clojure)
 * [clojure documentation](http://clojure.org/documentation)
 * [Clojure - Functional Programming for the JVM](http://java.ociweb.com/mark/clojure/article.html)
@@ -34,3 +34,10 @@
 * [现实世界的LISP：Clojure语言初探](http://www.csdn.net/article/2013-04-17/2814930)
 * [[数据图] 2012 Clojure很忙！](http://www.csdn.net/article/2012-08-07/2808276)
 * [Clojure 编程语言 - IBM developerworks](http://www.ibm.com/developerworks/cn/opensource/os-eclipse-clojure/)
+
+---
+### 初识 strom ###
+* [storm github wiki](https://github.com/nathanmarz/storm/wiki)
+* [Storm入门教程 -- 量子恒道](http://blog.linezing.com/category/storm-quick-start)
+* [xumingming blog storm category](http://xumingming.sinaapp.com/category/storm/)
+* [storm -- 大圆那些事 淘宝](http://www.cnblogs.com/panfeng412/tag/Storm/)
