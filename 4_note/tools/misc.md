@@ -180,6 +180,24 @@ Keep in mind you can create a disk image that is case-sensitive, and mount it so
 * [building linux kernel on mac osx](http://stackoverflow.com/questions/10018764/building-linux-kernel-on-mac-os-x)
 * [uboot git](http://git.denx.de/?p=u-boot.git;a=summary)
 
+### 用户管理
+    $ sudo useradd apple
+    $ sudo passwd apple
+    
+    $ sudo mkdir /home/apple
+    $ sudo chown apple:apple /home/apple
+    
+    $ su - apple
+
+### ssh免输入密码登录
+    mac : $ ssh-keygen -t rsa -C sfoolish@172.9.21.101
+    mac : $ scp ~/.ssh/id_rsa.pub sfoolish@172.9.21.101:~/workspace
+    mac : $ ssh sfoolish@172.9.21.101
+
+    linux : $ cat ~/workspace/id_rsa.pub >> ~/.ssh/authorized_keys
+#### REF
+* [ssh免输入密码登录](http://www.colorfuldays.org/linux/ssh_login_without_password/)
+
 ---
 ## man 使用技巧
     * 查看指定文件 man <man file path>
