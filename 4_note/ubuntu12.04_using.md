@@ -187,6 +187,9 @@
     $ sudo apt-get install sysstat
     $ sudo apt-get install apache2-utils
     $ sudo apt-get install curl
+    $ sudo apt-get install gdb fakeroot wget bzip2 
+    $ sudo apt-get install libelf-dev binutils-dev kernel-wedge makedumpfile kexec-tools crash
+
 ---
 ## ubuntu root用户
 首先设置root密码，利用现有管理员帐户登陆Ubuntu，在终端执行命令：`sudo passwd root`，接着输入密码和root密码，重复密码。这样就有了可用的root用户。当然不建议切换到 root 下直接运行命令。
@@ -299,6 +302,7 @@ startx 后，注销系统就重新进入控制台模式。
     $ git push -u origin master
 ### REF
 * [ubuntu 编译源码包 dsc diff.gz orig.tar.gz](http://hi.baidu.com/avr_tutorial/item/624a6899b404da81591461da)
+* [自己编译Ubuntu内核](http://it.tomcat-lily.com/index.php/2011/01/%E8%87%AA%E5%B7%B1%E7%BC%96%E8%AF%91ubuntu%E5%86%85%E6%A0%B8/)
 
 ---
 ## Ubuntu 关闭防火墙命令
@@ -309,3 +313,4 @@ startx 后，注销系统就重新进入控制台模式。
 假设硬盘接的为 /dev/sda3 要挂载的路径为 /mnt 文件系统类型为 ext4 ，则在 /etc/fstab 文件最后增加一行：
     
     /dev/sda3 /mnt ext4 defaults, 0 1     
+## [ubuntu 12.04 内核 git 地址](git://kernel.ubuntu.com/apw/ubuntu-precise.git)
