@@ -157,6 +157,48 @@ I have all my boot volumes set up as case-insensitive. You should test your impo
 Keep in mind you can create a disk image that is case-sensitive, and mount it somewhere convenient. For example, create a case-sensitive spare image called ~/Projects.sparseimage, then mount it at ~/Projects. This is what FileVault does, for example.
 
 ---
+### MAC OS 10.6 交叉编译环境构建
+* 下载安装 [MAC OSX ARM 交叉工具链](http://www.carlson-minot.com/available-arm-gnu-linux-g-lite-builds-for-mac-os-x/mac-os-x-arm-gnu-linux-g-lite-201109-70-toolchain)
+
+* 安装部分 MAC 不存在的头文件
+    #!/bin/sh
+
+    CROSS_INCLUDE_PATH="/usr/local/carlson-minot/crosscompilers/arm-none-linux-gnueabi/libc-2011.09-70-sysroot/usr/include/"
+    SYS_INCLUDE_PATH="/usr/include/"
+    
+    FILES="elf.h features.h bits/predefs.h bits/wordsize.h gnu/stubs.h gnu/stubs-64.h"
+
+    for file in $FILES ;
+    do
+        diff $CROSS_INCLUDE_PATH$file $SYS_INCLUDE_PATH$file
+    done
+* 制作安装 mkimage 命令
+    $ cd uboot_src
+    $ make tools
+    $ sudo cp tools/mkimage /usr/bin
+#### REF
+* [building linux kernel on mac osx](http://stackoverflow.com/questions/10018764/building-linux-kernel-on-mac-os-x)
+* [uboot git](http://git.denx.de/?p=u-boot.git;a=summary)
+
+### 用户管理
+    $ sudo useradd apple
+    $ sudo passwd apple
+    
+    $ sudo mkdir /home/apple
+    $ sudo chown apple:apple /home/apple
+    
+    $ su - apple
+
+### ssh免输入密码登录
+    mac : $ ssh-keygen -t rsa -C sfoolish@172.9.21.101
+    mac : $ scp ~/.ssh/id_rsa.pub sfoolish@172.9.21.101:~/workspace
+    mac : $ ssh sfoolish@172.9.21.101
+
+    linux : $ cat ~/workspace/id_rsa.pub >> ~/.ssh/authorized_keys
+#### REF
+* [ssh免输入密码登录](http://www.colorfuldays.org/linux/ssh_login_without_password/)
+
+---
 ## man 使用技巧
     * 查看指定文件 man <man file path>
     * h       获取帮助文档
