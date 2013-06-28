@@ -166,6 +166,7 @@ Keep in mind you can create a disk image that is case-sensitive, and mount it so
     * ?       向上搜索
     * f       向下翻页
     * b       向上翻页
+if name contains a slash (/)  then man  interprets  it  as  a  file  specification,  so that you can do man ./foo.5 or even man /cd/foo/bar.1.gz.
 
 ## 统计多个CPU利用率
 输入 top 进入交互模式，然后输入 1
@@ -183,9 +184,16 @@ Keep in mind you can create a disk image that is case-sensitive, and mount it so
     * Ctrl + w   清除光标之前一个单词
     * Ctrl + k   清除光标到行尾的字符
     * Ctrl + u   擦除一行光标前面的部分。
+    * Ctrl + p   同方向键Up，显示上一个命令
+    * Ctrl + n   同方向键Down，显示下一条命令
+    * Ctrl + b   同方向键Left
+    * Ctrl + f   同方向键Right
+    * Ctrl + z   将当前命令移至后台执行，fg可招回
     * Cmd  + K   清屏
     * Cmd  + t   新建标签
     * Cmd  + {}  x向左/向右切换标签
+    * Tab        自动补全文件名或者目录名，按下两次会列出多个选项
+    * !!         重复上一个命令符
 
 ## secure CRT 中文编码设置
 options --> appearance --> character encoding --> (utf-8)
