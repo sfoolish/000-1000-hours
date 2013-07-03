@@ -17,3 +17,10 @@ npm 会根据 package.json 安装依赖包到本地。
 ### REF
 * [Introduction to npm](http://howtonode.org/introduction-to-npm)
 
+---
+## [node-inspector](https://github.com/dannycoates/node-inspector)
+### REF
+* [使用node-inspector来调试node](http://blog.goddyzhao.me/post/11522397416/how-to-debug-node-with-node-inspector)
+* [如何开始使用nodejs调试debug利器node-inspector](http://liuxiaoming.com/dev/2012/06/20/how-to-debug-nodejs-code-with-node-inspector/)
+* [Chrome DevTools -- Using the Console](https://developers.google.com/chrome-developer-tools/docs/console)
+* [Chrome DevTools -- Debugging JavaScript](https://developers.google.com/chrome-developer-tools/docs/javascript-debugging)
