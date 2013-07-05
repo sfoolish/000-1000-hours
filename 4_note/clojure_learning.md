@@ -34,6 +34,7 @@
 * [现实世界的LISP：Clojure语言初探](http://www.csdn.net/article/2013-04-17/2814930)
 * [[数据图] 2012 Clojure很忙！](http://www.csdn.net/article/2012-08-07/2808276)
 * [Clojure 编程语言 - IBM developerworks](http://www.ibm.com/developerworks/cn/opensource/os-eclipse-clojure/)
+* [Clojure_huangz](http://www.huangz.me/en/latest/language/clojure/index.html)
 
 ---
 ### 初识 strom ###
