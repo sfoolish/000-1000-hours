@@ -388,3 +388,14 @@ Foxmail 无法创建文件，cannot create file,查看邮件空白，不能回�
     * 启动默认进入终端
         vi /etc/inittab
         `id:3:initdefault:`
+
+---
+## 文档的编写方法
+### [编写《Redis 设计与实现》时用到的工具](http://www.huangz.me/en/latest/diary/2013/tools-for-writing-redisbook.html)
+非常不错的文档编写经验终结，用到的工具有：Sphinx, git/github/bitbucke, Graphviz, ReadTheDocs 。
+### [怎么样写出更好、也更简短的源码分析书](http://www.huangz.me/en/latest/diary/2013/how-to-write-a-better-and-shorter-code-analysis-book.html)
+* 关注程序本身的抽象和设计，而不是源码细节；
+* 分离书本和源码，让它们各司其职；
+* 文章中应该避免出现大量代码，更不要大量粘贴源码；
+* 不要假设读者的水平，不要写（太多）文字，举例子；
+* 仔细分割章节，减低读者的负担，帮助他们保持自己的注意力；
