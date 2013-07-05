@@ -18,6 +18,13 @@
     sudo shutdown -h +20  #shutdown 20 mins later
 ### 输入法切换
     command＋空格键
+### 微调音量
+缺省情况下，使用音量调节按钮，每次都是一次增加或者减少一格音量。如果我们先按下Shift键和Option键，然后再按音量调整键，则把一格音量分成了4份，每次增加或者减少1/4格音量，非常方便。
+
+### 屏幕截图
+最简单的对整个屏幕截图的快捷键是Shift+Command+3，默认会把快照照片保存到桌面，格式为png. Shift+Command+4则允许你对特定的区域进行截图。
+
+如果是想把截图放在剪贴板里而不是保存到桌面上，那就分别使用Shift+Control+Command+3和Shift+Control+Command+4
 
 ### chrome 使用
 #### 快捷键

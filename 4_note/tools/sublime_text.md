@@ -43,3 +43,4 @@ theme 配置文件路径：`~/Library/Application Support/Sublime Text 2/Package
 * [Sublime Package Control](http://wbond.net/sublime_packages/package_control/installation)
 * [Sublime Text 2 Tips and Tricks](http://net.tutsplus.com/tutorials/tools-and-tips/sublime-text-2-tips-and-tricks/comment-page-3/#comments)
 * [sublime-text-2相关快捷键](http://www.cnblogs.com/rollenholt/archive/2012/07/30/2616089.html)
+* [TmTheme Editor](http://tmtheme-editor.herokuapp.com/#/Solarized%20(dark))
