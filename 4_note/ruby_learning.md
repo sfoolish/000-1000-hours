@@ -109,3 +109,38 @@ Web服务器端并发常见的三种应用场景：
     real-time：Web实时推送
 
 Rails适合开发Website，但不太适合Web Service，而移动时代的发展趋势就是：未来服务器端会更多的使用Web Service而不是Website，这也意味着Rails将越来越不适合时代的发展
+
+---
+## ruby
+[安装 Ruby, Rails 运行环境](http://ruby-china.org/wiki/install_ruby_guide)
+### install rvm
+$ curl -L get.rvm.io | bash -s stable
+$ source ~/.bashrc 
+
+$ sudo gem update
+$ sudo gem install rails bundler
+
+$ rails -v
+> Rails 3.2.3
+$ bundle -v
+> Bundler version 1.1.3
+bundler可以理解为用来管理 gems 之间依赖关系的工具。Gemfile文件就是bundler的配置文件。
+
+[Getting Started with Rails]
+(http://guides.rubyonrails.org/getting_started.html)
+$ rails new blog
+$ rake db:create
+> rake aborted!
+> uninitialized constant Rake::DSL
+
+blog/Gemfile add
+    gem 'rake', '0.8.7'
+
+$ bundle update rake
+$ bundle show rake
+> /Library/Ruby/Gems/1.8/gems/rake-0.8.7
+$ rake db:create
+
+* 版本兼容性问题太难折腾了，暂时直接吧rake-0.9.2的版本删除；
+`gem uninstall rake -v=0.9.2`  然后从头到尾重新做了一遍；
+做法有点低效，是照着文档一步一步做下来的，通篇大致看一遍再做更合理一些；

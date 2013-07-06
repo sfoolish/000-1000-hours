@@ -32,7 +32,14 @@
 * [Simple example of a Tornado app in production](https://github.com/bdarnell/tornado-production-skeleton)
 * [Tornado + Supervisor 在生产环境下的部署方法](https://idndx.com/2011/10/18/ways-to-deploy-tornado-under-production-environment-using-supervisor/)
 * [有没有什么很好的 Tornado 的教材或者开源项目可以做参考的？](http://www.zhihu.com/question/19707966/answer/12731684)
-有几个不错的项目链接
+* [Tornado：基于Python的非阻塞式实时Web服务器](http://breakaway.me/tornado.html)
+    一个用Python写的相对简单的、可扩展、非阻塞的Web服务器架构，以处理上万的同时的连接口，让实时的Web服务通畅起来。跟现在一些用Python写的Web架构相似，比如Django，但更注重速度，能够处理海量的同时发生的流量。
+*[tornado](http://www.tornadoweb.org/)
+[tornado cn](http://www.tornadoweb.cn/)
+    Tornado is an open source version of the scalable, non-blocking web server and tools that power FriendFeed.
+* [douban Tornado](http://www.douban.com/group/tornadoweb/)
+* [FriendFeed](http://zh.wikipedia.org/zh-cn/FriendFeed)
+    2009年8月10日，官方博客宣布其接受Facebook收购请求，正式成为Facebook的一部分。
 
 ---
 ## MAC OSX genvent install

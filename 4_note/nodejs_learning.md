@@ -30,3 +30,9 @@ npm 会根据 package.json 安装依赖包到本地。
 ### REF
 * [mocha](http://visionmedia.github.io/mocha/)
 * [mocha github source code](https://github.com/visionmedia/mocha)
+
+---
+## 跨域请求
+* [JSONP](http://en.wikipedia.org/wiki/JSONP)
+* [通过iframe实现跨域通信](http://blog.leezhong.com/tech/2011/01/25/iframe-crossdomain.html)
+* [iframe跨域通信的通用解决方案--腾讯](http://www.alloyteam.com/2012/08/lightweight-solution-for-an-iframe-cross-domain-communication/)
