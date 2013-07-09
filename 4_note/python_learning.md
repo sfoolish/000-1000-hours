@@ -9,7 +9,8 @@
     $ pip install -r conf/reqs-dev.txt
 
 ### REF
-* june/README.rst
+* [june/README.rst](https://github.com/lepture/june/blob/master/README.rst)
+* [distribute pip-virtualenv install issue](https://bitbucket.org/tarek/distribute/issue/91/install-glitch-when-using-pip-virtualenv)
 
 ---
 ## 代码规范
