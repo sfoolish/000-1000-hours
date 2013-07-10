@@ -1,4 +1,8 @@
 ---
+## node 参考资源
+* [Node.js Manual & Documentation](http://nodejs.org/api/all.html)
+
+---
 ## node 源码安装
     $ cd /<path>
     $ wget http://nodejs.org/dist/v0.10.3/node-v0.10.3.tar.gz
