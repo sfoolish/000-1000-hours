@@ -1,6 +1,10 @@
 ---
 ## node 参考资源
 * [Node.js Manual & Documentation](http://nodejs.org/api/all.html)
+* [JavaScript 参考手册](http://www.w3school.com.cn/js/js_reference.asp)
+### Node Modules
+* [momentjs](http://momentjs.com) Parse, validate, manipulate, and display dates in javascript. 
+* [Commander.js](http://visionmedia.github.io/commander.js/) is a light-weight, expressive, and powerful command-line framework for nodejs
 
 ---
 ## node 源码安装
