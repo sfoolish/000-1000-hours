@@ -161,6 +161,7 @@ TAP is used to create a network bridge, while TUN is used with routing.
     ```
 #### REF
 * [PTY allocation request failed on channel 0 ](http://ejkill.blog.163.com/blog/static/10774945200911135149719/)
+* [domU-32bit-FS.img.tgz](https://cloudxy.googlecode.com/files/domU-32bit-FS.img.tgz)
 
 ---
 ## [KVM虚拟化原理与实践（连载）](http://smilejay.com/kvm_theory_practice/)
