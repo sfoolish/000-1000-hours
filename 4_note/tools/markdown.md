@@ -8,6 +8,9 @@
 
 #### 链接
 [sfoolish](http://sfoolish.github.com)
+[约定优于配置（convention over configuration）][1]
+
+[1]:http://zh.wikipedia.org/wiki/%E7%BA%A6%E5%AE%9A%E4%BC%98%E4%BA%8E%E9%85%8D%E7%BD%AE
 
 #### 高亮
 *abc* _abc_
