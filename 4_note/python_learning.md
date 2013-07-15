@@ -44,6 +44,9 @@
     ```
 ### REF
 * [uwsgi+Nginx+web.py的搭建](http://www.yucoat.com/linux_opensource/uwsgi_nginx_web-py.html)
+* [uWSGI](http://flask.pocoo.org/docs/deploying/uwsgi/)
+* [Quickstart for python/WSGI applications](http://uwsgi-docs.readthedocs.org/en/latest/WSGIquickstart.html)
+* [用uWSGI替代fastcgi部署django应用](http://ichuan.net/post/6/using-uwsgi-instead-of-fastcgi-for-django-app/)
 
 ---
 ## june test
