@@ -1,4 +1,51 @@
 ---
+## uwsgi + nginx/tengine + web.py
+### uwsgi python 安装
+    $ apt-get install uwsgi-plugin-python
+### [nginx/tengine 安装][ref]
+    * [tengine ubuntu12.04 编译运行]:https://github.com/sfoolish/000-1000-hours/blob/master/4_note/tengine_learning.md#tengine-ubuntu1204-
+    * 配置文件修改
+        $ diff nginx.conf nginx.conf.default 
+        ```
+            44,45c44,45
+            <             include uwsgi_params;
+            <             uwsgi_pass 127.0.0.1:8080;
+            ---
+            >             root   html;
+            >             index  index.html index.htm;
+        ```
+    * 运行 nginx
+### 编写运行测试程序
+    $ vim myweb.py
+    $ cat myweb.py
+    ```
+        #!/usr/bin/env python
+        
+        import os, web, sys
+        
+        sys.path.append(os.path.dirname(__file__))
+        
+        urls=(
+            r'/', 'Home'
+            )
+        
+        class Home(object):
+            def GET(self):
+                return 'hello world!'
+        
+        app = web.application(urls, globals())
+        application = app.wsgifunc()
+    ```
+    ## -H|--venv <path>  set python home/virtualenv
+    $ uwsgi_python -H /root/prj/python/wiki_0.3/wiki_virt/ -s 127.0.0.1:8080 myweb.py 
+    $ curl 127.0.0.1:8000
+    ```
+        hello world!
+    ```
+### REF
+* [uwsgi+Nginx+web.py的搭建](http://www.yucoat.com/linux_opensource/uwsgi_nginx_web-py.html)
+
+---
 ## june test
 
     $ git clone git://github.com/lepture/june.git
