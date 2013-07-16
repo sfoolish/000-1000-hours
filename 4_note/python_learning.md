@@ -1,4 +1,91 @@
 ---
+## run [onlinestore-multi](https://github.com/nopri/onlinestore-multi)
+### clone onlinestore-multi source code
+    $ git clone https://github.com/nopri/onlinestore-multi.git
+### mysql config
+    $ mysql -u root -p
+    ```
+        Enter password: 
+    ```
+    mysql> create database onlinestore;
+    ```
+        Query OK, 1 row affected (0.03 sec)
+    ```
+    mysql> grant all privileges on onlinestore.* to onlinestore@localhost identified by 'onlinestore';
+    ```
+        Query OK, 0 rows affected (0.15 sec)
+    ```
+    mysql> flush privileges;
+    ```
+        Query OK, 0 rows affected (0.03 sec)
+    ```
+    mysql> quit;
+    ```
+        Bye
+    ```
+    $ mysql -D onlinestore -u onlinestore  -p < ./onlinestore-multi/db.sql
+    ```
+        Enter password:
+    ```
+### nginx add static file config
+    $ cp -a onlinestore-multi/static html/
+  
+    +         location /static/ {
+    +             root html;
+    +             if (-f $request_filename) {
+    +                 rewrite ^/static/(.*)$ /static/$1 break;
+    +             }
+    +         }
+    +
+              location / {
+                  include uwsgi_params;
+                  uwsgi_pass 127.0.0.1:8080;
+              }
+### run wsgi app
+    $ cd onlinestore-multi/
+    $ cp config.ini.dist config.ini
+    $ vim config.ini
+    $ diff config.ini config.ini.dist 
+    ```
+        6c6
+        < pass = onlinestore
+        ---
+        > pass = 
+    ```
+    $ pip install pyyaml
+    $ pip install PIL
+    $ git diff -b
+    ```
+        diff --git a/app.py b/app.py
+        index f14aebb..72f9f0f 100644
+        --- a/app.py
+        +++ b/app.py
+        @@ -160,7 +160,7 @@ wapp = web.application(URLS, globals())
+         
+         def cget(section, option, default='', strip=True):
+             c = ConfigParser.ConfigParser()
+        -    c.read(CURDIR + PS + CONFIG_FILE_DEFAULT)
+        +    c.read('./config.ini')
+             try:
+                 ret = c.get(section, option)
+             except:
+        @@ -243,7 +243,7 @@ def pget(option, default='', strip=True, callback=None):
+         VERSION = '0.97'
+         NAME = 'onlinestore-multi'
+         PRECISION = 2
+        -TEMPLATE_DIR = CURDIR + PS + 'template'
+        +TEMPLATE_DIR = './template'
+         DOC_ADMIN = CURDIR + PS + 'README.txt'
+         DOMAIN = ''
+         BASEURL_DEFAULT = '/store'
+    ```
+    $ uwsgi_python -H /root/prj/python/wiki_0.3/wiki_virt/ -s 127.0.0.1:8080 app.py
+
+### REF
+* [onlinestore-multi README](https://github.com/nopri/onlinestore-multi/blob/master/README.txt)
+* [uwsgi nginx python](https://github.com/sfoolish/000-1000-hours/blob/master/4_note/python_learning.md#uwsgi--nginxtengine--webpy)
+
+---
 ## uwsgi + nginx/tengine + web.py
 ### uwsgi python 安装
     $ apt-get install uwsgi-plugin-python
