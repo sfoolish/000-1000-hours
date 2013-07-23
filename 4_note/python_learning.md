@@ -1,4 +1,10 @@
 ---
+* [Python: Common Newbie Mistakes, Part 1](http://blog.amir.rachum.com/post/54770419679/python-common-newbie-mistakes-part-1)
+* [Python: Common Newbie Mistakes, Part 2](http://blog.amir.rachum.com/post/55024295793/python-common-newbie-mistakes-part-2)
+* [Python 新手常犯错误（第一部分）](http://blog.jobbole.com/42706/)
+* [What else is there in Python?](http://blog.amir.rachum.com/post/27860231695/what-else-is-there-in-python)
+
+---
 ## run [onlinestore-multi](https://github.com/nopri/onlinestore-multi)
 ### clone onlinestore-multi source code
     $ git clone https://github.com/nopri/onlinestore-multi.git
