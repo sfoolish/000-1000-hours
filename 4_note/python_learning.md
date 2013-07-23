@@ -1,219 +1,4 @@
 ---
-## run [onlinestore-multi](https://github.com/nopri/onlinestore-multi)
-### clone onlinestore-multi source code
-    $ git clone https://github.com/nopri/onlinestore-multi.git
-### mysql config
-    $ mysql -u root -p
-    ```
-        Enter password: 
-    ```
-    mysql> create database onlinestore;
-    ```
-        Query OK, 1 row affected (0.03 sec)
-    ```
-    mysql> grant all privileges on onlinestore.* to onlinestore@localhost identified by 'onlinestore';
-    ```
-        Query OK, 0 rows affected (0.15 sec)
-    ```
-    mysql> flush privileges;
-    ```
-        Query OK, 0 rows affected (0.03 sec)
-    ```
-    mysql> quit;
-    ```
-        Bye
-    ```
-    $ mysql -D onlinestore -u onlinestore  -p < ./onlinestore-multi/db.sql
-    ```
-        Enter password:
-    ```
-### nginx add static file config
-    $ cp -a onlinestore-multi/static html/
-  
-    +         location /static/ {
-    +             root html;
-    +             if (-f $request_filename) {
-    +                 rewrite ^/static/(.*)$ /static/$1 break;
-    +             }
-    +         }
-    +
-              location / {
-                  include uwsgi_params;
-                  uwsgi_pass 127.0.0.1:8080;
-              }
-### run wsgi app
-    $ cd onlinestore-multi/
-    $ cp config.ini.dist config.ini
-    $ vim config.ini
-    $ diff config.ini config.ini.dist 
-    ```
-        6c6
-        < pass = onlinestore
-        ---
-        > pass = 
-    ```
-    $ pip install pyyaml
-    $ pip install PIL
-    $ git diff -b
-    ```
-        diff --git a/app.py b/app.py
-        index f14aebb..72f9f0f 100644
-        --- a/app.py
-        +++ b/app.py
-        @@ -160,7 +160,7 @@ wapp = web.application(URLS, globals())
-         
-         def cget(section, option, default='', strip=True):
-             c = ConfigParser.ConfigParser()
-        -    c.read(CURDIR + PS + CONFIG_FILE_DEFAULT)
-        +    c.read('./config.ini')
-             try:
-                 ret = c.get(section, option)
-             except:
-        @@ -243,7 +243,7 @@ def pget(option, default='', strip=True, callback=None):
-         VERSION = '0.97'
-         NAME = 'onlinestore-multi'
-         PRECISION = 2
-        -TEMPLATE_DIR = CURDIR + PS + 'template'
-        +TEMPLATE_DIR = './template'
-         DOC_ADMIN = CURDIR + PS + 'README.txt'
-         DOMAIN = ''
-         BASEURL_DEFAULT = '/store'
-    ```
-    $ uwsgi_python -H /root/prj/python/wiki_0.3/wiki_virt/ -s 127.0.0.1:8080 app.py
-
-### REF
-* [onlinestore-multi README](https://github.com/nopri/onlinestore-multi/blob/master/README.txt)
-* [uwsgi nginx python](https://github.com/sfoolish/000-1000-hours/blob/master/4_note/python_learning.md#uwsgi--nginxtengine--webpy)
-
----
-## uwsgi + nginx/tengine + web.py
-### uwsgi python 安装
-    $ apt-get install uwsgi-plugin-python
-### [nginx/tengine 安装][ref]
-    * [tengine ubuntu12.04 编译运行]:https://github.com/sfoolish/000-1000-hours/blob/master/4_note/tengine_learning.md#tengine-ubuntu1204-
-    * 配置文件修改
-        $ diff nginx.conf nginx.conf.default 
-        ```
-            44,45c44,45
-            <             include uwsgi_params;
-            <             uwsgi_pass 127.0.0.1:8080;
-            ---
-            >             root   html;
-            >             index  index.html index.htm;
-        ```
-    * 运行 nginx
-### 编写运行测试程序
-    $ vim myweb.py
-    $ cat myweb.py
-    ```
-        #!/usr/bin/env python
-        
-        import os, web, sys
-        
-        sys.path.append(os.path.dirname(__file__))
-        
-        urls=(
-            r'/', 'Home'
-            )
-        
-        class Home(object):
-            def GET(self):
-                return 'hello world!'
-        
-        app = web.application(urls, globals())
-        application = app.wsgifunc()
-    ```
-    ## -H|--venv <path>  set python home/virtualenv
-    $ uwsgi_python -H /root/prj/python/wiki_0.3/wiki_virt/ -s 127.0.0.1:8080 myweb.py 
-    $ curl 127.0.0.1:8000
-    ```
-        hello world!
-    ```
-### REF
-* [uwsgi+Nginx+web.py的搭建](http://www.yucoat.com/linux_opensource/uwsgi_nginx_web-py.html)
-* [uWSGI](http://flask.pocoo.org/docs/deploying/uwsgi/)
-* [Quickstart for python/WSGI applications](http://uwsgi-docs.readthedocs.org/en/latest/WSGIquickstart.html)
-* [用uWSGI替代fastcgi部署django应用](http://ichuan.net/post/6/using-uwsgi-instead-of-fastcgi-for-django-app/)
-
----
-## june test
-
-    $ git clone git://github.com/lepture/june.git
-    $ cd june/
-    $ virtualenv --distribute venv
-    $ source venv/bin/activate
-    $ sudo apt-get install libevent-dev 
-    $ pip install -r conf/reqs-dev.txt
-
-### REF
-* [june/README.rst](https://github.com/lepture/june/blob/master/README.rst)
-* [distribute pip-virtualenv install issue](https://bitbucket.org/tarek/distribute/issue/91/install-glitch-when-using-pip-virtualenv)
-
----
-## MAC OSX genvent install
-遇到如下错误`gevent/libevent.h:9:19: error: event.h: No such file or directory`。
-
-    $ sudo port install libevent
-    $ sudo CFLAGS="-I /opt/local/include -L /opt/local/lib" pip install gevent
-### REF
-[How can I install the Python library 'gevent' on Mac OS X Lion](stackoverflow.com/questions/7630388/how-can-i-install-the-python-library-gevent-on-mac-os-x-lion)
-
----
-## python 性能优化
-### REF
-* [“Python性能优化”讲稿分享](http://blog.csdn.net/lanphaday/article/details/2239445)
-
-## python 谈
-### REF
-* [虚拟座谈会：PyCon嘉宾谈Python](http://www.infoq.com/cn/articles/virtual-panel-pycon)
-
----
-## [How do I start a session in a Python web application?](http://stackoverflow.com/questions/1185406/how-do-i-start-a-session-in-a-python-web-application/1185437#1185437)
-[Wikipedia](http://en.wikipedia.org/wiki/Session_cookie) is always a good place to start. Bottom line: session data gets stored somewhere on the server and indexed by a unique identifier (hash of some sort). This identifier gets passed back and forth between the client and server, usually as a cookie or as part of the query string (the URL). For security's sake, you'll want to use an SSL connection or validate the session ID with some other piece of data (e.g. IP address). By default PHP stores sessions as files, but on a shared server that could pose a security risk, so you might want to override the session engine so you store sessions in a database. Python web frameworks have similar functionality.
-
-[Beaker](http://beaker.groovie.org/) is a library for caching and sessions for use with web applications and stand-alone Python scripts and applications. It comes with WSGI middleware for easy drop-in use with WSGI based web applications, and caching decorators for ease of use with any Python based application.
-
-=======
-
-What is the difference between %r and %s?
-    Use the %r for debugging, since it displays the "raw" data of the variable, but the others are used for displaying to users.
-
-Why does %r sometimes print things with single-quotes when I wrote them with double-quotes.
-    Python is going to print the strings in the most efficient way it can, not replicate exactly the way you wrote them. This perfectly fine since %r is used for debugging and inspection, so it's not necessary that it be pretty.
-
-What's the difference between input() and raw_input()?
-    The input() function will try to convert things you enter as if they were Python code, but it has security problems so you should avoid it.
-
-When my strings print out there's a u in front of them, as in u'35'.
-    That's how Python tells you that the string is unicode. Use a %s format instead and you'll see it printed like normal.
-
-## 不错的搜索技巧
-If you are not sure ask someone for help or search online. Many times searching for "python THING" will find answers for what that THING does in Python. Try searching for "python open".
-
-Why are there empty lines between the lines in the file?
-    The readline() function returns the \n that's in the file at the end of that line. This means that print's \n is being added to the one already returned by readline(). To change this behavior simply add a , (comma) at the end of print so that it doesn't print its own \n.
-
-How does readline() know where each line is?
-    Inside readline() is code that scans each byte of the file until it finds a \n character, then stops reading the file to return what it found so far. The file f is responsible for maintaining the current position in the file after each readline() call, so that it will keep reading each line.
-
-Reading programming documentation is not enough to learn it, you have to do it. 
-Everyone is a beginner at something.
-
-impport math
-
-dir(math)
-help(math.sin)
-
-0 1 0 0
-0 0 0 1
-1 0 0 0
-0 0 1 0
-
-
-基本的算法：
-动态规划，贪心
-
----
 # Python language basics
 * [Python: Common Newbie Mistakes, Part 1](http://blog.amir.rachum.com/post/54770419679/python-common-newbie-mistakes-part-1)
 * [Python: Common Newbie Mistakes, Part 2](http://blog.amir.rachum.com/post/55024295793/python-common-newbie-mistakes-part-2)
@@ -236,6 +21,31 @@ ipython 是 python 交互式 shell, 它支持代码自动补全，支持高亮�
 
 ### REF
 * [IPython manual](http://ipython.org/documentation.html)
+
+## [Learn Python The Hard Way, 3rd Edition](http://learnpythonthehardway.org/book/)
+What is the difference between %r and %s?
+
+    Use the %r for debugging, since it displays the "raw" data of the variable, but the others are used for displaying to users.
+
+Why does %r sometimes print things with single-quotes when I wrote them with double-quotes.
+
+    Python is going to print the strings in the most efficient way it can, not replicate exactly the way you wrote them. This perfectly fine since %r is used for debugging and inspection, so it's not necessary that it be pretty.
+
+What's the difference between input() and raw_input()?
+
+    The input() function will try to convert things you enter as if they were Python code, but it has security problems so you should avoid it.
+
+When my strings print out there's a u in front of them, as in u'35'.
+
+    That's how Python tells you that the string is unicode. Use a %s format instead and you'll see it printed like normal.
+
+Why are there empty lines between the lines in the file?
+
+    The readline() function returns the \n that's in the file at the end of that line. This means that print's \n is being added to the one already returned by readline(). To change this behavior simply add a , (comma) at the end of print so that it doesn't print its own \n.
+
+How does readline() know where each line is?
+
+    Inside readline() is code that scans each byte of the file until it finds a \n character, then stops reading the file to return what it found so far. The file f is responsible for maintaining the current position in the file after each readline() call, so that it will keep reading each line.
 
 ## 漂亮的打印出 JSON
     import json
@@ -332,9 +142,21 @@ Decorators are wrappers which means that they let you execute code before and af
 
 ## [A guide to Python packaging](http://www.ibm.com/developerworks/opensource/library/os-pythonpackaging/index.html)
 
+## Python 谈
+* [“Python性能优化”讲稿分享](http://blog.csdn.net/lanphaday/article/details/2239445)
+* [虚拟座谈会：PyCon嘉宾谈Python](http://www.infoq.com/cn/articles/virtual-panel-pycon)
+
 ## python 多线程
 * [使用 Python 进行线程编程](http://www.ibm.com/developerworks/cn/aix/library/au-threadingpython/) urllib2 + queue + treading + BeautifulSoup
 * [python线程池](http://www.the5fire.net/python-thread-pool.html)
+
+## MAC OSX genvent install
+遇到如下错误`gevent/libevent.h:9:19: error: event.h: No such file or directory`。
+
+    $ sudo port install libevent
+    $ sudo CFLAGS="-I /opt/local/include -L /opt/local/lib" pip install gevent
+### REF
+[How can I install the Python library 'gevent' on Mac OS X Lion](stackoverflow.com/questions/7630388/how-can-i-install-the-python-library-gevent-on-mac-os-x-lion)
 
 ## python 函数式编程
 * [Fn.py：享受Python中的函数式编程](http://www.infoq.com/cn/articles/fn.py-functional-programming-python)
@@ -359,97 +181,6 @@ Decorators are wrappers which means that they let you execute code before and af
     $ git clone git://github.com/sfoolish/vimrc.git ~/.vim_runtime
     $ sh ~/.vim_runtime/install_awesome_vimrc.sh
 
----
-# Tornado
-## ubuntu 12.04 下测试tornado
-    $ mkdir -p 2_tornado/1_tornado_git
-    $ cd 2_tornado/1_tornado_git
-    $ git clone https://github.com/facebook/tornado.git .
-    $ export PYTHONPATH=$PYTHONPATH:/home/sfoolish/share/2_tornado/1_tornado_git
-    $ cat hello_tornado.py
-        >    import tornado.ioloop
-        >    import tornado.web
-        >
-        >    class MainHandler(tornado.web.RequestHandler):
-        >        def get(self):
-        >            self.write("Hello, world !")
-        >       
-        >    application = tornado.web.Application([
-        >        (r"/", MainHandler),
-        >    ])
-        > 
-        >    if __name__ == "__main__":
-        >        application.listen(8888)
-        >        tornado.ioloop.IOLoop.instance().start()
-
-    $ python hello_tornado.py
-
-### REF
-* [Simple example of a Tornado app in production](https://github.com/bdarnell/tornado-production-skeleton)
-* [Tornado + Supervisor 在生产环境下的部署方法](https://idndx.com/2011/10/18/ways-to-deploy-tornado-under-production-environment-using-supervisor/)
-* [有没有什么很好的 Tornado 的教材或者开源项目可以做参考的？](http://www.zhihu.com/question/19707966/answer/12731684)
-* [Tornado：基于Python的非阻塞式实时Web服务器](http://breakaway.me/tornado.html)
-    一个用Python写的相对简单的、可扩展、非阻塞的Web服务器架构，以处理上万的同时的连接口，让实时的Web服务通畅起来。跟现在一些用Python写的Web架构相似，比如Django，但更注重速度，能够处理海量的同时发生的流量。
-*[tornado](http://www.tornadoweb.org/)
-* [tornado cn](http://www.tornadoweb.cn/)
-    Tornado is an open source version of the scalable, non-blocking web server and tools that power FriendFeed.
-* [douban Tornado](http://www.douban.com/group/tornadoweb/)
-* [FriendFeed](http://zh.wikipedia.org/zh-cn/FriendFeed)
-    2009年8月10日，官方博客宣布其接受Facebook收购请求，正式成为Facebook的一部分。
-
----
-# 网络爬虫
-## REF
-* [用python爬虫抓站的一些技巧总结](http://obmem.info/?p=476)
-* [使用python爬虫抓站的一些技巧总结：进阶篇](http://obmem.info/?p=753)
-* [使用python/casperjs编写终极爬虫-客户端App的抓取](http://obmem.info/?p=848)
-* [如何优化 Python 爬虫的速度？](http://www.zhihu.com/question/20145091)
-    主要是判断准目前的瓶颈在哪里，网络io、磁盘io，还是cpu、内存等。然后在给出解决方案，io问题可以考虑添加硬件或者分布式；如果只cpu占用不饱和，可以考虑多线程、多进程、异步等，也的看具体情况。按照你的描述，猜测问题应该在cpu占用不饱和。
-
-## Scrapy
-
-### scrapy 安装
-    $ sudo apt-get install python-dev libxml2-dev libxslt-dev
-    $ pip install scrapy
-scrapy 依赖Twisted，libxml，而Twisted，libxml安装时需要编译 C 代码，因此需要先安装python libxml 的开发包。
-
-### REF
-* [scrapy github](https://github.com/scrapy)
-* [scrapy wiki github](https://github.com/scrapy/scrapy/wiki)
-* [Recursively Scraping Web Pages With Scrapy](http://mherman.org/blog/2012/11/08/recursively-scraping-web-pages-with-scrapy/)
-* [Scraping Web Pages With Scrapy](http://mherman.org/blog/2012/11/05/scraping-web-pages-with-scrapy/)
-* [Crawl a website with scrapy](http://isbullsh.it/2012/04/Web-crawling-with-scrapy/) key words : scrapy, mogodb
-
-## BeautifulSoup
-    $ pip install beautifulsoup4
-[BeautifulSoup doc](http://www.crummy.com/software/BeautifulSoup/bs4/doc/)
-
-## [Twisted](http://twistedmatrix.com/trac/)
-Twisted is an event-driven networking engine written in Python and licensed under the open source  MIT license. 
-scrapy 基于 twisted
-* [使用 Twisted Matrix 框架来进行网络编程](http://www.ibm.com/developerworks/cn/linux/network/l-twist/part1/index.html)
-
----
-# Google App Engine
-* [GAE SDK Python](https://developers.google.com/appengine/downloads#Google_App_Engine_SDK_for_Python)
-* [在GAE(Google App Engine)上搭建python2.7的web.py程序](http://blog.csdn.net/five3/article/details/7848748)
-
-## 基于 Google App Engine 的 doudou 网
-[创建 GAE APP](https://appengine.google.com/): APP ID doudou-sfoolish
-
-本地测试：
-
-    $ dev_appserver.py doudou/
-代码部署：
-    
-    $ appcfg.py update doudou/
-上传失败的时候，可以通过 rollback 进行恢复。
-
-    $ appcfg.py help rollback
-    $ appcfg.py rollback doudou
-部署成功后就能访问[doudou](http://doudou-sfoolish.appspot.com/)
-
-[doudou 源码](https://github.com/sfoolish/doudou)
 
 ---
 # Python 开发环境
@@ -520,3 +251,258 @@ VirtualEnv 用于在一台机器上创建多个独立的python运行环境。
 
 ### REF
 * [virtualenv: python的沙盒环境](http://iamsmallka.blog.163.com/blog/static/72703637201151994232351/)
+
+---
+# Google App Engine
+* [GAE SDK Python](https://developers.google.com/appengine/downloads#Google_App_Engine_SDK_for_Python)
+* [在GAE(Google App Engine)上搭建python2.7的web.py程序](http://blog.csdn.net/five3/article/details/7848748)
+
+## 基于 Google App Engine 的 doudou 网
+[创建 GAE APP](https://appengine.google.com/): APP ID doudou-sfoolish
+
+本地测试：
+
+    $ dev_appserver.py doudou/
+代码部署：
+    
+    $ appcfg.py update doudou/
+上传失败的时候，可以通过 rollback 进行恢复。
+
+    $ appcfg.py help rollback
+    $ appcfg.py rollback doudou
+部署成功后就能访问[doudou](http://doudou-sfoolish.appspot.com/)
+
+[doudou 源码](https://github.com/sfoolish/doudou)
+
+---
+# Tornado
+## ubuntu 12.04 下测试tornado
+    $ mkdir -p 2_tornado/1_tornado_git
+    $ cd 2_tornado/1_tornado_git
+    $ git clone https://github.com/facebook/tornado.git .
+    $ export PYTHONPATH=$PYTHONPATH:/home/sfoolish/share/2_tornado/1_tornado_git
+    $ cat hello_tornado.py
+        >    import tornado.ioloop
+        >    import tornado.web
+        >
+        >    class MainHandler(tornado.web.RequestHandler):
+        >        def get(self):
+        >            self.write("Hello, world !")
+        >       
+        >    application = tornado.web.Application([
+        >        (r"/", MainHandler),
+        >    ])
+        > 
+        >    if __name__ == "__main__":
+        >        application.listen(8888)
+        >        tornado.ioloop.IOLoop.instance().start()
+
+    $ python hello_tornado.py
+
+### REF
+* [Simple example of a Tornado app in production](https://github.com/bdarnell/tornado-production-skeleton)
+* [Tornado + Supervisor 在生产环境下的部署方法](https://idndx.com/2011/10/18/ways-to-deploy-tornado-under-production-environment-using-supervisor/)
+* [有没有什么很好的 Tornado 的教材或者开源项目可以做参考的？](http://www.zhihu.com/question/19707966/answer/12731684)
+* [Tornado：基于Python的非阻塞式实时Web服务器](http://breakaway.me/tornado.html)
+    一个用Python写的相对简单的、可扩展、非阻塞的Web服务器架构，以处理上万的同时的连接口，让实时的Web服务通畅起来。跟现在一些用Python写的Web架构相似，比如Django，但更注重速度，能够处理海量的同时发生的流量。
+*[tornado](http://www.tornadoweb.org/)
+* [tornado cn](http://www.tornadoweb.cn/)
+    Tornado is an open source version of the scalable, non-blocking web server and tools that power FriendFeed.
+* [douban Tornado](http://www.douban.com/group/tornadoweb/)
+* [FriendFeed](http://zh.wikipedia.org/zh-cn/FriendFeed)
+    2009年8月10日，官方博客宣布其接受Facebook收购请求，正式成为Facebook的一部分。
+
+---
+## [How do I start a session in a Python web application?](http://stackoverflow.com/questions/1185406/how-do-i-start-a-session-in-a-python-web-application/1185437#1185437)
+[Wikipedia](http://en.wikipedia.org/wiki/Session_cookie) is always a good place to start. Bottom line: session data gets stored somewhere on the server and indexed by a unique identifier (hash of some sort). This identifier gets passed back and forth between the client and server, usually as a cookie or as part of the query string (the URL). For security's sake, you'll want to use an SSL connection or validate the session ID with some other piece of data (e.g. IP address). By default PHP stores sessions as files, but on a shared server that could pose a security risk, so you might want to override the session engine so you store sessions in a database. Python web frameworks have similar functionality.
+
+[Beaker](http://beaker.groovie.org/) is a library for caching and sessions for use with web applications and stand-alone Python scripts and applications. It comes with WSGI middleware for easy drop-in use with WSGI based web applications, and caching decorators for ease of use with any Python based application.
+
+---
+## uwsgi + nginx/tengine + web.py
+
+### uwsgi python 安装
+    $ apt-get install uwsgi-plugin-python
+
+### [nginx/tengine 安装][ref]
+    * [tengine ubuntu12.04 编译运行]:https://github.com/sfoolish/000-1000-hours/blob/master/4_note/tengine_learning.md#tengine-ubuntu1204-
+    * 配置文件修改
+        $ diff nginx.conf nginx.conf.default 
+        ```
+            44,45c44,45
+            <             include uwsgi_params;
+            <             uwsgi_pass 127.0.0.1:8080;
+            ---
+            >             root   html;
+            >             index  index.html index.htm;
+        ```
+    * 运行 nginx
+
+### 编写运行测试程序
+    $ vim myweb.py
+    $ cat myweb.py
+    ```
+        #!/usr/bin/env python
+        
+        import os, web, sys
+        
+        sys.path.append(os.path.dirname(__file__))
+        
+        urls=(
+            r'/', 'Home'
+            )
+        
+        class Home(object):
+            def GET(self):
+                return 'hello world!'
+        
+        app = web.application(urls, globals())
+        application = app.wsgifunc()
+    ```
+    ## -H|--venv <path>  set python home/virtualenv
+    $ uwsgi_python -H /root/prj/python/wiki_0.3/wiki_virt/ -s 127.0.0.1:8080 myweb.py 
+    $ curl 127.0.0.1:8000
+    ```
+        hello world!
+    ```
+
+### REF
+* [uwsgi+Nginx+web.py的搭建](http://www.yucoat.com/linux_opensource/uwsgi_nginx_web-py.html)
+* [uWSGI](http://flask.pocoo.org/docs/deploying/uwsgi/)
+* [Quickstart for python/WSGI applications](http://uwsgi-docs.readthedocs.org/en/latest/WSGIquickstart.html)
+* [用uWSGI替代fastcgi部署django应用](http://ichuan.net/post/6/using-uwsgi-instead-of-fastcgi-for-django-app/)
+
+## run [onlinestore-multi](https://github.com/nopri/onlinestore-multi)
+
+### clone onlinestore-multi source code
+    $ git clone https://github.com/nopri/onlinestore-multi.git
+### mysql config
+    $ mysql -u root -p
+    ```
+        Enter password: 
+    ```
+    mysql> create database onlinestore;
+    ```
+        Query OK, 1 row affected (0.03 sec)
+    ```
+    mysql> grant all privileges on onlinestore.* to onlinestore@localhost identified by 'onlinestore';
+    ```
+        Query OK, 0 rows affected (0.15 sec)
+    ```
+    mysql> flush privileges;
+    ```
+        Query OK, 0 rows affected (0.03 sec)
+    ```
+    mysql> quit;
+    ```
+        Bye
+    ```
+    $ mysql -D onlinestore -u onlinestore  -p < ./onlinestore-multi/db.sql
+    ```
+        Enter password:
+    ```
+
+### nginx add static file config
+    $ cp -a onlinestore-multi/static html/
+  
+    +         location /static/ {
+    +             root html;
+    +             if (-f $request_filename) {
+    +                 rewrite ^/static/(.*)$ /static/$1 break;
+    +             }
+    +         }
+    +
+              location / {
+                  include uwsgi_params;
+                  uwsgi_pass 127.0.0.1:8080;
+              }
+
+### run wsgi app
+    $ cd onlinestore-multi/
+    $ cp config.ini.dist config.ini
+    $ vim config.ini
+    $ diff config.ini config.ini.dist 
+    ```
+        6c6
+        < pass = onlinestore
+        ---
+        > pass = 
+    ```
+    $ pip install pyyaml
+    $ pip install PIL
+    $ git diff -b
+    ```
+        diff --git a/app.py b/app.py
+        index f14aebb..72f9f0f 100644
+        --- a/app.py
+        +++ b/app.py
+        @@ -160,7 +160,7 @@ wapp = web.application(URLS, globals())
+         
+         def cget(section, option, default='', strip=True):
+             c = ConfigParser.ConfigParser()
+        -    c.read(CURDIR + PS + CONFIG_FILE_DEFAULT)
+        +    c.read('./config.ini')
+             try:
+                 ret = c.get(section, option)
+             except:
+        @@ -243,7 +243,7 @@ def pget(option, default='', strip=True, callback=None):
+         VERSION = '0.97'
+         NAME = 'onlinestore-multi'
+         PRECISION = 2
+        -TEMPLATE_DIR = CURDIR + PS + 'template'
+        +TEMPLATE_DIR = './template'
+         DOC_ADMIN = CURDIR + PS + 'README.txt'
+         DOMAIN = ''
+         BASEURL_DEFAULT = '/store'
+    ```
+    $ uwsgi_python -H /root/prj/python/wiki_0.3/wiki_virt/ -s 127.0.0.1:8080 app.py
+
+### REF
+* [onlinestore-multi README](https://github.com/nopri/onlinestore-multi/blob/master/README.txt)
+* [uwsgi nginx python](https://github.com/sfoolish/000-1000-hours/blob/master/4_note/python_learning.md#uwsgi--nginxtengine--webpy)
+
+---
+## june test
+
+    $ git clone git://github.com/lepture/june.git
+    $ cd june/
+    $ virtualenv --distribute venv
+    $ source venv/bin/activate
+    $ sudo apt-get install libevent-dev 
+    $ pip install -r conf/reqs-dev.txt
+
+### REF
+* [june/README.rst](https://github.com/lepture/june/blob/master/README.rst)
+* [distribute pip-virtualenv install issue](https://bitbucket.org/tarek/distribute/issue/91/install-glitch-when-using-pip-virtualenv)
+
+---
+# 网络爬虫
+## REF
+* [用python爬虫抓站的一些技巧总结](http://obmem.info/?p=476)
+* [使用python爬虫抓站的一些技巧总结：进阶篇](http://obmem.info/?p=753)
+* [使用python/casperjs编写终极爬虫-客户端App的抓取](http://obmem.info/?p=848)
+* [如何优化 Python 爬虫的速度？](http://www.zhihu.com/question/20145091)
+    主要是判断准目前的瓶颈在哪里，网络io、磁盘io，还是cpu、内存等。然后在给出解决方案，io问题可以考虑添加硬件或者分布式；如果只cpu占用不饱和，可以考虑多线程、多进程、异步等，也的看具体情况。按照你的描述，猜测问题应该在cpu占用不饱和。
+
+## Scrapy
+
+### scrapy 安装
+    $ sudo apt-get install python-dev libxml2-dev libxslt-dev
+    $ pip install scrapy
+scrapy 依赖Twisted，libxml，而Twisted，libxml安装时需要编译 C 代码，因此需要先安装python libxml 的开发包。
+
+### REF
+* [scrapy github](https://github.com/scrapy)
+* [scrapy wiki github](https://github.com/scrapy/scrapy/wiki)
+* [Recursively Scraping Web Pages With Scrapy](http://mherman.org/blog/2012/11/08/recursively-scraping-web-pages-with-scrapy/)
+* [Scraping Web Pages With Scrapy](http://mherman.org/blog/2012/11/05/scraping-web-pages-with-scrapy/)
+* [Crawl a website with scrapy](http://isbullsh.it/2012/04/Web-crawling-with-scrapy/) key words : scrapy, mogodb
+
+## BeautifulSoup
+    $ pip install beautifulsoup4
+[BeautifulSoup doc](http://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+
+## [Twisted](http://twistedmatrix.com/trac/)
+Twisted is an event-driven networking engine written in Python and licensed under the open source  MIT license. 
+scrapy 基于 twisted
+* [使用 Twisted Matrix 框架来进行网络编程](http://www.ibm.com/developerworks/cn/linux/network/l-twist/part1/index.html)
