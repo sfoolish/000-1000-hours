@@ -158,7 +158,9 @@
 ---
 ## 代码规范
 * [PEP8](http://www.python.org/dev/peps/pep-0008/)
-* [google python style](http://google-styleguide.googlecode.com/svn/trunk/pyguide.html)
+* [Google Python Style Guide](http://google-styleguide.googlecode.com/svn/trunk/pyguide.html)
+  - Function and Method Decorators   ??
+  - Access Control                   ??
 
 ### [使用pep8 vim插件规范Python代码](http://blog.lzhaohao.info/archive/correct-python-source-style-using-pep8-vim-plugin/)
     $ sudo pip install pep8
@@ -170,7 +172,29 @@
     $ sh ~/.vim_runtime/install_awesome_vimrc.sh
 
 ---
-## Tornado
+# Tornado
+## ubuntu 12.04 下测试tornado
+    $ mkdir -p 2_tornado/1_tornado_git
+    $ cd 2_tornado/1_tornado_git
+    $ git clone https://github.com/facebook/tornado.git .
+    $ export PYTHONPATH=$PYTHONPATH:/home/sfoolish/share/2_tornado/1_tornado_git
+    $ cat hello_tornado.py
+        >    import tornado.ioloop
+        >    import tornado.web
+        >
+        >    class MainHandler(tornado.web.RequestHandler):
+        >        def get(self):
+        >            self.write("Hello, world !")
+        >       
+        >    application = tornado.web.Application([
+        >        (r"/", MainHandler),
+        >    ])
+        > 
+        >    if __name__ == "__main__":
+        >        application.listen(8888)
+        >        tornado.ioloop.IOLoop.instance().start()
+
+    $ python hello_tornado.py
 
 ### REF
 * [Simple example of a Tornado app in production](https://github.com/bdarnell/tornado-production-skeleton)
@@ -179,7 +203,7 @@
 * [Tornado：基于Python的非阻塞式实时Web服务器](http://breakaway.me/tornado.html)
     一个用Python写的相对简单的、可扩展、非阻塞的Web服务器架构，以处理上万的同时的连接口，让实时的Web服务通畅起来。跟现在一些用Python写的Web架构相似，比如Django，但更注重速度，能够处理海量的同时发生的流量。
 *[tornado](http://www.tornadoweb.org/)
-[tornado cn](http://www.tornadoweb.cn/)
+* [tornado cn](http://www.tornadoweb.cn/)
     Tornado is an open source version of the scalable, non-blocking web server and tools that power FriendFeed.
 * [douban Tornado](http://www.douban.com/group/tornadoweb/)
 * [FriendFeed](http://zh.wikipedia.org/zh-cn/FriendFeed)
@@ -393,40 +417,12 @@ Decorators are wrappers which means that they let you execute code before and af
     $ make                        ## 生成的文档在 doc/_build/ 下。
 [python-guide](http://docs.python-guide.org), python best practices guidebook, written for Humans.
 
-## [Google Python Style Guide](http://google-styleguide.googlecode.com/svn/trunk/pyguide.html)
-  - Function and Method Decorators   ??
-  - Access Control                   ??
+* [A guide to Python packaging](http://www.ibm.com/developerworks/opensource/library/os-pythonpackaging/index.html)
 
-## [A guide to Python packaging](http://www.ibm.com/developerworks/opensource/library/os-pythonpackaging/index.html)
-
-## pip 通过代理下载软件包
-    $ sudo pip --proxy=127.0.0.1:8087 install -r requirements.txt
-
-## virtualenv 使用
-之前提到过 pip 安装 virtualenv ，这里直接使用源码
-
-    $ wget http://pypi.python.org/packages/source/v/virtualenv/virtualenv-1.8.4.tar.gz
-    $ tar xvf virtualenv-1.8.4.tar.gz
-    $ sudo python virtualenv-1.8.4/virtualenv.py ENV  # 创建虚拟环境
-    $ #sudo virtualenv ENV                            # pip 安装的，直接使用 virtualenv 命令
-    $ source ENV/bin/activate                         # 激活虚拟环境
-    $ deactivate                                      # 退出虚拟环境
-上面创建虚拟环境的时候需要 sudo ，否则可能会有问题。原因是 python pip 安装的时候，用户权限没处理好。暂时先这样用，以后抽空查一下。有了虚拟环境，就可以不用害怕破坏系统的原始环境。
-
-***
-VirtualEnv用于在一台机器上创建多个独立的python运行环境
-
-使用 VirtualEnv 的理由
-* 隔离项目之间的第三方包依赖
-* 为部署应用提供方便，把开发环境的虚拟环境打包到生产环境即可
-* 解决库之间的版本依赖，比如同一系统上不同应用依赖同一个库的不同版本。
-* 解决权限限制，比如你没有root权限。
-* 尝试新的工具，而不用担心污染系统环境。 
-
-使用说明：
-安装： sudo easy_install virtualenv
-* 建立新的运行环境：virtualenv <env-name>
-* 进入相应的独立环境：source <env-path>/bin/activate
+---
+# Google App Engine
+* [GAE SDK Python](https://developers.google.com/appengine/downloads#Google_App_Engine_SDK_for_Python)
+* [在GAE(Google App Engine)上搭建python2.7的web.py程序](http://blog.csdn.net/five3/article/details/7848748)
 
 ## 基于 Google App Engine 的 doudou 网
 [创建 GAE APP](https://appengine.google.com/): APP ID doudou-sfoolish
@@ -437,7 +433,7 @@ VirtualEnv用于在一台机器上创建多个独立的python运行环境
 代码部署：
     
     $ appcfg.py update doudou/
-上传失败的时候，通过 rollback 进行恢复。
+上传失败的时候，可以通过 rollback 进行恢复。
 
     $ appcfg.py help rollback
     $ appcfg.py rollback doudou
@@ -445,6 +441,8 @@ VirtualEnv用于在一台机器上创建多个独立的python运行环境
 
 [doudou 源码](https://github.com/sfoolish/doudou)
 
+---
+# Python 开发环境
 ## [Python-2.7.3](http://www.python.org/ftp/python/2.7.3/Python-2.7.3.tar.bz2)源码编译
     $ wget http://www.python.org/ftp/python/2.7.3/Python-2.7.3.tar.bz2
     $ tar xvf Python-2.7.3.tar.bz2 
@@ -454,64 +452,61 @@ VirtualEnv用于在一台机器上创建多个独立的python运行环境
     $ make install
     $ export PATH=/Users/apple/APP_PRJ/d_python/3_Python-2.7/install/bin:$PATH
     $ python
-        > Python 2.7.3 (default, Jan  3 2013, 16:15:14) 
-        > [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
-        > Type "help", "copyright", "credits" or "license" for more information.
-        > >>> quit()
+    ```
+        Python 2.7.3 (default, Jan  3 2013, 16:15:14) 
+        [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
+        Type "help", "copyright", "credits" or "license" for more information.
+        >>> quit()
+    ```
 
-注：为了避免对原有 python 的干扰，通过环境变量进行切换 python 执行程序。
-
-    $ pwd
-        > /Users/apple/APP_PRJ/d_python
-    $ cat .export_path 
-        > export PATH=/Users/apple/APP_PRJ/d_python/3_Python-2.7/install/bin:$PATH
-    $ source .export_path 
-
-##  package manager 安装
-### [EasyInstall](http://en.wikipedia.org/wiki/EasyInstall)安装
+## [EasyInstall](http://en.wikipedia.org/wiki/EasyInstall)安装
     $ wget http://pypi.python.org/packages/2.7/s/setuptools/setuptools-0.6c11-py2.7.egg#md5=fe1f997bc722265116870bc7919059ea
     $ sh setuptools-0.6c11-py2.7.egg --help
     $ sh setuptools-0.6c11-py2.7.egg --prefix=/Users/apple/APP_PRJ/d_python/3_Python-2.7/install/
 
-    ## 上面几步后easy_install 无法正常使用
+    ## 上面几步后 easy_install 无法正常使用
     $ wget http://python-distribute.org/distribute_setup.py
     $ python distribute_setup.py
-    [ref](http://pypi.python.org/pypi/setuptools)
 
-### [Pip](http://en.wikipedia.org/wiki/Pip_%28Python%29)安装
+### [ref](http://pypi.python.org/pypi/setuptools)
+
+## [Pip](http://en.wikipedia.org/wiki/Pip_%28Python%29)安装
     $ easy_install pip
 
+### pip 通过代理下载软件包
+    $ sudo pip --proxy=127.0.0.1:8087 install -r requirements.txt
+
+## virtualenv
+
 ### virtualenv 安装
+
+#### 通过 easy_install 安装
     $ easy_install virtualenv
-    or
+
+#### 通过 pip 安装
     $ pip install virtualenv
-    ## $ pip uninstall virtualenv
-    ## 安装的 vitrualenv 不好用
-[virtualenv: python的沙盒环境](http://iamsmallka.blog.163.com/blog/static/72703637201151994232351/)
 
-## Google App Engine
-- [GAE SDK Python](https://developers.google.com/appengine/downloads#Google_App_Engine_SDK_for_Python)
-- [在GAE(Google App Engine)上搭建python2.7的web.py程序](http://blog.csdn.net/five3/article/details/7848748)
+#### 直接使用源码
 
-## ubuntu 12.04 下测试tornado
-    $ mkdir -p 2_tornado/1_tornado_git
-    $ cd 2_tornado/1_tornado_git
-    $ git clone https://github.com/facebook/tornado.git .
-    $ export PYTHONPATH=$PYTHONPATH:/home/sfoolish/share/2_tornado/1_tornado_git
-    $ cat hello_tornado.py
-        >    import tornado.ioloop
-        >    import tornado.web
-        >
-        >    class MainHandler(tornado.web.RequestHandler):
-        >        def get(self):
-        >            self.write("Hello, world !")
-        >       
-        >    application = tornado.web.Application([
-        >        (r"/", MainHandler),
-        >    ])
-        > 
-        >    if __name__ == "__main__":
-        >        application.listen(8888)
-        >        tornado.ioloop.IOLoop.instance().start()
+    $ wget http://pypi.python.org/packages/source/v/virtualenv/virtualenv-1.8.4.tar.gz
+    $ tar xvf virtualenv-1.8.4.tar.gz
+    $ sudo python virtualenv-1.8.4/virtualenv.py ENV  # 创建虚拟环境
 
-    $ python hello_tornado.py
+### virtualenv 使用
+    $ sudo virtualenv ENV                             # pip 安装的，直接使用 virtualenv 命令
+    $ source ENV/bin/activate                         # 激活虚拟环境
+    $ deactivate                                      # 退出虚拟环境
+
+### virtualenv 的作用
+VirtualEnv 用于在一台机器上创建多个独立的python运行环境。
+
+使用 VirtualEnv 的理由：
+
+* 隔离项目之间的第三方包依赖；
+* 为部署应用提供方便，把开发环境的虚拟环境打包到生产环境即可；
+* 解决库之间的版本依赖，比如同一系统上不同应用依赖同一个库的不同版本；
+* 解决权限限制，比如你没有root权限；
+* 尝试新的工具，而不用担心污染系统环境。
+
+### REF
+* [virtualenv: python的沙盒环境](http://iamsmallka.blog.163.com/blog/static/72703637201151994232351/)
