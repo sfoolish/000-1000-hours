@@ -20,9 +20,6 @@ Windows 下 color scheme 安装方法，就是将 tmTheme 文件放到 `C:\Docum
 	"line_padding_bottom":2
 [Sublime Text 2 设置文件详解](http://www.lupaworld.com/article-219857-1.html)
 
----
-## 2012-05-13
-
 ### sublime 快捷键
 * Access the Command Palette:    `Shift + Command + P`
 * Lightning-Fast File Switching: `Control or Command + P`
@@ -45,3 +42,5 @@ theme 配置文件路径：`~/Library/Application Support/Sublime Text 2/Package
 * [Sublime Text 2 Tips and Tricks](http://net.tutsplus.com/tutorials/tools-and-tips/sublime-text-2-tips-and-tricks/comment-page-3/#comments)
 * [sublime-text-2相关快捷键](http://www.cnblogs.com/rollenholt/archive/2012/07/30/2616089.html)
 * [TmTheme Editor](http://tmtheme-editor.herokuapp.com/#/Solarized%20(dark))
+
+### [sublime-rst-completion](https://github.com/dbousamra/sublime-rst-completion)
