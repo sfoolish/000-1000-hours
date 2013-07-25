@@ -5,6 +5,7 @@ Windows 下 color scheme 安装方法，就是将 tmTheme 文件放到 `C:\Docum
 * Monokai
 * **solarize（Dark）**
 * [tomorrow-theme](https://github.com/chriskempson/tomorrow-theme/tree/master/textmate)
+* [colour-schemes](https://github.com/daylerees/colour-schemes)
 
 ### 中文乱码
 * Sublime Text2 目前还不支持gbk编码，UTF-8完美支持；
