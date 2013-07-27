@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import sys
 import socket
 
 class ChatClient(object):
@@ -22,6 +23,12 @@ class ChatClient(object):
 if __name__ == '__main__':
     HOST = 'localhost'
     PORT = 50007
+
+    if (len(sys.argv) == 2):
+        HOST = sys.argv[1]
+    elif (len(sys.argv) == 3):
+        HOST, PORT = sys.argv[1], int(sys.argv[2])
+
     client = ChatClient(HOST, PORT)
     client.connect()
     client.do_echo()
