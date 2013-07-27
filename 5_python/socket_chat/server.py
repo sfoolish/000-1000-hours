@@ -28,4 +28,5 @@ if __name__ == '__main__':
     PORT = 50007
     server = ChatServer(HOST, PORT)
     server.bind()
-    server.do_echo()
+    while True:
+        server.do_echo()
