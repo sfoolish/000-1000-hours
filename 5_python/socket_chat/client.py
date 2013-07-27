@@ -18,10 +18,15 @@ class ChatClient(object):
             raise e
 
     def do_echo(self):
-        self.socket.sendall('Hello, world')
-        data = self.socket.recv(1024)
-        self.socket.close()
-        print 'Received', repr(data)
+        while True:
+            mesg = raw_input("please input your worlds(input 'quit' for quit):")
+            self.socket.sendall(mesg)
+            data = self.socket.recv(1024)
+            if 'quit' == mesg:
+                self.socket.close()
+                print 'we quit !'
+                break
+            print 'Received', repr(data)
 
 if __name__ == '__main__':
     HOST = 'localhost'
