@@ -84,6 +84,13 @@ How does readline() know where each line is?
     print f.read()
 [PEP 0263 -- Defining Python Source Code Encodings](www.python.org/dev/peps/pep-0263)
 
+## Convert char string to hex in python
+    In [1]: 'hello'.encode('hex')
+    Out[1]: '68656c6c6f'
+    
+    In [2]: '68656c6c6f'.decode('hex')
+    Out[2]: 'hello'
+
 ## range 和 xrange 之间的差异
 
 ### Docstring 显示两者的差异
