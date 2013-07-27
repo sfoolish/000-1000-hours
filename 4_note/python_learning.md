@@ -378,6 +378,7 @@ VirtualEnv 用于在一台机器上创建多个独立的python运行环境。
 * [uWSGI](http://flask.pocoo.org/docs/deploying/uwsgi/)
 * [Quickstart for python/WSGI applications](http://uwsgi-docs.readthedocs.org/en/latest/WSGIquickstart.html)
 * [用uWSGI替代fastcgi部署django应用](http://ichuan.net/post/6/using-uwsgi-instead-of-fastcgi-for-django-app/)
+* [uWSGI参考资料（1.0版本的配置选项列表）](http://disong.blogspot.com.au/2012/06/uwsgi.html)
 
 ## run [onlinestore-multi](https://github.com/nopri/onlinestore-multi)
 
