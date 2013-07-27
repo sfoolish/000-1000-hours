@@ -1,15 +1,31 @@
-# Echo server program
+#!/usr/bin/env python
+
 import socket
 
-HOST = ''                 # Symbolic name meaning all available interfaces
-PORT = 50007              # Arbitrary non-privileged port
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind((HOST, PORT))
-s.listen(1)
-conn, addr = s.accept()
-print 'Connected by', addr
-while 1:
-    data = conn.recv(1024)
-    if not data: break
-    conn.sendall(data)
-conn.close()
+class ChatServer(object):
+    """ docstring
+    """
+    def __init__(self, host='', port=8080):
+        self.host = host
+        self.port = port
+        self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+    def bind(self):
+        self.socket.bind((self.host, self.port))
+        self.socket.listen(1)
+
+    def do_echo(self):
+        conn, addr = self.socket.accept()
+        print 'Connected by', addr
+        while 1:
+            data = conn.recv(1024)
+            if not data: break
+            conn.sendall(data)
+        conn.close()
+
+if __name__ == '__main__':
+    HOST = ''
+    PORT = 50007
+    server = ChatServer(HOST, PORT)
+    server.bind()
+    server.do_echo()
