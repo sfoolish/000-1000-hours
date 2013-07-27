@@ -469,6 +469,20 @@ VirtualEnv 用于在一台机器上创建多个独立的python运行环境。
 * [uwsgi nginx python](https://github.com/sfoolish/000-1000-hours/blob/master/4_note/python_learning.md#uwsgi--nginxtengine--webpy)
 
 ---
+# django
+
+## django install
+    $ mkdir django
+    $ cd django
+    $ virtualenv --distribute venv
+    $ source venv/bin/activate
+    $ pip install django
+    $ python -c "import django; print(django.get_version())"
+    ```
+        1.5.1
+    ```
+
+---
 ## june test
 
     $ git clone git://github.com/lepture/june.git
