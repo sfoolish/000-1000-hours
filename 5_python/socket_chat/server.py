@@ -17,7 +17,7 @@ class ChatServer(object):
     def do_echo(self):
         conn, addr = self.socket.accept()
         print 'Connected by', addr
-        while 1:
+        while True:
             data = conn.recv(1024)
             if not data: break
             conn.sendall(data)

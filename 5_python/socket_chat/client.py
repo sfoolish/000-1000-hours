@@ -12,7 +12,10 @@ class ChatClient(object):
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     def connect(self):
-        self.socket.connect((self.host, self.port))
+        try:
+            self.socket.connect((self.host, self.port))
+        except Exception, e:
+            raise e
 
     def do_echo(self):
         self.socket.sendall('Hello, world')
