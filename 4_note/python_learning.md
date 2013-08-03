@@ -216,7 +216,7 @@ Decorators are wrappers which means that they let you execute code before and af
     $ wget http://python-distribute.org/distribute_setup.py
     $ python distribute_setup.py
 
-### [ref](http://pypi.python.org/pypi/setuptools)
+### [pypi setuptools](http://pypi.python.org/pypi/setuptools)
 
 ## [Pip](http://en.wikipedia.org/wiki/Pip_%28Python%29)安装
     $ easy_install pip
@@ -244,6 +244,9 @@ Decorators are wrappers which means that they let you execute code before and af
     $ sudo virtualenv ENV                             # pip 安装的，直接使用 virtualenv 命令
     $ source ENV/bin/activate                         # 激活虚拟环境
     $ deactivate                                      # 退出虚拟环境
+
+    $ pip freeze > requirements.txt                   # 导出当前环境下的所有第三方库
+    $ pip install -r requirements.txt                 # 安装所有文件内的第三方库
 
 ### virtualenv 的作用
 VirtualEnv 用于在一台机器上创建多个独立的python运行环境。
@@ -318,6 +321,10 @@ VirtualEnv 用于在一台机器上创建多个独立的python运行环境。
 * [douban Tornado](http://www.douban.com/group/tornadoweb/)
 * [FriendFeed](http://zh.wikipedia.org/zh-cn/FriendFeed)
     2009年8月10日，官方博客宣布其接受Facebook收购请求，正式成为Facebook的一部分。
+
+---
+## tornado 源码阅读
+### 难点，python 高阶技术
 
 ---
 ## [How do I start a session in a Python web application?](http://stackoverflow.com/questions/1185406/how-do-i-start-a-session-in-a-python-web-application/1185437#1185437)
