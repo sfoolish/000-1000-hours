@@ -137,3 +137,12 @@
 ---
 ## awk 打印文件内容
     awk "{print } " /proc/meminfo 
+---
+## 在当前目录的每个子文件夹下都创建一个同名文件(没有递归创建)
+    $ for i in `ls`; do  if [ -d $i ]; then touch $i"/index.md"; fi; done
+    
+    for i in `ls`; do
+        if [ -d $i ]; then
+            touch $i"/index.md"
+        fi
+    done
