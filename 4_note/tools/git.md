@@ -109,3 +109,28 @@ git config alias表示，可以用git co代表git checkout。git var -l可以查
 ## [Git显示漂亮日志的小技巧](http://coolshell.cn/articles/7755.html)
     $ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
     $ git config --global alias.lgp "log -p --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
+
+---
+## git daemon 的使用
+通过 `git daemon` 可以实现本地的 git 代码仓库。一个比较不错的使用场景是 `origin master <--> local master <--> local dev` ，`origin master <--> local master` 保持最终版本的同步，`local master <--> local dev` 保留所有本地开发记录。
+
+### local master config
+    $ mkdir local_master && cd local_master/                       # base path /root/prj
+    $ git clone https://github.com/sfoolish/000-1000-hours.git ./
+    $ git config receive.denyCurrentBranch ignore
+    $ git daemon --reuseaddr --export-all --verbose --enable=receive-pack
+### local dev
+    $ mkdir local_dev && cd local_dev/
+    $ git clone git://localhost/root/prj/local_master ./           # 本地直接用 localhost
+    ## $ git clone git://<IP_ADDR>/root/prj/local_master ./        # 跨主机则用 local master 的 IP 地址
+    # local dev modify
+    $ git commit -a -m 'log'
+    $ git push origin master                                       # 向 local master 提交修改
+### local master push
+    $ git reset --hard
+    $ git commit -a -m 'log'
+    $ git push origin master                                       # 向 origin master 提交修改
+
+### REF
+* ['receive-pack': service not enabled for './.git'](http://stackoverflow.com/questions/792611/receive-pack-service-not-enabled-for-git)
+* `git daemon --help`
