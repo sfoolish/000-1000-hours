@@ -52,6 +52,13 @@ theme 配置文件路径：`~/Library/Application Support/Sublime Text 2/Package
     }
 [Sublime Text 2 设置文件详解](http://www.lupaworld.com/article-219857-1.html)
 
+### 字体配置
+    {
+        "font_face": "Monaco",
+        "font_size": 14.0,
+    }
+
+---
 ## REF
 * [Sublime Package Control](http://wbond.net/sublime_packages/package_control/installation)
 * [Sublime Text 2 Tips and Tricks](http://net.tutsplus.com/tutorials/tools-and-tips/sublime-text-2-tips-and-tricks/comment-page-3/#comments)
