@@ -16,7 +16,7 @@
     $ git clone https://github.com/sfoolish/sfoolish.github.com.git
     $ cd sfoolish.github.com/
     $ mkdir _site
-    $ jekyll --server
+    $ jekyll --server --auto       # 本地测试，可边修改边看效果
 jekyll 默认使用 4000 端口，上述操作在 ubuntu12.04_x64 上测试通过，部分命令可能需要 `sudo`。
 ### REF
 * [查看 RVM 实用指南](http://ruby-china.org/wiki/rvm-guide)
