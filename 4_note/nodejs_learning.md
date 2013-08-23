@@ -5,6 +5,8 @@
 ### Node Modules
 * [momentjs](http://momentjs.com) Parse, validate, manipulate, and display dates in javascript. 
 * [Commander.js](http://visionmedia.github.io/commander.js/) is a light-weight, expressive, and powerful command-line framework for nodejs
+* [JavaScript Garden CN](http://bonsaiden.github.com/JavaScript-Garden/zh/)
+* [JavaScript Guide Mozilla](https://developer.mozilla.org/en/JavaScript/Guide)
 
 ---
 ## node 源码安装
