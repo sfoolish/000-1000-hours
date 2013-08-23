@@ -268,9 +268,11 @@
 
 ---
 ## 开机默认不启动图形用户界面
-    $ sudo vim /etc/init/rc-sysinit.conf ;在第14行附近：确认`env DEFAULT_RUNLEVEL=2`
-    $ sudo vim /etc/init/lightdm.conf ;在第12行附近，原句` and runlevel [!06]` 改为` and runlevel [!026]`
+    $ sudo vim /etc/init/rc-sysinit.conf # 在第14行附近：确认`env DEFAULT_RUNLEVEL=2`
+    $ sudo vim /etc/init/lightdm.conf    # 在第12行附近，原句` and runlevel [!06]` 改为` and runlevel [!026]`
     $ sudo reboot
+
+    $ sudo /etc/init.d/gdm stop          # 能将所有图形界面相关的进程都关闭
 系统起来后，如果需要启动桌面则运行：
 
     $ startx
