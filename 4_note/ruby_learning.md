@@ -85,6 +85,29 @@ rdiscount 最新版本 rdiscount-2.0.7.2，在 ubuntu12.04 x64 下会安装失�
 * [Installation Issues with ruby and gem rdiscount windows 8 64bit](http://stackoverflow.com/questions/15283059/installation-issues-with-ruby-and-gem-rdiscount-windows-8-64bit)
 
 ---
+# cloud foundry
+## ubuntu 10.04 install sequence
+    sudo apt-get install ruby-full rubygems
+    sudo gem install rubygems-update
+    
+    gem sources --remove http://rubygems.org/
+    gem sources -a http://ruby.taobao.org/
+    gem sources -l
+    gem install vmc
+
+    sfoolish@sfoolish-desktop:~$ vmc target api.cloudfoundry.com
+    Successfully targeted to [http://api.cloudfoundry.com]
+    sfoolish@sfoolish-desktop:~$ vmc login
+    Attempting login to [http://api.cloudfoundry.com]
+    Password: ********
+    Successfully logged into [http://api.cloudfoundry.com]
+    sfoolish@sfoolish-desktop:~$ vmc passwd
+    Changing password for 'sfoolish.liang@gmail.com'
+    New Password: ********
+    Verify Password: ********
+    Successfully changed password
+
+---
 ## 第一段 ruby 功能代码
 记录以下自己的第一段 ruby 功能代码，简单的日志文件搜索打印。(2012-09-18)
 
