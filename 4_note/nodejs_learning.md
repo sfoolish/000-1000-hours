@@ -7,6 +7,7 @@
 * [Commander.js](http://visionmedia.github.io/commander.js/) is a light-weight, expressive, and powerful command-line framework for nodejs
 * [JavaScript Garden CN](http://bonsaiden.github.com/JavaScript-Garden/zh/)
 * [JavaScript Guide Mozilla](https://developer.mozilla.org/en/JavaScript/Guide)
+* [javascript大杂烩](http://blog.leezhong.com/tech/2011/03/04/javascript.html)
 
 ---
 ## libevent libev
