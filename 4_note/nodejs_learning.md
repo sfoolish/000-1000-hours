@@ -9,6 +9,17 @@
 * [JavaScript Guide Mozilla](https://developer.mozilla.org/en/JavaScript/Guide)
 
 ---
+## libevent libev
+* [libevent源码浅析(一) ](http://simohayha.iteye.com/blog/332727)
+* [使用 libevent 和 libev 提高网络应用性能](http://www.ibm.com/developerworks/cn/aix/library/au-libev/)
+* [libev简单使用介绍](http://simohayha.iteye.com/blog/306712)
+* [libev-tst-edu](http://pod.tst.eu/http://cvs.schmorp.de/libev/ev.pod)
+* [libev 设计分析](http://cnodejs.org/blog/?p=2489)
+* [BENCHMARKING LIBEVENT AGAINST LIBEV](http://libev.schmorp.de/bench.html)
+* [libevent-book-wangafu](http://www.wangafu.net/~nickm/libevent-book/)
+* [libevent事件处理框架分析](http://www.cppblog.com/converse/archive/2009/01/03/71040.html)
+
+---
 ## node 源码安装
     $ cd /<path>
     $ wget http://nodejs.org/dist/v0.10.3/node-v0.10.3.tar.gz
