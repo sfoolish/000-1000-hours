@@ -98,3 +98,14 @@
 * [mysql downloads](http://dev.mysql.com/downloads/mysql/)
 * [Install MySQL on Mac OS X 10.6 and add StartupItem](http://www.tonyamoyal.com/2010/04/13/install-mysql-on-mac-os-x-10-6-and-add-startupitem/)
 * [Python mysqldb: Library not loaded: libmysqlclient.18.dylib](http://stackoverflow.com/questions/6383310/python-mysqldb-library-not-loaded-libmysqlclient-18-dylib)
+
+---
+## mysql ubuntu12.04 下源码编译
+    $ sudo apt-get source mysql-server-core-5.5
+    $ sudo apt-get install cmake
+    $ sudo apt-get install libncurses5-dev
+    $ cmake . -DCURSES_LIBRARY=/usr/lib/libncurses.so -DCURSES_INCLUDE_PATH=/usr/include
+
+### REF
+* [解决Could NOT find Curses (missing: CURSES_LIBRARY CURSES_INCLUDE_PATH)](http://www.cnblogs.com/rooney/archive/2012/06/19/2554581.html)
+
