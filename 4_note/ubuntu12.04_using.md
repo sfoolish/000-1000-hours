@@ -58,17 +58,6 @@
 [163 Ubuntu镜像使用帮助](http://mirrors.163.com/.help/ubuntu.html)
 
 ---
-## ubuntu 桌面系统关机，重启，挂起，休眠命令
-### 关机命令
-    $ sudo dbus-send --system --print-reply  --dest=org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop
-### 重启命令:
-    $ sudo dbus-send --system --print-reply  --dest=org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager  org.freedesktop.ConsoleKit.Manager.Restart
-### 挂起命令:
-    $ sudo dbus-send --system --print-reply  --dest=org.freedesktop.UPower /org/freedesktop/UPower org.freedesktop.UPower.Suspend
-### 休眠命令:
-    $ sudo dbus-send --system --print-reply  --dest=org.freedesktop.UPower /org/freedesktop/UPower  org.freedesktop.UPower.Hibernate
-
----
 ## ubuntu 12.04创建本地源
 * [ubuntu 12.04创建本地源](http://hi.baidu.com/chenshake/item/8bf5c4d599d6b82839f6f7fe)
 * [Ubuntu10.04制作官方源镜像以及搭建本地源](http://www.cnblogs.com/linucos/archive/2012/03/31/2426662.html)
@@ -176,30 +165,6 @@
 [Ubuntu的samba设置](http://wenku.baidu.com/view/2dc8b03a376baf1ffc4fad02.htm)
 
 ---
-## 常用工具安装
-    $ sudo apt-get install minicom
-    $ sudo apt-get install vim
-    $ sudo apt-get install git git-core
-    $ sudo apt-get install openssh-server openssh-client
-    $ sudo apt-get install build-essential kernel-package libncurses5-dev
-    $ sudo apt-get install subversion
-    $ sudo apt-get install autoconf
-    $ sudo apt-get install sysstat
-    $ sudo apt-get install apache2-utils
-    $ sudo apt-get install curl
-    $ sudo apt-get install gdb fakeroot wget bzip2 
-    $ sudo apt-get install libelf-dev binutils-dev kernel-wedge makedumpfile kexec-tools crash
-
----
-## ubuntu root用户
-首先设置root密码，利用现有管理员帐户登陆Ubuntu，在终端执行命令：`sudo passwd root`，接着输入密码和root密码，重复密码。这样就有了可用的root用户。当然不建议切换到 root 下直接运行命令。
-## 系统网络校时
-    $ sudo ntpdate clock.stdtime.gov.tw
-    $ sudo hwclock -w
-## ubuntu 12.04 perf 工具安装
-    $ sudo apt-get install linux-base linux-tools-common linux-tools
-
----
 ## tftp server 安装
     $ sudo apt-get install tftpd tftp xinetd
     $ sudo vim /etc/xinetd.d/tftp
@@ -218,19 +183,6 @@
         }
     ```
     $ sudo /etc/init.d/xinetd restart
-
----
-## dns 服务器地址添加
-    $ sudo vim /etc/resolvconf/resolv.conf.d/tail
-    $ sudo cat /etc/resolvconf/resolv.conf.d/tail
-    ```
-        nameserver 192.168.1.1
-    ```
-    $ sudo /etc/init.d/resolvconf restart
-通过局域网代理上网，可以不用设置 dns 。
-### 浙江省杭州市（中国电信）DNS
-* 首选DNS：202.101.172.35
-* 备份DNS：202.101.172.47
 
 ---
 ## samba 服务器安装
@@ -265,6 +217,54 @@
 ### 重启 samba 服务
     $ sudo service smbd restart
     $ sudo service smbd restart
+
+---
+## 常用工具安装
+    $ sudo apt-get install minicom
+    $ sudo apt-get install vim
+    $ sudo apt-get install git git-core
+    $ sudo apt-get install openssh-server openssh-client
+    $ sudo apt-get install build-essential kernel-package libncurses5-dev
+    $ sudo apt-get install subversion
+    $ sudo apt-get install autoconf
+    $ sudo apt-get install sysstat
+    $ sudo apt-get install apache2-utils
+    $ sudo apt-get install curl
+    $ sudo apt-get install gdb fakeroot wget bzip2 
+    $ sudo apt-get install libelf-dev binutils-dev kernel-wedge makedumpfile kexec-tools crash
+
+## ubuntu 12.04 perf 工具安装
+    $ sudo apt-get install linux-base linux-tools-common linux-tools
+---
+## ubuntu 桌面系统关机，重启，挂起，休眠命令
+### 关机命令
+    $ sudo dbus-send --system --print-reply  --dest=org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop
+### 重启命令:
+    $ sudo dbus-send --system --print-reply  --dest=org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager  org.freedesktop.ConsoleKit.Manager.Restart
+### 挂起命令:
+    $ sudo dbus-send --system --print-reply  --dest=org.freedesktop.UPower /org/freedesktop/UPower org.freedesktop.UPower.Suspend
+### 休眠命令:
+    $ sudo dbus-send --system --print-reply  --dest=org.freedesktop.UPower /org/freedesktop/UPower  org.freedesktop.UPower.Hibernate
+
+---
+## ubuntu root用户
+首先设置root密码，利用现有管理员帐户登陆Ubuntu，在终端执行命令：`sudo passwd root`，接着输入密码和root密码，重复密码。这样就有了可用的root用户。当然不建议切换到 root 下直接运行命令。
+## 系统网络校时
+    $ sudo ntpdate clock.stdtime.gov.tw
+    $ sudo hwclock -w
+
+---
+## dns 服务器地址添加
+    $ sudo vim /etc/resolvconf/resolv.conf.d/tail
+    $ sudo cat /etc/resolvconf/resolv.conf.d/tail
+    ```
+        nameserver 192.168.1.1
+    ```
+    $ sudo /etc/init.d/resolvconf restart
+通过局域网代理上网，可以不用设置 dns 。
+### 浙江省杭州市（中国电信）DNS
+* 首选DNS：202.101.172.35
+* 备份DNS：202.101.172.47
 
 ---
 ## 开机默认不启动图形用户界面
