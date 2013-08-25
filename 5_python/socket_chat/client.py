@@ -39,36 +39,37 @@ class ChatClient(object):
         self.socket.sendall(mesg)
 
     def _do_recv_mesg_handle(self):
-        try:
-            data = self.socket.recv(1024)
-            if 'quit' == data:
-                self.socket.close()
-                print 'we quit !'
-                sys.exit() # TODO
-            if len(data) == 0:
-                self.socket.close()
-                print 'server closed we quit !'
-                sys.exit() # TODO
-            print 'Received', repr(data)
-        except Exception, e:
-            os.close(self.read_fd)
+        data = self.socket.recv(1024)
+        if 'quit' == data:
             self.socket.close()
-            print 'Exception recieved we quit !'
-            raise e
+            print 'we quit !'
+            sys.exit() # TODO
+        if len(data) == 0:
+            self.socket.close()
+            print 'server closed we quit !'
+            sys.exit() # TODO
+        print 'Received', repr(data)
 
     def _do_echo(self):
         os.close(self.write_fd)
         epoll = select.epoll()
-        epoll.register(self.read_fd, select.EPOLLIN)        
+        epoll.register(self.read_fd, select.EPOLLIN)
         epoll.register(self.socket.fileno(), select.EPOLLIN)
 
-        while True:
-            events = epoll.poll(1)
-            for fileno, event in events:
-                if fileno == self.read_fd:
-                    self._do_send_mesg_handle()
-                elif fileno == self.socket.fileno():
-                    self._do_recv_mesg_handle()
+        try:
+            while True:
+                events = epoll.poll(1)
+                for fileno, event in events:
+                    if fileno == self.read_fd:
+                        self._do_send_mesg_handle()
+                    elif fileno == self.socket.fileno():
+                        self._do_recv_mesg_handle()
+        except Exception, e:
+            print 'Exception recieved we quit !'
+            raise e
+        finally:
+            os.close(self.read_fd)
+            self.socket.close()
 
     def do_start_process(self):
         pid = os.fork()
