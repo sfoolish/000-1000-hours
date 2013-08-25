@@ -21,12 +21,12 @@ class ChatClient(object):
         while True:
             try:
                 mesg = raw_input("please input your worlds(input 'quit' for quit):")
+                self.socket.sendall(mesg)
+                data = self.socket.recv(1024)
                 if 'quit' == mesg:
                     self.socket.close()
                     print 'we quit !'
                     break
-                self.socket.sendall(mesg)
-                data = self.socket.recv(1024)
                 if len(data) == 0:
                     self.socket.close()
                     print 'server closed we quit !'
