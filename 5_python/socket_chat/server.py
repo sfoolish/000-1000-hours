@@ -28,11 +28,17 @@ class ChatServer(object):
         self.connections[connection.fileno()] = connection
         self.requests[connection.fileno()] = b''
 
-    def _do_recv_mesg_handle(self, fileno = 0, event = 0):
+    def _do_mesg_handle(self, fileno = 0, event = 0):
         self.requests[fileno] += self.connections[fileno].recv(1024)
         if 'quit' == self.requests[fileno]:
             self.epoll.modify(fileno, select.EPOLLOUT)
-        self.connections[fileno].send(self.requests[fileno])
+            self.connections[fileno].send(self.requests[fileno])
+            self.requests[fileno] = '%d is quit' % fileno
+
+        for fno, connection in self.connections.iteritems():
+            if fno != fileno:
+                connection.send(self.requests[fileno])
+
         self.requests[fileno] = b''
 
     def do_echo(self):
@@ -45,7 +51,7 @@ class ChatServer(object):
                     if fileno == self.socket.fileno():
                         self._do_accept_handle()
                     elif event & select.EPOLLIN:
-                        self._do_recv_mesg_handle(fileno, event)
+                        self._do_mesg_handle(fileno, event)
                     elif event & select.EPOLLOUT:
                         self.epoll.modify(fileno, 0)
                         self.connections[fileno].shutdown(socket.SHUT_RDWR)
