@@ -34,12 +34,12 @@ class ChatServer(object):
                         requests[connection.fileno()] = b''
                     elif event & select.EPOLLIN:
                         requests[fileno] += connections[fileno].recv(1024)
-                        print requests[fileno]
                         # if EOL1 in requests[fileno] or EOL2 in requests[fileno]:
                         # epoll.modify(fileno, select.EPOLLOUT)
                         if 'quit' in requests[fileno]:
                             epoll.modify(fileno, select.EPOLLOUT)
                         connections[fileno].send(requests[fileno])
+                        requests[fileno] = b''
                     elif event & select.EPOLLOUT:
                         # byteswritten = connections[fileno].send(responses[fileno])
                         # responses[fileno] = responses[fileno][byteswritten:]
@@ -48,7 +48,7 @@ class ChatServer(object):
                         epoll.modify(fileno, 0)
                         connections[fileno].shutdown(socket.SHUT_RDWR)
                     elif event & select.EPOLLHUP:
-                        print fileno
+                        print 'file %d close' % fileno
                         epoll.unregister(fileno)
                         connections[fileno].close()
                         del connections[fileno]
@@ -62,6 +62,5 @@ if __name__ == '__main__':
     PORT = 50007
     server = ChatServer(HOST, PORT)
     server.bind()
-    while True:
-        server.do_echo()
+    server.do_echo()
 
