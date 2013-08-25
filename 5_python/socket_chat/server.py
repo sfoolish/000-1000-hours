@@ -30,7 +30,8 @@ class ChatServer(object):
 
     def _do_mesg_handle(self, fileno = 0, event = 0):
         self.requests[fileno] += self.connections[fileno].recv(1024)
-        if 'quit' == self.requests[fileno]:
+
+        if (len(self.requests[fileno]) == 0) or ('quit' == self.requests[fileno]):
             self.epoll.modify(fileno, select.EPOLLOUT)
             self.connections[fileno].send(self.requests[fileno])
             self.requests[fileno] = '%d is quit' % fileno
