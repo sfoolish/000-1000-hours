@@ -8,10 +8,8 @@ class BaseHandler(tornado.web.RequestHandler):
         return self.get_secure_cookie("user")
 
 class MainHandler(BaseHandler):
+    @tornado.web.authenticated
     def get(self):
-        if not self.current_user:
-            self.redirect("/login")
-            return
         name = tornado.escape.xhtml_escape(self.current_user)
         self.write("Hello, " + name)
 
@@ -31,12 +29,17 @@ class LogoutHandler(BaseHandler):
         self.clear_cookie("user")
         self.redirect("/")
 
+settings = {
+    "cookie_secret": "__TODO:_GENERATE_YOUR_OWN_RANDOM_VALUE_HERE__",
+    "login_url": "/login"
+}
+
 application = tornado.web.Application([
     (r"/", MainHandler),
     (r"/login", LoginHandler),
     (r"/logout", LogoutHandler),
-], cookie_secret="__TODO:_GENERATE_YOUR_OWN_RANDOM_VALUE_HERE__")
+], **settings)
 
 if __name__ == "__main__":
-    application.listen(8888)
+    application.listen(8880)
     tornado.ioloop.IOLoop.instance().start()
