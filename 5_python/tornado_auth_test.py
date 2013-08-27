@@ -13,14 +13,21 @@ class MainHandler(BaseHandler):
         name = tornado.escape.xhtml_escape(self.current_user)
         self.write("Hello, " + name)
 
+user_info={}
+
 class LoginHandler(BaseHandler):
     def get(self):
         self.write('<html><body><form action="/login" method="post">'
                    'Name: <input type="text" name="name">'
+                   'Password: <input type="text" name="password">'
                    '<input type="submit" value="Sign in">'
                    '</form></body></html>')
 
     def post(self):
+        if self.get_argument("name") not in user_info:
+            user_info[self.get_argument("name")] = self.get_argument("password")
+        elif user_info[self.get_argument("name")] != self.get_argument("password"):
+            self.redirect("/")
         self.set_secure_cookie("user", self.get_argument("name"))
         self.redirect("/")
 
