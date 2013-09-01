@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 def closure_counter():
     def counter():
         counter.count += 1
