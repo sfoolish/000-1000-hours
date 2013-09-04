@@ -18,6 +18,12 @@
     $ mkdir _site
     $ jekyll --server --auto       # 本地测试，可边修改边看效果
 jekyll 默认使用 4000 端口，上述操作在 ubuntu12.04_x64 上测试通过，部分命令可能需要 `sudo`。
+
+## mac os 10.6 下 Jekyll 环境的使用
+
+    $ rvm use 1.9.2@rails31
+    $ jekyll --server --auto
+
 ### REF
 * [查看 RVM 实用指南](http://ruby-china.org/wiki/rvm-guide)
 * [Rubygems 镜像](http://ruby.taobao.org/)
@@ -167,3 +173,4 @@ $ rake db:create
 * 版本兼容性问题太难折腾了，暂时直接吧rake-0.9.2的版本删除；
 `gem uninstall rake -v=0.9.2`  然后从头到尾重新做了一遍；
 做法有点低效，是照着文档一步一步做下来的，通篇大致看一遍再做更合理一些；
+
