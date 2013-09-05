@@ -79,6 +79,9 @@ git config alias表示，可以用git co代表git checkout。git var -l可以查
     $ git branch new_branch           # 创建新的分支。
     $ git branch -d branch            # 删除分支。
     $ git checkout branch             # 切换当前分支。-f参数可以覆盖未提交内容。
+### tag:
+    $ git tag -l                      # 列出全部的 tag
+    $ git checkout <tag_name>         # 切换到 <tag_name> 下。
 
 ---
 ## Git + 代理服务器
