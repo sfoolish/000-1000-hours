@@ -35,4 +35,5 @@
 
 * 阅读 [The Little Redis Book](http://openmymind.net/2012/1/23/The-Little-Redis-Book/)
 
-* 阅读 [Redis 设计与实现](http://www.redisbook.com/en/latest/index.html) 进行中
+* 阅读 [Redis 设计与实现](http://www.redisbook.com/en/latest/index.html) 浏览完毕，原计划晚上看完的，到十二点的时候还有最后几个小节没看，实在太困，眯了一会儿后，被外面的敲门声吵醒，起来继续看。
+看完之后对 Redis 的内部实现有了大致的了解。图文并貌，条理清晰，很不错的一份文档。
