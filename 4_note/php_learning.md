@@ -229,3 +229,35 @@ server {
 500 Internal Server Error
 
 ---
+
+## Run Twitter clone with PHP and Redis retwis-0.3 
+
+软件环境：Mac OSX-10.6 + Apache-2.2.22 + PHP-5.3.15 + Redis-2.0.4 + Retwis-0.3 ，参照 [在Mac OS X中配置Apache ＋ PHP ＋ MySQL][1] 的 Apache + PHP 部分配置了下环境。
+
+### retwis-0.3 代码修改：
+
+php 代码潜入方式修改：
+
+    // 修改前
+    <? include("navbar.php") ?>
+    // 修改后
+    <?php include("navbar.php") ?>
+
+php 变量引用方法修改：
+
+    // 修改前
+    <?=utf8entities($username)?>
+    // 修改后
+    <?php echo utf8entities($username); ?>
+
+### REF
+
+* [在Mac OS X中配置Apache ＋ PHP ＋ MySQL][1]
+* [retwis-0.3.tar.gz](http://code.google.com/p/redis/downloads/list)
+
+[1]: http://dancewithnet.com/2010/05/09/run-apache-php-mysql-in-mac-os-x/
+
+
+
+
+
