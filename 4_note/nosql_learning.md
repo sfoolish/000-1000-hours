@@ -38,6 +38,19 @@
 * 阅读 [Redis 设计与实现](http://www.redisbook.com/en/latest/index.html) 浏览完毕，原计划晚上看完的，到十二点的时候还有最后几个小节没看，实在太困，眯了一会儿后，被外面的敲门声吵醒，起来继续看。
 看完之后对 Redis 的内部实现有了大致的了解。图文并貌，条理清晰，很不错的一份文档。
 
+* 阅读 [Connections Handling](http://redis.io/topics/clients)
+* 阅读 [Signals Handling](http://redis.io/topics/signals)
+* 阅读 [Redis Administration](http://redis.io/topics/admin)
+* 阅读 [Redis Persistence](http://redis.io/topics/persistence)
+    * TO READ [Redis persistence demystified](http://oldblog.antirez.com/post/redis-persistence-demystified.html)
+* 阅读 [Replication](http://redis.io/topics/replication)
+* 阅读 [Redis Internals documentation](http://redis.io/topics/internals)
+	* 阅读 [Hacking Strings the Redis String implementation](http://redis.io/topics/internals-sds): 巧妙的指针处理，使得 `sds *` 兼容 `char *`
+	* 阅读 [virtual memory implementation details](http://redis.io/topics/internals-vm)
+	* 阅读 [Event Library](http://redis.io/topics/internals-eventlib)
+		* TO READ [why Redis uses its own event library](https://groups.google.com/forum/#!topic/redis-db/tSgU6e8VuNA)
+	* 阅读 [Redis Event Library](http://redis.io/topics/internals-rediseventlib)
+
 ---
 
 ## redis 代码阅读笔记
