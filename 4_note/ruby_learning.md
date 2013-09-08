@@ -28,6 +28,8 @@ jekyll 默认使用 4000 端口，上述操作在 ubuntu12.04_x64 上测试通�
 * [查看 RVM 实用指南](http://ruby-china.org/wiki/rvm-guide)
 * [Rubygems 镜像](http://ruby.taobao.org/)
 * [Ruby on rails installation error – Halting the installation](http://vkarthickeyan.wordpress.com/2012/02/03/)
+* [mytharcher.github blog](mytharcher.github.com)
+* [allthelucky.github blog](allthelucky.github.com)
 
 ---
 ### rdiscount 安装
