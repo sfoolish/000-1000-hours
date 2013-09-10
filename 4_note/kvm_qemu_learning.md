@@ -194,3 +194,11 @@ The monitor is accessed from within QEMU by holding down the Control and Alt key
 * [Bochs 简介及配置](http://www.cppblog.com/coreBugZJ/archive/2011/04/03/143334.aspx)
 * [如何在macosx上通过源码安装bochs2.4.6并使用peter-bochs进行调试](http://blog.csdn.net/bigstaff/article/details/6311926)
 * [oldlinux bochs](http://oldlinux.org/Linux.old/)
+
+---
+
+## SPICE
+[spice documentation](http://spice-space.org/documentation.html)
+[DeveloperStartPage](http://spice-space.org/page/DeveloperStartPage)
+
+[红帽桌面虚拟化：SPICE协议的优势](http://www.searchvirtual.com.cn/showcontent_54562.htm) 思杰是该领域领导者（尤其是ICA/HDX），不过VMware View最新的版本5中的PCoIP协议也很有竞争力。微软最近也在大量宣传RDP附件RemoteFX。
