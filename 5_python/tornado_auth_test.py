@@ -12,6 +12,7 @@ class MainHandler(BaseHandler):
     def get(self):
         name = tornado.escape.xhtml_escape(self.current_user)
         self.write("Hello, " + name)
+        self.write("<p><a href='/logout'>logout</a></p>")
 
 user_info={}
 
@@ -19,7 +20,7 @@ class LoginHandler(BaseHandler):
     def get(self):
         self.write('<html><body><form action="/login" method="post">'
                    'Name: <input type="text" name="name">'
-                   'Password: <input type="text" name="password">'
+                   'Password: <input type="password" name="password">'
                    '<input type="submit" value="Sign in">'
                    '</form></body></html>')
 
