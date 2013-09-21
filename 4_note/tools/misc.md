@@ -7,12 +7,22 @@
 * 关闭Spotlight菜单：ESC按两次
 
 ### [macports](http://www.macports.org/)
+#### 更新Port的index
+    $ sudo port selfupdate 
 #### 搜索索引中的软件
     $ port search <name>
+#### 查看软件包的内容和说明
+    $ sudo port info <name>
+#### 查看软件包的依赖关系
+    $ sudo port deps <name>
 #### 安装新软件
     $ sudo port install <name>
 #### 卸载软件
     $ sudo port uninstall <name>
+
+[MacPorts Guide](http://guide.macports.org/)
+[Mac Port 基本用法总结](http://guibin.iteye.com/blog/986838)
+
 ### 定时关机命令
     sudo shutdown -h 22:00 May 29th 2010
     sudo shutdown -h +20  #shutdown 20 mins later
