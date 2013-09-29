@@ -58,6 +58,24 @@ theme 配置文件路径：`~/Library/Application Support/Sublime Text 2/Package
         "font_size": 14.0,
     }
 
+### subtime 安装 ctags 插件
+[在sublime text 2里使用ctags扩展](http://www.leonzhang.com/2012/01/11/using-ctags-in-sublime-text-2/)
+
+1. use Package Control install ctags sublime plugin
+2. download ctags source code, compile and replace ctags
+
+[ctags-5.8.tar.gz](http://prdownloads.sourceforge.net/ctags/ctags-5.8.tar.gz)
+
+=== Commands Listing ===
+
+|=Command                        |=Key Binding            |=Alt Binding       |=Mouse Binding       |
+| rebuild_ctags                  | ctrl+t ctrl+r          |                   |                     |
+| navigate_to_definition         | ctrl+t ctrl+t          | ctrl+alt+]        | ctrl+alt+left_click |
+| jump_back                      | ctrl+t ctrl+b          | ctrl+alt+[        |                     |
+| jump_back to_last_modification | ctrl+t ctrl+m          |                   |                     |
+| show_symbols                   | alt+s                  |                   |                     |
+| show_symbols multi             | alt+shift+s            |                   |                     |
+
 ---
 ## REF
 * [Sublime Package Control](http://wbond.net/sublime_packages/package_control/installation)
