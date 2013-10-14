@@ -137,6 +137,11 @@
 ---
 ## awk 打印文件内容
     awk "{print } " /proc/meminfo 
+
+## ps 打印指定进程的线程信息
+
+    ps -mp pid -o THREAD,tid,time
+
 ---
 ## 在当前目录的每个子文件夹下都创建一个同名文件(没有递归创建)
     $ for i in `ls`; do  if [ -d $i ]; then touch $i"/index.md"; fi; done
