@@ -215,6 +215,9 @@ Keep in mind you can create a disk image that is case-sensitive, and mount it so
 #### REF
 * [ssh免输入密码登录](http://www.colorfuldays.org/linux/ssh_login_without_password/)
 
+### dtruss
+It basically uses dtrace and lists process’ syscall details like strace does on Linux. 
+
 ---
 ## man 使用技巧
     * 查看指定文件 man <man file path>
@@ -389,6 +392,11 @@ Foxmail 无法创建文件，cannot create file,查看邮件空白，不能回�
 
 ### windows xp hosts 文件路径
     C:\WINDOWS\system32\drivers\etc\hosts
+
+### Windwos 系统安装异常处理
+    "Units specified don't exist SHSUCDX can't install"
+
+    BIOS -> SATA MODE “AHCI” 改成“IDE”
 
 ---
 ## 杭州 DNS 服务器 IP 地址
