@@ -259,8 +259,12 @@ VirtualEnv 用于在一台机器上创建多个独立的python运行环境。
 * 解决权限限制，比如你没有root权限；
 * 尝试新的工具，而不用担心污染系统环境。
 
+### virtualenv 的注意事项
+使用virtualenv安装的Python环境都是相同版本的，如果你想安装不同版本，可以考虑使用其他应用，比如：[pythonbrew](https://github.com/utahta/pythonbrew)，[pyenv](https://github.com/utahta/pythonbrew)，[pythonz](https://github.com/saghul/pythonz)等等。
+
 ### REF
 * [virtualenv: python的沙盒环境](http://iamsmallka.blog.163.com/blog/static/72703637201151994232351/)
+* [学习搭建Python环境](http://huoding.com/2013/07/23/270)
 
 ---
 # Google App Engine
