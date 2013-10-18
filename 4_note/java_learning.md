@@ -21,3 +21,4 @@ J2EE是一滩很深的水，工程化也比较严重，如果一直做大项目�
 ---
 ## [java 学习路线图](http://edu.csdn.net/main/studyline/heimaline.html?flz)
 
+Skilled in J2EE platform - JSP, Java, Servlet, EJB, Struts, Hibernate, Spring, Tomcat, JBoss, WebLogic 
