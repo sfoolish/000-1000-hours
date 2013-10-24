@@ -6,7 +6,7 @@ J2EE是一滩很深的水，工程化也比较严重，如果一直做大项目�
 如果觉得自己基础已经差不多了，尝试自己独立从头开始完成一些项目（不一定是公司的，个人兴趣也可以，反正给自己定一个目标），会发现编程其实远不仅仅只是CRUD，Getter/Setter
 多写代码，在写代码的过程中多看看用到的SDK/Framework的源码，少看书，多Google
 
-[CURD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete)In computer programming, create, read, update and delete (CRUD) are the four basic functions of persistent storage.[1
+[CURD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete)In computer programming, create, read, update and delete (CRUD) are the four basic functions of persistent storage.
 
 ### 符冬，Java资深程序设计架构工程师
 多做项目，多写代码，只有在项目开发当中遇到问题再去透彻的学习才能提升，没有目标的学习只会浪费时间和透支精力，熟能生巧，代码写的多了，技术自然就提升了
