@@ -1,4 +1,15 @@
 ---
+## Erlang Building from git
+	
+	git clone https://github.com/erlang/otp.git
+	autoconf
+	./otp_build autoconf
+    ./configure 
+    ./make -j4
+
+[REF](https://github.com/erlang/otp/blob/maint/HOWTO/INSTALL.md)
+
+---
 ## [Ebot](http://www.redaelli.org/matteo-blog/projects/ebot/)
 Erlang Bot (Ebot) is an opensource web crawler written on top of Erlang, a NOSQL database (Apache CouchDB or Riak),  RabbitMQ, Webmachine (Mochiweb), RRDTOOL, .. Using a NOSQL instead of a Relational Database, Ebot can grow easily and cheaply…  Ebot is a solid and highly scalable, distribuited and customizable web crawler.
 
