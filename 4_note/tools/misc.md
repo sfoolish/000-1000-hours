@@ -437,3 +437,25 @@ enconv -L zh_CN -x UTF-8 filename
 iconv -f encoding -t encoding inputfile
 比如将一个UTF-8 编码的文件转换成GBK编码
 iconv -f GBK -t UTF-8 file1 -o file2
+
+---
+## 中文字数统计
+
+* vim打开，g ctrl-g
+
+    Col 1 of 13; Line 1 of 2154; Word 1 of 2942; Char 1 of 47101; Byte 1 of 110151
+
+* wc -m
+
+    -m, --chars   print the character counts
+
+## [Linux文件分割与合并：split & cat](http://www.truevue.org/linux/%E6%96%87%E4%BB%B6%E5%88%86%E5%89%B2%E4%B8%8E%E5%90%88%E5%B9%B6)
+    
+split
+
+    split -l 300 large_file.txt new_file_prefix
+    split -b 10m large_file.bin new_file_prefix
+
+merge
+
+    cat small_files* > large_file
