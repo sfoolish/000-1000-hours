@@ -232,3 +232,32 @@ file1 -ot file2      file1 is older than file2
 ### REF
 * [ssh自动输入密码登录服务器/ssh免输入密码登录/非交互ssh 密码验证](http://hi.baidu.com/sdusoul/item/6a69b6953853e630326eeb21)
 * [SSH原理与运用（二）：远程操作与端口转发](http://www.ruanyifeng.com/blog/2011/12/ssh_port_forwarding.html)
+
+
+## Some Tips
+
+- shell 重定向
+    
+    ./command.sh > /dev/null 2>&1 # 命令不输出任何打印
+
+- 文件追加
+    
+    echo "hello world" >> hello.txt
+    echo "welcome" >> hello.txt
+    cat hello.txt
+    ```
+        hello world
+        welcome
+    ```
+
+- 算术运算
+
+    i=0
+    while [ $i -lt 5 ]
+    do
+        echo -n "$i, "
+        i=`expr $i + 1`
+    done
+    ```
+        0, 1, 2, 3, 4, 
+    ```
