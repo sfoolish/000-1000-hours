@@ -316,3 +316,7 @@ startx 后，注销系统就重新进入控制台模式。
     
     /dev/sda3 /mnt ext4 defaults, 0 1     
 ## [ubuntu 12.04 内核 git 地址](git://kernel.ubuntu.com/apw/ubuntu-precise.git)
+
+---
+## 软件彻底卸载
+    $ sudo apt-get --pruge remove <name>

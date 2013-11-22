@@ -137,3 +137,41 @@ git config alias表示，可以用git co代表git checkout。git var -l可以查
 ### REF
 * ['receive-pack': service not enabled for './.git'](http://stackoverflow.com/questions/792611/receive-pack-service-not-enabled-for-git)
 * `git daemon --help`
+
+---
+
+---
+#2012-06-26
+ping 127.0.0.1:8080并不是ping你电脑的8080端口，而是当做域名处理，当然ping不同咯。。但是电信在他的DNS里搞了鬼，所有不能用的域名统统转到60.191.124.236，也就是在IE里面输入一些不能解析的域名时，也会转到那里去，几时经常看到的114页面，还有难看的广告
+$ ping www.shadingnet.com
+PING www.shadingnet.com (60.191.124.236): 56 data bytes
+$ ping 127.0.0.1:8080
+PING 127.0.0.1:8080 (60.191.124.236): 56 data bytes
+
+$ dig @8.8.8.8 -t a sfoolish.github.com
+$ dig @8.8.8.8 -t a shadingnet.com
+
+$ dig @8.8.8.8 -t a blog.shadingnet.com
+
+; <<>> DiG 9.6-ESV-R4-P3 <<>> @8.8.8.8 -t a blog.shadingnet.com
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 22226
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;blog.shadingnet.com.   IN  A
+
+;; ANSWER SECTION:
+blog.shadingnet.com.  3600  IN  CNAME sfoolish.github.com.
+sfoolish.github.com.  43200 IN  A 204.232.175.78
+
+;; Query time: 82 msec
+;; SERVER: 8.8.8.8#53(8.8.8.8)
+;; WHEN: Tue Jun 26 07:22:17 2012
+;; MSG SIZE  rcvd: 83
+
+# REF
+[github page 使用专有域名](http://www.worldhello.net/gotgithub/03-project-hosting/050-homepage.html#dedicate-domain)
+[使用github作为博客引擎](http://blog.leezhong.com/tech/2010/08/25/make-github-as-blog-engine.html)

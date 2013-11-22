@@ -539,3 +539,44 @@ scrapy 依赖Twisted，libxml，而Twisted，libxml安装时需要编译 C 代�
 Twisted is an event-driven networking engine written in Python and licensed under the open source  MIT license. 
 scrapy 基于 twisted
 * [使用 Twisted Matrix 框架来进行网络编程](http://www.ibm.com/developerworks/cn/linux/network/l-twist/part1/index.html)
+
+## python docs
+http://docs.python.org/2/library/intro.html
+file:///Users/apple/Downloads/python-2.7.5-docs-html/library/intro.html
+
+## 对象属性遍历
+
+import select
+for i in select.__dict__:
+    if type(select.__dict__[i]) == int:
+        print i, select.__dict__[i]
+
+__init__.py 文件。这些文件指示 Python 为您的包加载必要的库和特定的应用程序代码文件，它们都位于相同的目录中。
+
+挑战一下[ 42qu 的笔试题](http://python.42qu.com/11290852)
+请编写基于 requests 网络库的小爬虫，抓取新浪微话题的所有话题以及话题对应的简介
+
+requests 抓取页面
+
+[BeautifulSoup](http://www.crummy.com/software/BeautifulSoup/)进行解析
+下载[最新的源码](http://www.crummy.com/software/BeautifulSoup/bs4/download/beautifulsoup4-4.1.3.tar.gz)
+[doc](www.crummy.com/software/BeautifulSoup/bs4/doc/)
+** some questions **
+
+- python 库文件依赖关系是如何处理的?
+- virtualenv 的实现机制是什么，环境变量?
+
+[42qu source code](https://bitbucket.org/zuroc/)
+
+---
+
+http://stackoverflow.com/questions/5904969/python-how-to-print-a-dictionarys-key
+
+for key, value in mydic.iteritems() :
+    print key, value
+
+for key, value in mydic.items() :
+    print (key, value)
+
+for key in mydic.keys():
+  print "the key name is" + key + "and its value is" + mydic[key]

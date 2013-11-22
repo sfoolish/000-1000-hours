@@ -202,3 +202,24 @@ The monitor is accessed from within QEMU by holding down the Control and Alt key
 [DeveloperStartPage](http://spice-space.org/page/DeveloperStartPage)
 
 [红帽桌面虚拟化：SPICE协议的优势](http://www.searchvirtual.com.cn/showcontent_54562.htm) 思杰是该领域领导者（尤其是ICA/HDX），不过VMware View最新的版本5中的PCoIP协议也很有竞争力。微软最近也在大量宣传RDP附件RemoteFX。
+
+---
+
+### qemu-kvm
+  391  sudo apt-get install ubuntu-virt-server python-vm-builder
+  392  sudo apt-get install ubuntu-virt-server python-vm-builder kvm-ipxe virt-manager
+  393  id -un
+  394  id -nu
+  395  adduser `id -un` libvirtd
+  396  sudo adduser `id -un` libvirtd
+  397  sudo adduser `id -un` kvm
+  398  exit
+  399  virsh -c qemu:///system list
+  400  sudo apt-get install bridge-utils
+  401  ifconfig 
+
+sudo apt-get install qemu-kvm libvirt-bin virt-manager bridge-utils
+
+[Debian Lenny and Squeeze amd64 images for QEMU or KVM](http://people.debian.org/~aurel32/qemu/amd64/)
+[[ANNOUNCE] Native Linux KVM tool](http://amosk.info/blog/?p=622)
+

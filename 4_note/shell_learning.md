@@ -261,3 +261,25 @@ file1 -ot file2      file1 is older than file2
     ```
         0, 1, 2, 3, 4, 
     ```
+
+---
+
+## 加密文件
+
+    $ openssl enc -aes-256-ofb -in file -out file.dat
+
+## 解密文件
+
+    $ openssl enc -aes-256-ofb -d -in file.dat > file
+
+## 加密文件夹
+
+    $ tar cz dic | openssl enc -aes-256-ofb -out dic.tar.gz.dat
+
+## 解密文件夹
+
+    $ openssl enc -aes-256-ofb -d -in dic.tar.gz.dat | tar xz
+
+### REF
+
+* [在Linux环境下使用OpenSSL对消息和文件进行加密](http://www.rising.com.cn/newsletter/news/2013-02-26/13227.html)

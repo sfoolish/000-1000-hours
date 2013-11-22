@@ -145,6 +145,13 @@ sed 是一种在线编辑器，它一次处理一行内容。处理时，把当�
 ## 7. 脚本
 Sed脚本是一个sed的命令清单，启动Sed时以-f选项引导脚本文件名。Sed对于脚本中输入的命令非常挑剔，在命令的末尾不能有任何空白或文本，如果在一行中有多个命令，要用分号分隔。以#开头的行为注释行，且不能跨行。
 
----
 ## REF
 * [linux sed命令详解](http://www.iteye.com/topic/587673)
+
+---
+
+for name in `ls *.tut`
+do 
+    newname=`echo $name | sed -n 's/tut/c/p'`
+    mv $name ../../nginx-tutorials_c/$newname
+done
