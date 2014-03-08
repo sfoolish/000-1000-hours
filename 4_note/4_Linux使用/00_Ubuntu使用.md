@@ -320,3 +320,16 @@ startx 后，注销系统就重新进入控制台模式。
 ---
 ## 软件彻底卸载
     $ sudo apt-get --pruge remove <name>
+
+### 添加 swap 分区，解决内核编译过程中内核不足问题
+    # dd if=/dev/zero of=/mnt/512Mb.swap bs=1M count=512
+    # mkswap /mnt/512Mb.swap
+    # swapon /mnt/512Mb.swap
+
+    # swapoff /mnt/512Mb.swap
+    # rm /mnt/512Mb.swap
+ref: [如何设置Ubuntu的swap区](http://blog.csdn.net/chenyongxinglove/article/details/5883315)
+
+### ssh 设置发送心跳参数
+
+    # ssh -o ServerAliveInterval=60 root@42.x.x.x
