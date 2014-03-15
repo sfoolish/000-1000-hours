@@ -1,10 +1,34 @@
+## 常用技巧
 
----
-## [tftp and launchctl on MacOSX](http://aplawrence.com/MacOSX/tftp.html)
+### Mac 常用快捷键汇总
 
-## usb to serial driver for MacOSX10.6
+* CMD + W               关闭子页面
+* CMD + T               创建 TAB
+* CMD + 空格键           输入法切换
+* Shift + Alt/Option    音量微调（1/4）
+* Shift + CMD + 3       截全屏保存到桌面
+* Shift + CMD + 4       截屏指定区域保存到桌面
 
-http://plugable.com/drivers/prolific/
-http://plugable.com/2011/07/12/installing-a-usb-serial-adapter-on-mac-os-x/
-http://plugable.com/2011/07/12/installing-a-usb-serial-adapter-on-mac-os-x/
-PL2303 MacOSX10.6 dmg v1.4.0.zip
+### spotlight
+
+* 打开Spotlight菜单：Control+空格
+* 在Finder中打开Spotlight：Command + F
+* 清空Spotlight搜索框：ESC
+* 关闭Spotlight菜单：ESC按两次
+
+### Activity Monitor
+
+activity monitor 相当于 MacOS 下的任务管理器，可用于查看内存，CPU，网络等的使用情况。
+此外，可以在控制台下输入命令 `top -o rsize` 来安内存使用来进行进程排序。
+
+### Mac OSX 10.9 多桌面创建
+
+1. 在触摸板上4指向上推。进入Mission Control。
+2. 将鼠标移到屏幕右上角。就能看到一个新增的桌面出现，并且上面有个加号。点击就能添加桌面了。
+
+### [使用键盘恢复最小化到Dock上的程序窗口](http://www.macx.cn/thread-1011644-1-1.html)
+    
+    cmd + tab激活程序切换
+        -> 按住cmd不放按tab（shift + tab）选中程序 
+            -> 松开tab，按住cmd不放的同时按住opt（alt）
+                -> 松开cmd
