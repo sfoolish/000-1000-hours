@@ -22,3 +22,31 @@ J2EE是一滩很深的水，工程化也比较严重，如果一直做大项目�
 ## [java 学习路线图](http://edu.csdn.net/main/studyline/heimaline.html?flz)
 
 Skilled in J2EE platform - JSP, Java, Servlet, EJB, Struts, Hibernate, Spring, Tomcat, JBoss, WebLogic 
+
+## Java float 初始化
+    
+    $ cat Float.java 
+    class Float{
+    	public static void main(String arg[]) {
+    		float f = 30.123;
+    		System.out.println(f);
+    	}
+    }
+    
+    ϟSF-Hacking: ~/APP_PRJ/JAVA/workspace/ThinkingJava/src
+    $ javac Float.java 
+    Float.java:3: error: possible loss of precision
+    		float f = 30.123;
+    		          ^
+      required: float
+      found:    double
+    1 error
+
+Floating point literals are by default of double type. And assigning a double value to a float type will result in some precision error.
+
+---
+
+[浅谈Java中的Set、List、Map的区别](http://developer.51cto.com/art/201309/410205_all.htm)
+
+    double d = 30.123;
+    float c = 30.123f;
