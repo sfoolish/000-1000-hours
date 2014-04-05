@@ -87,3 +87,13 @@ nova 现在只能在linux下运行，而且需要安装 libvirt 并且能够至�
 谁参加这个活动：
 汪源 院长 公司： 网易杭州研究院
 王磊 技术总监 公司： 网易杭州研究院
+
+---
+
+[db migrate script to set charset=utf8 for all tables](https://bugs.launchpad.net/glance/+bug/1279000)
+[Change If887ac6b: Making DB sanity checking be optional for DB migration](https://review.openstack.org/#/c/75865/)
+
+
+
+https://review.openstack.org/#/c/75865/
+
