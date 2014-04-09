@@ -32,3 +32,9 @@ activity monitor 相当于 MacOS 下的任务管理器，可用于查看内存�
         -> 按住cmd不放按tab（shift + tab）选中程序 
             -> 松开tab，按住cmd不放的同时按住opt（alt）
                 -> 松开cmd
+
+### [App can't be opened because it is from an unidentified developer](http://stackoverflow.com/questions/19551298/app-cant-be-opened-because-it-is-from-an-unidentified-developer)
+
+System Preferences --> Security & Privacy --> General tab --> Allow apps downloaded from Anywhere
+
+

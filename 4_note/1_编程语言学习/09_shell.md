@@ -283,3 +283,29 @@ file1 -ot file2      file1 is older than file2
 ### REF
 
 * [在Linux环境下使用OpenSSL对消息和文件进行加密](http://www.rising.com.cn/newsletter/news/2013-02-26/13227.html)
+
+---
+## shell 控制台设置
+
+    # xTerm-256color
+    export LS_OPTIONS='--color=auto'
+    export CLICOLOR='Yes'
+    #export LSCOLORS='Exfxcxdxbxegedabagacad'
+    #http://imwuyu.me/blog/modify-mac-osx-terminal-prompt-and-color.html/
+    #http://geoff.greer.fm/lscolors/
+    export LSCOLORS='Cxfxcxdxbxegedabagacad'
+    
+    # Modify Terminal Prompt and Color
+    case $(id -u) in
+        0)
+            STARTCOLOUR='\[\e[1;91m\]';
+            ;;
+        *)
+            STARTCOLOUR='\[\e[1;93m\]';
+            ;;
+    esac
+    ENDCOLOR="\[\e[0m\]"
+    UNDERLINEBLUE="\[\e[0;32m\]"
+    MYWORD="ϟSF-Hacking:"
+    PS1="\n$STARTCOLOUR$MYWORD$ENDECOLOR $UNDERLINEBLUE\w$ENDCOLOR\n\$ ";
+
