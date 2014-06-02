@@ -7,6 +7,7 @@
     * ctl + shift + g (change colors)   背景色设置
     * cmd + shift + f                   全屏显示
     * cmd + alt + i                     开发者工具
+    * cmd + w                           关闭标签页
 
 ### 常用插件
 
