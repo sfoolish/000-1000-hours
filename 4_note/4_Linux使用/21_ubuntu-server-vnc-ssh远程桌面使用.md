@@ -7,18 +7,18 @@ VNC 可以对数据进行压缩，使得传输的数据量比直接用 SSH 加�
 
 安装 vnc server：
 
-	$ sudo apt-get install vnc4server
+    $ sudo apt-get install vnc4server
 
 配置 vnc server：
 
-	$ vncserver ; 第一次启动会提示输入密码
-	$ vim ~/.vnc/xstartup
-	```
-		#x-window-manager &
-		gnome-session &
-	```
-	$ vncserver -kill :1
-	$ vncserver :1
+    $ vncserver ; 第一次启动会提示输入密码
+    $ vim ~/.vnc/xstartup
+    ```
+        #x-window-manager &
+        gnome-session &
+    ```
+    $ vncserver -kill :1
+    $ vncserver :1
 
 安装 ubuntu 桌面：
 
@@ -28,16 +28,16 @@ VNC 可以对数据进行压缩，使得传输的数据量比直接用 SSH 加�
 
 重启 vncserver：
 
-	$ vncserver -kill :1
-	$ vncserver :1
+    $ vncserver -kill :1
+    $ vncserver :1
 
 [可选] 编辑 /etc/rc.local 在文件最后一行加入：
 
-	su root -c '/usr/bin/vncserver -name my-vnc-server -depth 16 -geometry 1280x800 :1'即可实现开机自启动
+    su root -c '/usr/bin/vncserver -name my-vnc-server -depth 16 -geometry 1280x800 :1'即可实现开机自启动
 
 ### 建立 ssh 隧道
 
-	$ ssh -o ServerAliveInterval=60 -i ~/.ssh/sf-mac.pem -L 5901:localhost:5901 ubuntu@ec2-54-255-145-110.ap-southeast-1.compute.amazonaws.com
+    $ ssh -o ServerAliveInterval=60 -i ~/.ssh/sf-mac.pem -L 5901:localhost:5901 ubuntu@ec2-54-255-145-110.ap-southeast-1.compute.amazonaws.com
 
 参数说明：
 
@@ -45,11 +45,11 @@ VNC 可以对数据进行压缩，使得传输的数据量比直接用 SSH 加�
 - `-i ~/.ssh/sf-mac.pem`： 通过 ssh key 的形式登入 ssh server，当然也可以通过用户名密码的形式登入；
 - `-L 5901:localhost:5901 ubuntu@ec2-54-255-145-110.ap-southeast-1.compute.amazonaws.com`： 隧道参数配置的一般格式为 -L 本地端口：本地地址：远程端口 远程地址。
 
-### Mac OSX VNC Viewer 客户端下载
+### vncviewer 登入 vncserver
 
-1. 下载[Download VNC® Viewer](http://www.realvnc.com/download/get/1543/)；
-2. 打开VNC Viewer，VNC Server 输入：`localhost:1`，这里 1 对应的实际端口号就是 5901 ；
-3. 其他选项默认，按照向导链接vnc server。
+1. 下载 [Download VNC® Viewer](http://www.realvnc.com/download/get/1543/)；
+2. 打开 VNC Viewer，VNC Server 输入：`localhost:1`，这里 1 对应的实际端口号就是 5901 ；
+3. 其他选项默认，按照向导链接 vnc server 。
 
 ### REF
 
