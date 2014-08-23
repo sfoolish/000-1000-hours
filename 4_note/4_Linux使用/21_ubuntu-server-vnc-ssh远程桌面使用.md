@@ -37,13 +37,13 @@ VNC 可以对数据进行压缩，使得传输的数据量比直接用 SSH 加�
 
 ### 建立 ssh 隧道
 
-    $ ssh -o ServerAliveInterval=60 -i ~/.ssh/sf-mac.pem -L 5901:localhost:5901 ubuntu@ec2-54-255-145-110.ap-southeast-1.compute.amazonaws.com
+    $ ssh -o ServerAliveInterval=60 -i ~/.ssh/sf-mac.pem -L 5901:localhost:5901 ubuntu@ec2-xx-xx-xx-xx.ap-southeast-1.compute.amazonaws.com
 
 参数说明：
 
 - `-o ServerAliveInterval=60`： 为了维持跟 ssh server 之间的心跳；
 - `-i ~/.ssh/sf-mac.pem`： 通过 ssh key 的形式登入 ssh server，当然也可以通过用户名密码的形式登入；
-- `-L 5901:localhost:5901 ubuntu@ec2-54-255-145-110.ap-southeast-1.compute.amazonaws.com`： 隧道参数配置的一般格式为 -L 本地端口：本地地址：远程端口 远程地址。
+- `-L 5901:localhost:5901 ubuntu@ec2-xx-xx-xx-xx.ap-southeast-1.compute.amazonaws.com`： 隧道参数配置的一般格式为 -L 本地端口：本地地址：远程端口 远程地址。
 
 ### vncviewer 登入 vncserver
 
