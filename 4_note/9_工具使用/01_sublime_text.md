@@ -76,6 +76,10 @@ theme 配置文件路径：`~/Library/Application Support/Sublime Text 2/Package
 | show_symbols                   | alt+s                  |                   |                     |
 | show_symbols multi             | alt+shift+s            |                   |                     |
 
+### 支持从Terminal中直接启动sublime
+    
+    ln -s /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime
+
 ---
 ## REF
 * [Sublime Package Control](http://wbond.net/sublime_packages/package_control/installation)
@@ -83,3 +87,4 @@ theme 配置文件路径：`~/Library/Application Support/Sublime Text 2/Package
 * [sublime-text-2相关快捷键](http://www.cnblogs.com/rollenholt/archive/2012/07/30/2616089.html)
 * [TmTheme Editor](http://tmtheme-editor.herokuapp.com/#/Solarized%20(dark))
 * [sublime-rst-completion](https://github.com/dbousamra/sublime-rst-completion)
+
