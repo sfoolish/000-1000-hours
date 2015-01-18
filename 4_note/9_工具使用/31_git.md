@@ -3,8 +3,17 @@
     ssh-keygen -t rsa -C sfoolish.liang@gmail.com
     添加SSH公钥到github
     内容在： ~/.ssh/id_rsa.pub
-[github生成SSH公钥](http://blog.chinaunix.net/uid-26185912-id-3327885.html)
-[公钥认证管理](http://www.worldhello.net/gotgithub/03-project-hosting/030-repo-authz.html)
+
+    ssh-keygen -t rsa -C "your_email@example.com"
+    # start the ssh-agent in the background
+    eval "$(ssh-agent -s)"
+    # Agent pid 59566
+    ssh-add ~/.ssh/id_rsa
+    pbcopy < ~/.ssh/id_rsa.pub
+
+* [Generating SSH keys](https://help.github.com/articles/generating-ssh-keys/)
+* [github生成SSH公钥](http://blog.chinaunix.net/uid-26185912-id-3327885.html)
+* [公钥认证管理](http://www.worldhello.net/gotgithub/03-project-hosting/030-repo-authz.html)
 
 ---
 ## XP Git Bash 简要使用步骤
