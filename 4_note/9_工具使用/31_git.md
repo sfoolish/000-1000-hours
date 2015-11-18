@@ -1,4 +1,46 @@
 ---
+
+## git review steps
+
+git clone https://gerrit.opnfv.org/gerrit/p/yardstick
+cd yardstick/
+
+git review -s
+
+git checkout -b YARDSTICK-57
+vim yardstick/cmd/cli.py
+
+./run_tests.sh
+
+git add yardstick/cmd/cli.py
+
+git commit -s   # git commit -s --amend
+
+git log -p
+
+git review
+
+## git review dependency
+
+git review -d $PARENT_CHANGE_NUMBER
+git checkout -b $DEV_TOPIC_BRANCH
+
+git commit -a
+git review
+
+## git patch 使用
+
+* create patch
+
+git diff --no-prefix > patchfile
+
+* apply the patch:
+
+patch -p0 < patchfile
+
+http://tamsler.blogspot.com/2009/02/patching-with-git-diff.html
+
+---
 ## github 生成 SSH 公钥
     ssh-keygen -t rsa -C sfoolish.liang@gmail.com
     添加SSH公钥到github
@@ -106,7 +148,7 @@ git config alias表示，可以用git co代表git checkout。git var -l可以查
     $ cat /usr/bin/gitproxy
     ```
         #!/bin/bash
-        
+
         PROXY=172.9.21.108
         PROXYPORT=3128
         PROXYAUTH=sfoolish:sfoolish
@@ -148,6 +190,14 @@ git config alias表示，可以用git co代表git checkout。git var -l可以查
 * `git daemon --help`
 
 ---
+
+## git config 异常
+
+warning: gitreview.username has multiple values
+
+Edit .gitconfig delete duplicate configs
+
+vim ~/.gitconfig
 
 ---
 #2012-06-26

@@ -57,6 +57,14 @@
 ### REF
 [163 Ubuntu镜像使用帮助](http://mirrors.163.com/.help/ubuntu.html)
 
+## apt-get error
+E: Encountered a section with no Package: header
+E: Problem with MergeList /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_natty_main_binary-i386_Packages
+E: The package lists or status file could not be parsed or opened.
+
+sudo rm /var/lib/apt/lists/* -vf
+sudo apt-get update
+
 ---
 ## ubuntu 12.04创建本地源
 * [ubuntu 12.04创建本地源](http://hi.baidu.com/chenshake/item/8bf5c4d599d6b82839f6f7fe)
