@@ -18,6 +18,8 @@ git commit -s   # git commit -s --amend
 
 git log -p
 
+git log --name-only
+
 git review
 
 ## git review dependency
