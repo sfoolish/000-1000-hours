@@ -300,7 +300,7 @@ startx 后，注销系统就重新进入控制台模式。
 
 内核 dsc, diff.gz, orig.tar.gz 文件，可以通过下面命令展开：
 
-    $ dpkg-source -x linux_3.2.0-39.62.dsc 
+    $ dpkg-source -x linux_3.2.0-39.62.dsc
 ### 源码上传
 先在 github 创建空的 repo linux_3.2.0-39.62_ubuntu12.04 ，然后执行下面命令将代码上传。由于文件比较多，整个过程相当耗时间。
 
@@ -341,3 +341,24 @@ ref: [如何设置Ubuntu的swap区](http://blog.csdn.net/chenyongxinglove/articl
 ### ssh 设置发送心跳参数
 
     # ssh -o ServerAliveInterval=60 root@42.x.x.x
+
+---
+
+## permission denied for root@localhost for ssh connection
+
+Edit /etc/ssh/sshd_config
+
+Change
+
+PermitRootLogin without-password
+
+to
+
+PermitRootLogin yes
+
+or
+
+sed -i -e '/^PermitRootLogin/s/without-password/yes/' /etc/ssh/sshd_config
+service ssh restart
+
+REF: http://askubuntu.com/questions/497895/permission-denied-for-rootlocalhost-for-ssh-connection
