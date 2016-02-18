@@ -362,3 +362,8 @@ sed -i -e '/^PermitRootLogin/s/without-password/yes/' /etc/ssh/sshd_config
 service ssh restart
 
 REF: http://askubuntu.com/questions/497895/permission-denied-for-rootlocalhost-for-ssh-connection
+
+## User rules for ec2-user
+
+echo -e 'ec2-user\tALL=(ALL)\tNOPASSWD: ALL' >> /etc/sudoers
+echo -e 'opnfv\tALL=(ALL)\tNOPASSWD: ALL' >> /etc/sudoers
