@@ -367,3 +367,24 @@ REF: http://askubuntu.com/questions/497895/permission-denied-for-rootlocalhost-f
 
 echo -e 'ec2-user\tALL=(ALL)\tNOPASSWD: ALL' >> /etc/sudoers
 echo -e 'opnfv\tALL=(ALL)\tNOPASSWD: ALL' >> /etc/sudoers
+
+
+## guestmount 编辑 qcom2 镜像
+
+    apt-get install libguestfs-tools
+    guestmount -a centos63_desktop.qcow2 -i --rw /mnt
+    umount /mnt
+
+http://docs.openstack.org/image-guide/modify-images.html
+写一个类似 yardstick/tool 下的脚本，修改镜像
+
+## Clean up (remove MAC address details)
+
+    virt-sysprep -d trusty
+
+or
+
+    virt-sysprep -d centos
+
+* http://docs.openstack.org/image-guide/centos-image.html
+* http://docs.openstack.org/image-guide/ubuntu-image.html

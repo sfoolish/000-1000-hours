@@ -26,3 +26,13 @@ Foxmail 无法创建文件，cannot create file,查看邮件空白，不能回�
     "Units specified don't exist SHSUCDX can't install"
 
     BIOS -> SATA MODE “AHCI” 改成“IDE”
+
+## Windows admin run cmd
+
+    shutdown.exe -r
+
+## Xshell 使用技巧
+
+* 编辑和查看快捷键
+	Tools -> Options -> Keyboard and Mouse -> Key Mapping
+* Ctrl+R 窗口透明切换

@@ -37,4 +37,11 @@ activity monitor 相当于 MacOS 下的任务管理器，可用于查看内存�
 
 System Preferences --> Security & Privacy --> General tab --> Allow apps downloaded from Anywhere
 
+### Mac PDF Skim
+
+修改 pdf 文档背景色
+
+defaults write -app skim SKPageBackgroundColor -array 0.78 0.93 0.80 1
+
+http://apple.stackexchange.com/questions/84999/change-background-colour-for-pdf-when-viewing
 
