@@ -42,6 +42,21 @@ patch -p0 < patchfile
 
 http://tamsler.blogspot.com/2009/02/patching-with-git-diff.html
 
+## 往 github 上传一个分支
+
+    git checkout -b centos
+    git commit -s
+    git push origin centos
+
+## 切到 github 上的一个分支
+
+    git clone https://github.com/sfoolish/dtools.git dtools_test
+    git checkout origin/centos
+
+## Ref
+
+* http://stackoverflow.com/questions/5082249/pushing-to-git-remote-branch
+
 ---
 ## github 生成 SSH 公钥
     ssh-keygen -t rsa -C sfoolish.liang@gmail.com
