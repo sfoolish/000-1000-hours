@@ -5,8 +5,8 @@
 ### install jre on ubuntu
 
     # download jre-8u101-linux-x64.tar.gz
-    JAVA_HOME=/home/ubuntu/Downloads/jre1.8.0_101
-    PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
+    export JAVA_HOME=/home/ubuntu/Downloads/jre1.8.0_101
+    export PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
 
 ### install java console plugin
 
