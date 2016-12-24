@@ -73,6 +73,11 @@ http://tamsler.blogspot.com/2009/02/patching-with-git-diff.html
 * [Generating SSH keys](https://help.github.com/articles/generating-ssh-keys/)
 * [github生成SSH公钥](http://blog.chinaunix.net/uid-26185912-id-3327885.html)
 * [公钥认证管理](http://www.worldhello.net/gotgithub/03-project-hosting/030-repo-authz.html)
+---
+
+[Make git diff show UTF8 encoded characters properly](http://stackoverflow.com/questions/19435071/make-git-diff-show-utf8-encoded-characters-properly)
+
+export LESSCHARSET=UTF-8
 
 ---
 ## XP Git Bash 简要使用步骤

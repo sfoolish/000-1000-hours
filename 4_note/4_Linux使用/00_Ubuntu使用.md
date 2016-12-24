@@ -388,3 +388,13 @@ or
 
 * http://docs.openstack.org/image-guide/centos-image.html
 * http://docs.openstack.org/image-guide/ubuntu-image.html
+
+## print distribution-specific information
+
+    # lsb_release -a
+    No LSB modules are available.
+    Distributor ID: Ubuntu
+    Description:    Ubuntu 14.04.3 LTS
+    Release:    14.04
+    Codename:   trusty
+
