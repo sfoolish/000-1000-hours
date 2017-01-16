@@ -88,3 +88,10 @@ theme 配置文件路径：`~/Library/Application Support/Sublime Text 2/Package
 * [TmTheme Editor](http://tmtheme-editor.herokuapp.com/#/Solarized%20(dark))
 * [sublime-rst-completion](https://github.com/dbousamra/sublime-rst-completion)
 
+
+---
+
+## SublimeText Plugin
+
+* [Syntax highlighting for Ansible files](https://github.com/clifford-github/sublime-ansible)
+* [Sublime markdown extended](https://github.com/jonschlinkert/sublime-markdown-extended)

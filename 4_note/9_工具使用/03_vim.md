@@ -22,3 +22,12 @@ Ctrl+V -> select -> Shift+i/Shift+a -> edit -> esc
 :v/pattern/d      删除不含该字符串的行
 :g/pattern/d      删除包含特定字符串的行
 :g/^$/d           删除空行
+
+## 语法高亮语言配置
+
+```bash
+:setf language
+:setf sh
+:setf c
+:setf php
+```

@@ -158,6 +158,24 @@ git config alias表示，可以用git co代表git checkout。git var -l可以查
     $ git checkout <tag_name>         # 切换到 <tag_name> 下。
 
 ---
+
+## git config color diff
+
+Add below config into ~/.gitconfig
+
+```console
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = true
+```
+
+* http://unix.stackexchange.com/questions/44266/how-to-colorize-output-of-git
+
+---
 ## Git + 代理服务器
 如果是 git clone http:// 或 git clone https:// 的话直接把代理服务器加到环境变量就可以了：
 
