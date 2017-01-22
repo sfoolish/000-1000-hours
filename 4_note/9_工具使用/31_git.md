@@ -79,6 +79,33 @@ http://tamsler.blogspot.com/2009/02/patching-with-git-diff.html
 
 export LESSCHARSET=UTF-8
 
+
+---
+
+## Openstack Patch Commit Steps
+
+```bash
+git clone https://git.openstack.org/openstack/kolla-kubernetes.git
+
+cd kolla-kubernetes
+git config --global gitreview.username qiliang
+git review -s
+
+git checkout -b gate
+
+git add ./
+
+git commit -s
+# git commit -s --amend
+
+git show
+git review
+```
+
+## REF
+
+http://docs.openstack.org/infra/manual/developers.html
+
 ---
 ## XP Git Bash 简要使用步骤
 ### 远程代码更新：
