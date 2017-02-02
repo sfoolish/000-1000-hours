@@ -11,6 +11,7 @@
 
 ---
 ## MAC 下源码安装正向代理 squid
+
 ### 个人应用场景
 房间里没有网口，有 wifi 信号，一台台式机跟笔记本网线直连，笔记本通过 wifi 上网，台式机通过笔记本做代理上网。 http 之前用 nginx 做代理已经能正常访问，https 无法正常访问。
 ### 源码安装 squid
@@ -315,13 +316,6 @@ readelf displays information about one or more ELF format object files.  The opt
 ---
 ## svn 最近更新版本号获取命令
     svn info | grep 'Last Changed Rev' | awk '{print $4}'
-
----
-## 杭州 DNS 服务器 IP 地址
-202.101.172.35
-202.101.172.47
-
-
 
 ---
 ## 文档的编写方法

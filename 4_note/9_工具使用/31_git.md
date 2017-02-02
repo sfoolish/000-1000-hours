@@ -302,3 +302,6 @@ sfoolish.github.com.  43200 IN  A 204.232.175.78
 # REF
 [github page 使用专有域名](http://www.worldhello.net/gotgithub/03-project-hosting/050-homepage.html#dedicate-domain)
 [使用github作为博客引擎](http://blog.leezhong.com/tech/2010/08/25/make-github-as-blog-engine.html)
+
+
+[Git详解之三 Git分支](http://www.open-open.com/lib/view/open1328069889514.html)

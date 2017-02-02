@@ -95,3 +95,17 @@ theme 配置文件路径：`~/Library/Application Support/Sublime Text 2/Package
 
 * [Syntax highlighting for Ansible files](https://github.com/clifford-github/sublime-ansible)
 * [Sublime markdown extended](https://github.com/jonschlinkert/sublime-markdown-extended)
+
+## SublimeText Theme
+
+* [Theme - Brogrammer](https://packagecontrol.io/packages/Theme%20-%20Brogrammer)
+* [The Best Sublime Text 3 Themes of 2014](https://scotch.io/bar-talk/the-best-sublime-text-3-themes-of-2014)
+
+
+##  Sublime Text Markdown extended
+
+https://github.com/jonschlinkert/sublime-markdown-extended
+
+```bash
+command + shift + p -> packages install -> sublime-markdown-extended
+```

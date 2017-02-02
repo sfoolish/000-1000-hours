@@ -1,15 +1,15 @@
 ## [Vim使用笔记](http://www.cnblogs.com/jiqingwu/archive/2012/06/14/vim_notes.html)
 
 ---
-## vim 多行编辑
-    1. ctrl + v 进入列编辑模式；
-    2. j or k 选择要编辑的范围；
-    3. shift + (i or a) 进入编辑模式，输入编辑内容；
-    4. esc 结束。
 
-## vimd 多行编辑
+## vim 多行编辑
 
 Ctrl+V -> select -> Shift+i/Shift+a -> edit -> esc
+
+1. ctrl + v 进入列编辑模式；
+2. j or k 选择要编辑的范围；
+3. shift + (i or a) 进入编辑模式，输入编辑内容；
+4. esc 结束。
 
 ## 全局替换
 
@@ -31,3 +31,44 @@ Ctrl+V -> select -> Shift+i/Shift+a -> edit -> esc
 :setf c
 :setf php
 ```
+
+---
+
+## VIM 多窗口
+
+vim -On file1 file2 ... 垂直分屏
+vim -on file1 file2 ... 水平分屏
+
+### 窗口切换
+
+:set mouse = a   为命令、输入、导航都激活鼠标的使用
+
+按住Ctrl + W，然后再加上h, j, k, l，分别表示向左、下、上、右移动窗口
+
+Ctrl+w + h：向左移动窗口
+Ctrl+w + j： 向下移动窗口
+Ctrl+w + j： 向上移动窗口
+Ctrl+w + l： 向右移动窗口
+
+Ctrl+w + w：这个命令会在所有窗口中循环移动
+Ctrl+w + t：移动到最左上角的窗口
+Ctrl+w + b：移动到最右下角的窗口
+Ctrl+w + p：移动到前一个访问的窗口
+
+### 关闭与离开窗口
+
+有4种关闭窗口的方式，分别是：离开（quit）、关闭（close）、隐藏（hide）、关闭其他窗口
+
+^代表Ctrl键
+^Wq，离开当前窗口
+^Wc，关闭当前的窗口
+^Wo，关闭当前窗口以外的所有窗口
+
+### REF
+
+* http://blog.csdn.net/shuangde800/article/details/11430659
+
+
+## Vim 快捷键
+
+* http://blog.vgod.tw/wp-content/uploads/2009/12/vgod-vim-cheat-sheet-full.pdf
