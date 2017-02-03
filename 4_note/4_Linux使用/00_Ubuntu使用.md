@@ -95,6 +95,16 @@ sudo apt-get update
 * anonuid=xxx             指定NFS服务器/etc/passwd文件中匿名用户的UID
 * anongid=xxx             指定NFS服务器/etc/passwd文件中匿名用户的GID
 
+## nfs server setup
+
+sudo apt-get install nfs-kernel-server portmap nfs-common -y
+
+cat << EOF >> /etc/exports
+/opt/share *(rw,sync,no_subtree_check)
+EOF
+
+sudo service nfs-kernel-server restart
+
 ---
 ## telnetd 服务安装
     ## 安装相应的软件

@@ -75,10 +75,19 @@ http://tamsler.blogspot.com/2009/02/patching-with-git-diff.html
 * [公钥认证管理](http://www.worldhello.net/gotgithub/03-project-hosting/030-repo-authz.html)
 ---
 
-[Make git diff show UTF8 encoded characters properly](http://stackoverflow.com/questions/19435071/make-git-diff-show-utf8-encoded-characters-properly)
+## git diff 中文乱码
 
 export LESSCHARSET=UTF-8
 
+* [Make git diff show UTF8 encoded characters properly](http://stackoverflow.com/questions/19435071/make-git-diff-show-utf8-encoded-characters-properly)
+* http://stackoverflow.com/questions/19435071/make-git-diff-show-utf8-encoded-characters-properly
+
+## git status 中文乱码
+
+git config core.quotepath off
+git config --global core.quotepath off
+
+http://stackoverflow.com/questions/22827239/how-to-make-git-properly-display-utf-8-encoded-pathnames-in-the-console-window
 
 ---
 
