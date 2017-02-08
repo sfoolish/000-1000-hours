@@ -109,3 +109,48 @@ https://github.com/jonschlinkert/sublime-markdown-extended
 ```bash
 command + shift + p -> packages install -> sublime-markdown-extended
 ```
+
+---
+
+## Sublime Text 3 Theme configure
+
+### Cathy Sublime Text Config
+
+```js
+{
+    //"color_scheme": "Packages/Theme - Autumn/Autumn.tmTheme",
+    "color_scheme": "Packages/Sandor's Glowfish Colour Scheme/Glowfish.tmTheme",
+    "font_size": 13,
+    "ignored_packages":
+    [
+        "Vintage"
+    ],
+    "theme": "Autumn.sublime-theme",
+    "word_wrap": "true",
+    "wrap_width": "auto",
+    "theme": "Theme - Kronuz.sublime-theme",
+    // "color_scheme": "Packages/Theme - Kronuz/Kronuz.tmTheme"
+    // "theme": "Autumn.sublime-theme",
+    // "color_scheme": "Packages/Theme - Autumn/Autumn.tmTheme",
+
+}
+```
+
+* http://stackoverflow.com/questions/27931448/why-do-sublime-text-3-themes-not-affect-the-sidebar
+
+### Configure backup
+
+```js
+{
+    "color_scheme": "Packages/Sandor's Glowfish Colour Scheme/Glowfish.tmTheme",
+    "font_size": 13,
+    "ignored_packages":
+    [
+        "Vintage"
+    ],
+    // "theme": "Soda Dark 3.sublime-theme",
+    // "theme": "Soda Light 3.sublime-theme",
+    "word_wrap": "true",
+    "wrap_width": "auto"
+}
+```
