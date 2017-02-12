@@ -1,5 +1,9 @@
 # tmux
 
+创建名字为 sf-centos-k8s 的 session
+
+`tmux new -s sf-centos-k8s`
+
 列出tmux的session
 
 `tmux ls`
@@ -7,6 +11,7 @@
 恢复指定session
 
 `tmux att -d -t 0`
+`tmux att -d -t sf-centos-k8s`
 
 概念：
 
@@ -40,8 +45,9 @@ PgDn 输出下翻页
 
 ## tmux.conf
 
-```console
-root@8b6cd43c0143:/# cat ~/.tmux.conf
+```bash
+
+cat << "EOF" > ~/.tmux.conf
 # key bindings for horizontal and vertical panes
 unbind %
 bind \ split-window -h # horizontal
@@ -60,6 +66,7 @@ bind k select-pane -U
 bind l select-pane -R
 
 setw -g utf8 on
+EOF
 
 ```
 
