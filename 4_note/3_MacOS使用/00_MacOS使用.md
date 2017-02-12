@@ -45,3 +45,6 @@ defaults write -app skim SKPageBackgroundColor -array 0.78 0.93 0.80 1
 
 http://apple.stackexchange.com/questions/84999/change-background-colour-for-pdf-when-viewing
 
+## Flux 显示器配置眼镜保护
+
+* Flux: https://justgetflux.com/

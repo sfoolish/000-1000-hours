@@ -94,7 +94,23 @@ theme 配置文件路径：`~/Library/Application Support/Sublime Text 2/Package
 ## SublimeText Plugin
 
 * [Syntax highlighting for Ansible files](https://github.com/clifford-github/sublime-ansible)
-* [Sublime markdown extended](https://github.com/jonschlinkert/sublime-markdown-extended)
+
+### [Sublime markdown extended](https://github.com/jonschlinkert/sublime-markdown-extended)
+
+Install command:
+
+```bash
+command + shift + p -> packages install -> sublime-markdown-extended
+```
+
+To make Markdown Extended the default highlighting for the current extension:
+
+* Open a file with the extension you want to set a default for (i.e. .md)
+* Navigate through the following menus in Sublime Text: `View -> Syntax -> Open all with current extension as... -> Markdown Extended`
+
+### [SublimeText Markdown](https://github.com/SublimeText-Markdown/MarkdownEditing)
+
+---
 
 ## SublimeText Theme
 
@@ -155,7 +171,7 @@ command + shift + p -> packages install -> sublime-markdown-extended
 }
 ```
 
-Light configure
+Daylight configure
 
 ```js
 {
