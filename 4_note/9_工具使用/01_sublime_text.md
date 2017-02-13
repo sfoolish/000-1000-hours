@@ -172,3 +172,18 @@ command + shift + p -> packages install -> sublime-markdown-extended
     "wrap_width": "auto"
 }
 ```
+
+Daylight configure
+
+```js
+{
+    "color_scheme": "Packages/Colorsublime - Themes/Solarized-light.tmTheme",
+    "font_size": 13,
+    "ignored_packages":
+    [
+        "Vintage"
+    ],
+    "word_wrap": "true",
+    "wrap_width": "auto"
+}
+```
