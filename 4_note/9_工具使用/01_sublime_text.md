@@ -108,6 +108,8 @@ To make Markdown Extended the default highlighting for the current extension:
 * Open a file with the extension you want to set a default for (i.e. .md)
 * Navigate through the following menus in Sublime Text: `View -> Syntax -> Open all with current extension as... -> Markdown Extended`
 
+* [Dockerfile Syntax Highlighting](https://packagecontrol.io/packages/Dockerfile%20Syntax%20Highlighting)
+
 ### [SublimeText Markdown](https://github.com/SublimeText-Markdown/MarkdownEditing)
 
 ---

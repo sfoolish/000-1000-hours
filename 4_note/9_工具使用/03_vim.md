@@ -72,3 +72,28 @@ Ctrl+w + p：移动到前一个访问的窗口
 ## Vim 快捷键
 
 * http://blog.vgod.tw/wp-content/uploads/2009/12/vgod-vim-cheat-sheet-full.pdf
+
+---
+## Vim Markdown hightlight
+
+`:set syntax=markdown`
+
+.vimrc
+
+`au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown`
+
+* http://stackoverflow.com/questions/10964681/enabling-markdown-highlighting-in-vim
+* http://vimawesome.com/plugin/vim-markdown-sad-beautiful-tragic
+
+## My Vimrc
+
+```bash
+au BufRead,BufNewFile *.go set filetype=go
+au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+set list
+set lcs=trail:░
+
+# red tail
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t\+\|\t\+\zs \+/
+```
