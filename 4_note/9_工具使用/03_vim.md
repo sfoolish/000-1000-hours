@@ -72,3 +72,19 @@ Ctrl+w + p：移动到前一个访问的窗口
 ## Vim 快捷键
 
 * http://blog.vgod.tw/wp-content/uploads/2009/12/vgod-vim-cheat-sheet-full.pdf
+
+
+## Vim UTF8
+
+```bash
+set encoding=utf-8
+set fileencoding=utf-8
+```
+
+## Vim tab size
+
+```bash
+set expandtab ts=4 sw=4 ai
+```
+
+* http://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
