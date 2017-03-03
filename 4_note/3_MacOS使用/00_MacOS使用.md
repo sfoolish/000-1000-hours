@@ -8,6 +8,7 @@
 * Shift + Alt/Option    音量微调（1/4）
 * Shift + CMD + 3       截全屏保存到桌面
 * Shift + CMD + 4       截屏指定区域保存到桌面
+* CMD + `               同一个 App 的多窗口切换 (http://apple.stackexchange.com/questions/193937/shortcut-for-toggling-between-different-windows-of-same-app)
 
 ### spotlight
 

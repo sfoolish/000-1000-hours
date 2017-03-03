@@ -30,3 +30,9 @@
 MHTML
 网页归档（英语：MIME HTML或MIME Encapsulation of Aggregate HTML Documents，又称单一文件网页或网页封存盘案）为以多用途互联网邮件扩展格式，将一个多附件网页（如包含大量图片、Flash动画、Java小程序的网页）存储为单一文件，可用于发送HTML电子邮件，此单一文件即称为一网页封存盘案，其扩展名为.mht。这种格式有时被简称为MHT。
 
+
+## Chrome 搜索框配置，不跟踪 ip 的 location
+
+* http://www.thesempost.com/force-google-chrome-to-use-google-com-not-country-version/
+* http://www.google.com/ncr
+* https://productforums.google.com/forum/#!msg/chrome/zXRG7-AEgfw/6xsPZqrdhKIJ
