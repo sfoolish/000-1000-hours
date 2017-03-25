@@ -1,3 +1,26 @@
+## Xenial VM VNC 使用 Ubuntu desktop
+
+```bash
+# Pre steps: use dtools create xenail vm, then login to the vm execute below commands
+cat << EOF > /etc/apt/sources.list
+deb [ arch=amd64 ] http://192.168.137.222/ubuntu/ xenial main restricted universe multiverse
+deb [ arch=amd64 ] http://192.168.137.222/ubuntu/ xenial-security main restricted universe multiverse
+deb [ arch=amd64 ] http://192.168.137.222/ubuntu/ xenial-updates main restricted universe multiverse
+
+deb-src [ arch=amd64 ] http://192.168.137.222/ubuntu/ xenial main restricted universe multiverse
+deb-src [ arch=amd64 ] http://192.168.137.222/ubuntu/ xenial-security main restricted universe multiverse
+deb-src [ arch=amd64 ] http://192.168.137.222/ubuntu/ xenial-updates main restricted universe multiverse
+EOF
+
+apt-get update
+
+sudo apt-get install xorg gnome-core gnome-system-tools gnome-app-install
+
+# Usage steps
+#     * vnc client connet to the vm
+#     * login to the vm and run cmd `startx`
+```
+
 ## Ubuntu server vnc ssh 远程桌面使用
 
 VNC 可以对数据进行压缩，使得传输的数据量比直接用 SSH 加密的小，但是 SSH 可以保护VNC的安全，而这需要使用 SSH 的端口转发功能。
