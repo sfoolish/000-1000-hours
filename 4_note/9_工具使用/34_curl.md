@@ -23,6 +23,26 @@ function download_file()
 download_file http://205.177.226.237:9999/dt/compass4nfv_dt.tar.bz2
 ```
 
+```bash
+# copy from apex
+# $1 = download url
+# $2 = filename to write to
+function curl_file {
+    local count=0
+    if [ -f $CACHE_DIR/$2 ]; then
+        echo "Removing stale $2"
+        rm -f $CACHE_DIR/$2
+    fi
+    echo "Downloading $1"
+    echo "Cache download location: $CACHE_DIR/$2"
+    until curl -C- -L -o $CACHE_DIR/$2 $1  || (( count++ >= 20 )); do
+        echo -n '' #do nothing, we just want to loop
+    done
+    sed -i "/$2/d" $CACHE_DIR/$CACHE_HISTORY
+    echo "$(md5sum $CACHE_DIR/$2) $2" >> $CACHE_DIR/$CACHE_HISTORY
+}
+```
+
 ## curl call keystone api
 
 ```bash
