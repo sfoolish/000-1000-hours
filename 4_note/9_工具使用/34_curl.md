@@ -24,6 +24,25 @@ download_file http://205.177.226.237:9999/dt/compass4nfv_dt.tar.bz2
 ```
 
 ```bash
+function download_url()
+{
+    FILE_URL=$1
+    while true; do
+        curl --connect-timeout 10 -C - -O $FILE_URL > /dev/null 2>&1
+        if [ $? == 0 ]; then
+            break
+        fi
+        # if the file finish the download the curl command will print
+        # curl: (33) HTTP server doesn't seem to support byte ranges. Cannot resume.
+        curl --connect-timeout 10 -C - -O $FILE_URL 2>&1 | grep "Cannot resume." > /dev/null
+        if [ $? == 0 ]; then
+            break
+        fi
+    done
+}
+```
+
+```bash
 # copy from apex
 # $1 = download url
 # $2 = filename to write to
