@@ -75,3 +75,8 @@ EOF
 * http://kumu-linux.github.io/blog/2013/08/06/tmux/
 * http://www.opstool.com/article/253
 * http://www.tuicool.com/articles/fqIZZn
+* [Remote Pair Programming Made Easy with SSH and tmux](http://hamvocke.com/blog/remote-pair-programming-with-tmux/)
+
+---
+
+[Tmate - Instant terminal sharing](https://tmate.io/)

@@ -209,6 +209,10 @@ Add below config into ~/.gitconfig
   pager = true
 ```
 
+```bash
+git config --global color.diff auto
+```
+
 * http://unix.stackexchange.com/questions/44266/how-to-colorize-output-of-git
 
 ---
