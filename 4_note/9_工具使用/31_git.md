@@ -89,6 +89,13 @@ git config --global core.quotepath off
 
 http://stackoverflow.com/questions/22827239/how-to-make-git-properly-display-utf-8-encoded-pathnames-in-the-console-window
 
+
+## windows warning: LF will be replaced by CRLF
+
+git config --global core.autocrlf false
+
+https://stackoverflow.com/questions/17628305/windows-git-warning-lf-will-be-replaced-by-crlf-is-that-warning-tail-backwar
+
 ---
 
 ## Openstack Patch Commit Steps
